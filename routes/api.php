@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\KegiatanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
     Route::get('detail', [AuthController::class, 'detail']);
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('kegiatan', [KegiatanController::class, 'main']);
 });
 
 // Route::middleware('auth:anggota')->get('detail', function (Request $request) {

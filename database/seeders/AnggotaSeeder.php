@@ -21,7 +21,7 @@ class AnggotaSeeder extends Seeder
         DB::table('anggotas')->insert([
             'no_anggota' => '22222',
             'nama' => 'retno adi',
-            'no_hp' => '08123542',
+            'no_hp' => '085642881113',
             'nik' => '999999',
             'tempat_lahir' => 'magelang',
             'tgl_lahir' => '22/02/2000',
@@ -37,10 +37,10 @@ class AnggotaSeeder extends Seeder
         ]);
 
         DB::table('anggotas')->insert([
-            'no_anggota' => '22222',
+            'no_anggota' => '11111',
             'nama' => 'tubagus afif',
-            'no_hp' => '08123542',
-            'nik' => '999999',
+            'no_hp' => '081563',
+            'nik' => '33031',
             'tempat_lahir' => 'purbalingga',
             'tgl_lahir' => '22/02/2003',
             'jk' => '1',
