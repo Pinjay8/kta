@@ -50,15 +50,26 @@ class KegiatanSeeder extends Seeder
         //     'pic' => 'Tubagus Afif Nur Hidayat',
         //     'notulensi' => 'https://drive.google.com/file/d/1aNf4-BT_zoiQVb_njTvfa3I2ZPE4CsNe/view?usp=share_link' ,
         // ]);
+        // DB::table('kegiatans')->insert([
+        //     'id' => '4',
+        //     'nama_kegiatan' => 'Meeting Proyek C',
+        //     'lokasi' => 'Balai Pertemuan Kabupaten Purbalingga',
+        //     'jam' => '10.00',
+        //     'tanggal' => '23/09/2023',
+        //     'absensi' => '0',//  0 = absensi ditutup, 1 = absensi dibuka, 2 = belum absensi di acara lampau
+        //     'status' => '1',// 0 = akan datang, 1 = berlangsung, 2 = sudah selesai
+        //     'pic' => 'Tubagus Afif Nur Hidayat',
+        //     'notulensi' => 'https://drive.google.com/file/d/1aNf4-BT_zoiQVb_njTvfa3I2ZPE4CsNe/view?usp=share_link' ,
+        // ]);
         DB::table('kegiatans')->insert([
-            'id' => '4',
-            'nama_kegiatan' => 'Meeting Proyek C',
-            'lokasi' => 'Balai Pertemuan Kabupaten Purbalingga',
-            'jam' => '10.00',
+            'id' => '5',
+            'nama_kegiatan' => 'Meeting Proyek D',
+            'lokasi' => 'GOR Mahesa Jenar',
+            'jam' => '11.00',
             'tanggal' => '23/09/2023',
             'absensi' => '0',//  0 = absensi ditutup, 1 = absensi dibuka, 2 = belum absensi di acara lampau
-            'status' => '1',// 0 = akan datang, 1 = berlangsung, 2 = sudah selesai
-            'pic' => 'Tubagus Afif Nur Hidayat',
+            'status' => '2',// 0 = akan datang, 1 = berlangsung, 2 = sudah selesai
+            'pic' => 'Retno Adi Saputra',
             'notulensi' => 'https://drive.google.com/file/d/1aNf4-BT_zoiQVb_njTvfa3I2ZPE4CsNe/view?usp=share_link' ,
         ]);
 
