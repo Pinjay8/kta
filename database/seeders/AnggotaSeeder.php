@@ -20,7 +20,7 @@ class AnggotaSeeder extends Seeder
 
         DB::table('anggotas')->insert([
             'no_anggota' => '22222',
-            'nama' => 'suci',
+            'nama' => 'retno adi',
             'no_hp' => '08123542',
             'nik' => '999999',
             'tempat_lahir' => 'magelang',
@@ -28,15 +28,31 @@ class AnggotaSeeder extends Seeder
             'jk' => '1',
             'jabatan' => 'Wakil Ketua',
             'pekerjaan' => 'Mahasiswa',
-            'kelurahan' => 'magelang',
+            'kelurahan' => 'beji',
             'rt' => '1',
             'rw' => '1',
             'foto_kk' => '',
             'foto_profil' => '',
             'password' => bcrypt('999999'),
-
         ]);
 
+        DB::table('anggotas')->insert([
+            'no_anggota' => '22222',
+            'nama' => 'tubagus afif',
+            'no_hp' => '08123542',
+            'nik' => '999999',
+            'tempat_lahir' => 'purbalingga',
+            'tgl_lahir' => '22/02/2003',
+            'jk' => '1',
+            'jabatan' => 'Ketua',
+            'pekerjaan' => 'Mahasiswa',
+            'kelurahan' => 'pekalongan',
+            'rt' => '2',
+            'rw' => '4',
+            'foto_kk' => '',
+            'foto_profil' => '',
+            'password' => bcrypt('12345'),
+        ]);
 
 
     }
