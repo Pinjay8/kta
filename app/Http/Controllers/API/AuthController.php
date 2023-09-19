@@ -14,13 +14,22 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     //
+    
 
     public function login (Request $request){
+
+        
+
         if (! Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
                 'message' => 'Unauthorized'
             ], 401);
         }
+
+        if(Auth::guard('anggota')->user()->tokens()){
+            Auth::guard('anggota')->user()->tokens()->delete();
+        }
+
 
         $user = Anggota::where('no_hp', $request->no_hp)->firstOrFail();
 
