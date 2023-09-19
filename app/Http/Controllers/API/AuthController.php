@@ -19,20 +19,22 @@ class AuthController extends Controller
     public function login (Request $request){
 
         
-
+        //CEK NO HP & PASS
         if (! Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
                 'message' => 'Unauthorized'
             ], 401);
         }
 
+        //VALIDASI APABILA TERDAPAT TOKEN SETELAH USER LOGIN
+        //JIKA TERDAPAT TOKEN SEBELUMNYA OTOMATIS AKAN DIHAPUS
         if(Auth::guard('anggota')->user()->tokens()){
             Auth::guard('anggota')->user()->tokens()->delete();
         }
 
 
         $user = Anggota::where('no_hp', $request->no_hp)->firstOrFail();
-
+        //GENERATE TOKEN SETELAH LOGIN
         $token = $user->createToken('auth_token')->plainTextToken;
 
         $userdata = Auth::guard('anggota')->user();

@@ -16,4 +16,26 @@ class KegiatanController extends Controller
             'data' => $kegiatan
         ]);
     }
+
+    public function akandatang(){
+        $kegiatan = Kegiatan::where('status', 0)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $kegiatan
+        ]);
+    }
+    public function berlangsung(){
+        $kegiatan = Kegiatan::where('status', 1)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $kegiatan
+        ]);
+    }
+    public function selesai(){
+        $kegiatan = Kegiatan::where('status', 2)->get();
+        return response()->json([
+            'message' => 'success',
+            'data' => $kegiatan
+        ]);
+    }
 }
