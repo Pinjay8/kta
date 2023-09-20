@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\KegiatanController;
+use App\Http\Controllers\AnggotaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ use App\Http\Controllers\API\KegiatanController;
 |
 */
 
-// Route::post('register', [AuthController::class, 'register']);
+Route::post('register', [AuthController::class, 'register']);
 
 
 // Route::middleware(['auth:sanctum','abilities:anggota'])->get('detail', [AuthController::class, 'detail']);
@@ -24,10 +25,12 @@ use App\Http\Controllers\API\KegiatanController;
 
 //route login
 Route::post('login', [AuthController::class, 'login']);
+Route::post('tambah-anggota', [AnggotaController::class, 'create']);
+Route::post('kegiatan/tambah-kegiatan', [KegiatanController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
     //ambil data detail pengguna
-    Route::get('detail', [AuthController::class, 'detail']);
+    // Route::get('detail', [AuthController::class, 'detail']);
 
     //revoke api token logout
     Route::post('logout', [AuthController::class, 'logout']);

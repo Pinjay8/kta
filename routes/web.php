@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AnggotaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -17,6 +18,10 @@ use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
+Route::get('php-info', [AnggotaController::class, 'info']);
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
