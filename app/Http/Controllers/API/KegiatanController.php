@@ -13,36 +13,26 @@ use Illuminate\Support\Facades\Validator;
 class KegiatanController extends Controller
 {
     //
-    public function main(){
+    public function allList(){
         $userId = auth()->user()->no_anggota;
-
         $kegiatan = Absensi::with('kegiatan')->where('id_anggota', $userId)->get();
         return response()->json([
             'message' => 'success',
             'data' => $kegiatan
         ]);
     }
+    
 
-    public function akandatang(){
-        $kegiatan = Kegiatan::where('status', 0)->get();
-        return response()->json([
-            'message' => 'success',
-            'data' => $kegiatan
-        ]);
+    public function mulaiacara(Request $request){
+        
     }
-    public function berlangsung(){
-        $kegiatan = Kegiatan::where('status', 1)->get();
-        return response()->json([
-            'message' => 'success',
-            'data' => $kegiatan
-        ]);
+
+    public function akhiriacara(Request $request){
+        //
     }
-    public function selesai(){
-        $kegiatan = Kegiatan::where('status', 2)->get();
-        return response()->json([
-            'message' => 'success',
-            'data' => $kegiatan
-        ]);
+
+    public function acaraakandatang(Request $request){
+        //
     }
 
     public function store(Request $request){

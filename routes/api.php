@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\KegiatanController;
+use App\Http\Controllers\API\AbsensiController;
 use App\Http\Controllers\AnggotaController;
 
 /*
@@ -34,9 +35,10 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
 
     //revoke api token logout
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::post('kegiatan/aksi/hadir', [AbsensiController::class, 'hadir']);
 
     //ambil data kegiatan
-    Route::post('kegiatan', [KegiatanController::class, 'main']);
+    Route::post('kegiatan', [KegiatanController::class, 'allList']);
     Route::post('kegiatan/akan-datang', [KegiatanController::class, 'akandatang']);
     Route::post('kegiatan/berlangsung', [KegiatanController::class, 'berlangsung']);
     Route::post('kegiatan/selesai', [KegiatanController::class, 'selesai']);

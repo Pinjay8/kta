@@ -11,9 +11,9 @@ class Absensi extends Model
     protected $fillable = [
         'id_anggota',
         'id_kegiatan',
-        'status_kegiatan',
+        'status_absensi',
     ];
-    
+
     public function kegiatan()
     {
         return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
