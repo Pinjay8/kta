@@ -20,7 +20,7 @@ use App\Http\Controllers\AnggotaController;
 Route::post('register', [AuthController::class, 'register']);
 
 
-// Route::middleware(['auth:sanctum','abilities:anggota'])->get('detail', [AuthController::class, 'detail']);
+
 
 
 //route login
@@ -45,11 +45,4 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
 
 });
 
-// Route::middleware('auth:anggota')->get('detail', function (Request $request) {
-//     return $request->user();
-// });
 
-
-// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-//     return $request->user();
-// });

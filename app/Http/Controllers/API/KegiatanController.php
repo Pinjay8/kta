@@ -5,6 +5,8 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kegiatan;
+use App\Models\Anggota;
+use App\Models\Absensi;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -12,7 +14,9 @@ class KegiatanController extends Controller
 {
     //
     public function main(){
-        $kegiatan = Kegiatan::all();
+        $userId = auth()->user()->no_anggota;
+
+        $kegiatan = Absensi::with('kegiatan')->where('id_anggota', $userId)->get();
         return response()->json([
             'message' => 'success',
             'data' => $kegiatan
@@ -70,6 +74,15 @@ class KegiatanController extends Controller
         ]);
 
         $kegiatan->save();
+
+        $anggota = Anggota::all();
+        foreach ($anggota as $user) {
+            $absensi = new Absensi();
+            $absensi->id_anggota = $user->no_anggota;
+            $absensi->id_kegiatan = $kegiatan->id; // Menggunakan ID kegiatan yang baru saja ditambahkan
+            $absensi->status_absensi = 0; // Anda dapat mengatur absensi_anggota sesuai kebutuhan
+            $absensi->save();
+        }
 
         return response()->json([
             'success' => true,
