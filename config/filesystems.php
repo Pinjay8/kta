@@ -44,6 +44,14 @@ return [
             'throw' => false,
         ],
 
+        'public/KTA' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/KTA'),
+            'url' => env('APP_URL').'/storage/KTA',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),

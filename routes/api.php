@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\KegiatanController;
 use App\Http\Controllers\API\AbsensiController;
+use App\Http\Controllers\API\DashboardController;
 use App\Http\Controllers\AnggotaController;
 
 /*
@@ -35,7 +36,13 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
 
     //revoke api token logout
     Route::post('logout', [AuthController::class, 'logout']);
+
+    //melakukan absensi
     Route::post('kegiatan/aksi/hadir', [AbsensiController::class, 'hadir']);
+
+
+    //ambil data profil
+    Route::post('detail', [DashboardController::class, 'dashboard']);
 
     //ambil data kegiatan
     Route::post('kegiatan', [KegiatanController::class, 'allList']);

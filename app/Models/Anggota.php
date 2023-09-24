@@ -26,6 +26,7 @@ class Anggota extends Authenticatable
         'rt',
         'rw',
         'foto_kk',
+        'kta',
         'foto_profil',
         'password',
     ];

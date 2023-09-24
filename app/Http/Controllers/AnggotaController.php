@@ -64,7 +64,7 @@ class AnggotaController extends Controller
         $noAnggota = $kodeKelurahan.'.'. $request->input('no_anggota').'.'.$request->input('rt').$request->input('rw');
         $extension = $request->file('foto_profil')->getClientOriginalExtension();
         $imageName = $request->input('no_anggota').now()->timestamp.'.'.$extension;
-        $request->file('foto_profil')->storeAs('FotoProfil', $imageName);
+        $request->file('foto_profil')->storeAs('public/FotoProfil', $imageName);
 
 
         $templatePath = public_path('asset/template/template-kta.svg');
@@ -81,7 +81,7 @@ class AnggotaController extends Controller
         $filename = 'id_card_' . $noAnggota . '.svg';
 
         // Save the modified SVG as an image file
-        Storage::disk('public')->put($filename, $svg);
+        Storage::disk('public/KTA')->put($filename, $svg);
 
 
         // Save the image path in the database
@@ -99,7 +99,7 @@ class AnggotaController extends Controller
             'rt' => $request->input('rt'),
             'rw' => $request->input('rw'),
             'foto_profil' => $imageName, // Save the image file name
-            'foto_kk' => $filename,
+            'kta' => $filename,
             'password' => bcrypt($request->input('nik'))
         ]);
 
