@@ -18,7 +18,10 @@ class AbsensiController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors());
+            return response()->json([
+                'status' => 401,
+                'message' => 'unauthenticated',
+            ]);
         }
 
         $kegiatanId = $request->input('id_kegiatan');
