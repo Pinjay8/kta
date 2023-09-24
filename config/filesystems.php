@@ -46,7 +46,7 @@ return [
 
         'public/KTA' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/KTA'),
+            'root' => storage_path('app/public/storage/KTA'),
             'url' => env('APP_URL').'/storage/KTA',
             'visibility' => 'public',
             'throw' => false,
