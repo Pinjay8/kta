@@ -46,6 +46,7 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
 
     //ambil data kegiatan
     Route::post('kegiatan', [KegiatanController::class, 'allList']);
+    Route::post('kegiatan/hari-ini', [KegiatanController::class, 'now']);
     Route::post('kegiatan/akan-datang', [KegiatanController::class, 'akandatang']);
     Route::post('kegiatan/berlangsung', [KegiatanController::class, 'berlangsung']);
     Route::post('kegiatan/selesai', [KegiatanController::class, 'selesai']);

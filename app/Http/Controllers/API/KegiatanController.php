@@ -8,6 +8,7 @@ use App\Models\Kegiatan;
 use App\Models\Anggota;
 use App\Models\Absensi;
 use Illuminate\Support\Facades\Validator;
+use Carbon\Carbon;
 
 
 class KegiatanController extends Controller
@@ -79,4 +80,14 @@ class KegiatanController extends Controller
             'message' => 'data berhasil ditambahkan',
         ]);
     }
+
+        //API Kegiatan Hari Ini
+        public function now(){
+            $tgl_sekarang = Carbon::now()->format('d/m/Y');
+
+            $kegiatan = Kegiatan::where('tanggal', $tgl_sekarang)->get();
+            return response()->json([
+                'kegiatan' => $kegiatan,
+            ]);
+        }
 }

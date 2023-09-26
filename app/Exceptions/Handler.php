@@ -13,7 +13,7 @@ class Handler extends ExceptionHandler
      *
      * @var array<int, string>
      */
-
+ 
     
     protected $dontFlash = [
         'current_password',
@@ -38,28 +38,28 @@ class Handler extends ExceptionHandler
         parent::report($exception);
     }
 
-    public function render($request, Throwable $exception){
+    // public function render($request, Throwable $exception){
 
-        if($exception instanceof \Laravel\Sanctum\Exceptions\MissingAbilityException)
-        {
-            return response()->json([
-                'errors'=>[
-                    'status' => 401,
-                    'message' => 'unauthenticated',
-                ]
-                ],401);
-        }
+    //     if($exception instanceof \Laravel\Sanctum\Exceptions\MissingAbilityException)
+    //     {
+    //         return response()->json([
+    //             'errors'=>[
+    //                 'status' => 401,
+    //                 'message' => 'unauthenticated',
+    //             ]
+    //             ],401);
+    //     }
 
-        $e = $this->prepareException($exception);
-        if($e instanceof HttpResponseException){
-            return $e->getResponse();
-        }elseif ($e instanceof AuthenticationException) {
-            return $this->unauthenticated($request, $e);
-        }elseif ($e instanceof ValidationException) {
-            return $this->convertValidationExceptionToResponse($e, $request);
-        }
-        return $this->prepareResponse ($request, $e);
-    }
+    //     // $e = $this->prepareException($exception);
+    //     // if($e instanceof HttpResponseException){
+    //     //     return $e->getResponse();
+    //     // }elseif ($e instanceof AuthenticationException) {
+    //     //     return $this->unauthenticated($request, $e);
+    //     // }elseif ($e instanceof ValidationException) {
+    //     //     return $this->convertValidationExceptionToResponse($e, $request);
+    //     // }
+    //     // return $this->prepareResponse ($request, $e);
+    // }
 
     protected function unauthenticated ($request, AuthenticationException $exception)
     {

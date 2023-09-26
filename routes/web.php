@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\PengajuanFormController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -40,14 +42,21 @@ Route::get('/', function () {
 Route::group(['middleware' => 'auth'], function() {
     Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
 
+    //Render Page
+    Route::get('/kegiatan', [KegiatanController::class, "show"])->name('kegiatan');
+    Route::get('/anggota', [AnggotaController::class, "show"])->name('anggota');
+    Route::get('/pengajuan-kta', [PengajuanFormController::class, "show"])->name('pengajuan');
     Route::group(['middleware' => 'checkRole:admin'], function() {
-        Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
-    });
+    Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
+        // Route::inertia('/anggota', 'AnggotaPage')->name('anggota');
+});
     
     Route::group(['middleware' => 'checkRole:superadmin'], function() {
         Route::inertia('/superAdminDashboard', 'SuperAdminDashboard')->name('superAdminDashboard');
+
+
     }); 
-});
+}); 
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

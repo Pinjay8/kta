@@ -11,13 +11,13 @@ import Dropdown from "@/Components/Dropdown";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 
 export default function Authenticated({ user, header, children }) {
-    console.log("user", user);
+
     const menus = [
         ...(user.role === "superadmin"
             ? [
                   // Additional menu items for superadmin role
                   {
-                      name: "Dashboard superadmin",
+                      name: "Dashboard Super Admin",
                       link: route("superAdminDashboard"),
                       icon: RiFileEditLine,
                   }
@@ -33,18 +33,18 @@ export default function Authenticated({ user, header, children }) {
         { name: "Menu utama", link: "#", icon: BsDot, margin: true },
         {
             name: "Data Anggota",
-            link: "#",
+            link: route("anggota"),
             icon: RiFileEditLine,
         },
         {
             name: "Kegiatan",
-            link: "#",
+            link: route("kegiatan"),
             icon: RiFileEditLine,
         },
         { name: "Formulir", link: "#", icon: BsDot, margin: true },
         {
             name: "Formulir Pengajuan KTA",
-            link: "#",
+            link: route("pengajuan"),
             icon: AiOutlineUser,
         },
         { name: "Akun", link: "#", icon: BsDot, margin: true },

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -18,8 +20,12 @@ use GD;
 class AnggotaController extends Controller
 {
     //
-    public function read(){
+    public function show(){
+        $anggota = Anggota::all();
 
+        return Inertia::render('AnggotaPage', [
+            'data' => $anggota,
+        ]);
     }
 
     public function create(Request $request){
