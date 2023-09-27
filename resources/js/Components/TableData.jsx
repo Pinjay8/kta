@@ -15,6 +15,9 @@ import {
     ChevronRightIcon,
     ChevronDoubleRightIcon,
 } from "@heroicons/react/solid";
+
+
+
 import { Button, PageButton } from "@/Components/Button";
 import { classNames } from "@/Components/Utils";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -25,53 +28,30 @@ import InputLabel from '@/Components/InputLabel';
 import DangerButton from "@/Components/DangerButton";
 // import Modal from '@/Components/Modal';
 import { Modal, Badge } from "flowbite-react";
+import { useForm } from '@inertiajs/react';
+import ModalAnggotaButton from '@/Pages/Modal/ModalAnggota';
+import ModalKegiatanButton from '@/Pages/Modal/ModalKegiatan';
+
+
 
 // import RateStar from "@/Components/RateStar";
 
 {/* <ChevronLeftIcon className="h-5 w-5 text-blue-500" />; */}
 
+export function ModalAnggota(row){
 
-export function ModalAnggota({ row }) {
-   
-    const [confirmingUserDeletion, setConfirmingUserDeletion] = useState(false);
-    const confirmUserDeletion = () => {
-        setConfirmingUserDeletion(true);
-    };
+    return(
+    <>
+        <ModalAnggotaButton userdata = {row.row.original}/>
+    </>
+    );
+}
 
-    const closeModal = () => {
-        setConfirmingUserDeletion(false);
-
-        reset();
-    };
-    return (
-        <>
-            <DangerButton onClick={confirmUserDeletion}>Delete Account</DangerButton>
-            <Modal show={confirmingUserDeletion} onClose={closeModal}>
-
-                    <h2 className="text-lg font-medium text-gray-900">
-                        Are you sure you want to delete your account?
-                    </h2>
-
-                    <p className="mt-1 text-sm text-gray-600">
-                        Once your account is deleted, all of its resources and data will be permanently deleted. Please
-                        enter your password to confirm you would like to permanently delete your account.
-                    </p>
-
-
-
-
-
-
-                    <div className="mt-6 flex justify-end">
-                        <SecondaryButton onClick={closeModal}>Cancel</SecondaryButton>
-
-                        <DangerButton className="ml-3" >
-                            Delete Account
-                        </DangerButton>
-                    </div>
-
-            </Modal>
-        </>
+export function ModalKegiatan(row){
+    return(
+    <>
+        <ModalKegiatanButton data = {row.row.original}/>
+    </>
     );
 }
 
@@ -142,6 +122,7 @@ function GlobalFilter({
 
 function TableData({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
+    console.log('data',data);
     const {
         getTableProps,
         getTableBodyProps,
@@ -315,30 +296,30 @@ function TableData({ columns, data }) {
                                 disabled={!canPreviousPage}
                             >
                                 <span className="sr-only">First</span>
-                                {/* <ChevronDoubleLeftIcon
+                                <ChevronDoubleLeftIcon
                                     className="h-5 w-5"
                                     aria-hidden="true"
-                                /> */}
+                                />
                             </PageButton>
                             <PageButton
                                 onClick={() => previousPage()}
                                 disabled={!canPreviousPage}
                             >
                                 <span className="sr-only">Previous</span>
-                                {/* <ChevronLeftIcon
+                                <ChevronLeftIcon
                                     className="h-5 w-5"
                                     aria-hidden="true"
-                                /> */}
+                                />
                             </PageButton>
                             <PageButton
                                 onClick={() => nextPage()}
                                 disabled={!canNextPage}
                             >
                                 <span className="sr-only">Next</span>
-                                {/* <ChevronRightIcon
+                                <ChevronRightIcon
                                     className="h-5 w-5"
                                     aria-hidden="true"
-                                /> */}
+                                />
                             </PageButton>
                             <PageButton
                                 className="rounded-r-md"
@@ -346,10 +327,10 @@ function TableData({ columns, data }) {
                                 disabled={!canNextPage}
                             >
                                 <span className="sr-only">Last</span>
-                                {/* <ChevronDoubleRightIcon
+                                <ChevronDoubleRightIcon
                                     className="h-5 w-5"
                                     aria-hidden="true"
-                                /> */}
+                                />
                             </PageButton>
                         </nav>
                     </div>

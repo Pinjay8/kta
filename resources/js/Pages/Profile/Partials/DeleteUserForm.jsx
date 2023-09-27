@@ -44,6 +44,7 @@ export default function DeleteUserForm({ className = '' }) {
     };
 
     return (
+        
         <section className={`space-y-6 ${className}`}>
             <header>
                 <h2 className="text-lg font-medium text-gray-900">Delete Account</h2>
@@ -94,6 +95,8 @@ export default function DeleteUserForm({ className = '' }) {
                     </div>
                 </form>
             </Modal>
+            
         </section>
+
     );
 }

@@ -19,18 +19,20 @@ class AbsensiController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => 401,
-                'message' => 'unauthenticated',
-            ]);
+                'status' => false,
+                'message' => 'kegiatan tidak ada',
+                'data' => null,
+            ], 401);
         }
 
         $kegiatanId = $request->input('id_kegiatan');
         $absen = Absensi::where('id_anggota', $userId)->where('id_kegiatan', $kegiatanId)->update(['status_absensi' => '1']);
 
         return response()->json([
+            'status' => true,
             'message' => 'Absensi berhasil',
-
-        ]);
+            'data' => null,
+        ], 200);
     }
 
 

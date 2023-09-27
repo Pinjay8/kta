@@ -6,11 +6,13 @@ import "@babel/polyfill";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import PrimaryButton from "@/Components/PrimaryButton";
+import TambahAnggota from "@/Pages/Modal/ModalTambahKegiatan";
 
-import Table from "@/Components/TableData";
+import Table, {ModalKegiatan}from "@/Components/TableData";
+import ModalTambahKegiatan from "@/Pages/Modal/ModalTambahKegiatan";
 
 export default function KegiatanPage({ auth, data }) {
-    // console.log('data kegiatan', data)
+
     const header = React.useMemo(() => [
         {
             Header: "Nama Kegiatan",
@@ -26,8 +28,8 @@ export default function KegiatanPage({ auth, data }) {
             accessor: "tanggal",
         },
         {
-            Header: "Lihat Detail",
-            // accessor: "",
+            Header: " ",
+            Cell: ModalKegiatan,
         },
 
     ]);
@@ -55,12 +57,24 @@ export default function KegiatanPage({ auth, data }) {
         >
             <Head title="Dashboard" />
 
-            <div className="py-12">
-                <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                    <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <Table columns={header} data={datavalue} />
+            <div className="max-w-7xl px-5 mx-auto sm:px-0 lg:px-0">
+                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div className="min-h-screen bg-white text-gray-900">
+                        <main className=" sm:px-6 lg:px-8 pt-4">
+                            <ToastContainer />
+                            <div className="mt-4">
+                                <div className="pb-6">
+                                {/* <PrimaryButton onClick={() => route('tambah.kegiatan')}>
+                                        Tambah Kegiatan
+                                    </PrimaryButton> */}
+                                    <ModalTambahKegiatan/>
 
-                        {/* <div className="p-6 text-gray-900">You're logged in as admin!</div> */}
+                                </div>
+                                <div className="overflow-x-auto lg:overflow-x-hidden">
+                                    <Table columns={header} data={data} />
+                                </div>
+                            </div>
+                        </main>
                     </div>
                 </div>
             </div>

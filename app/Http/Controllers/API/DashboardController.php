@@ -27,17 +27,19 @@ class DashboardController extends Controller
         $kta = $anggota->kta;
         $ktaUrl = asset('storage/KTA/'. $kta);
         return response()->json([
-            // 'data' => $anggota,
-
-            'nama' => $nama,
-            'no_anggota' => $no_anggota,
-            'jabatan' => $jabatan,
-            'no_hp' => $no_hp,
-            'tempat_lahir' => $tempat_lahir,
-            'tgl_lahir' => $tgl_lahir,
-            'foto_profil' => $foto_profilUrl,
-            'ktaUrl' => $ktaUrl,
-        ]);
+            'status' => true,
+            'message' => 'success',
+            'data' => [
+                'nama' => $nama,
+                'no_anggota' => $no_anggota,
+                'jabatan' => $jabatan,
+                'no_hp' => $no_hp,
+                'tempat_lahir' => $tempat_lahir,
+                'tgl_lahir' => $tgl_lahir,
+                'foto_profil' => $foto_profilUrl,
+                'ktaUrl' => $ktaUrl,
+            ]  
+        ],200);
     }
 
 

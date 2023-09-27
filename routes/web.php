@@ -34,9 +34,6 @@ Route::get('/', function () {
     ]);
 });
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::group(['middleware' => 'auth'], function() {
@@ -46,16 +43,16 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/kegiatan', [KegiatanController::class, "show"])->name('kegiatan');
     Route::get('/anggota', [AnggotaController::class, "show"])->name('anggota');
     Route::get('/pengajuan-kta', [PengajuanFormController::class, "show"])->name('pengajuan');
+    Route::get('/kegiatan/tambah', [KegiatanController::class, "tambah"])->name('tambah.kegiatan');
+
     Route::group(['middleware' => 'checkRole:admin'], function() {
-    Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
-        // Route::inertia('/anggota', 'AnggotaPage')->name('anggota');
-});
+        Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
+    });
     
     Route::group(['middleware' => 'checkRole:superadmin'], function() {
         Route::inertia('/superAdminDashboard', 'SuperAdminDashboard')->name('superAdminDashboard');
-
-
     }); 
+    
 }); 
 
 Route::middleware('auth')->group(function () {

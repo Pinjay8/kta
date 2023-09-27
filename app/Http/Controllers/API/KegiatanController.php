@@ -9,7 +9,7 @@ use App\Models\Anggota;
 use App\Models\Absensi;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
-
+use Auth;
 
 class KegiatanController extends Controller
 {
@@ -18,25 +18,15 @@ class KegiatanController extends Controller
         $userId = auth()->user()->no_anggota;
         $kegiatan = Absensi::with('kegiatan')->where('id_anggota', $userId)->get();
         return response()->json([
+            'status' => true,
             'message' => 'success',
-            'data' => $kegiatan
-        ]);
+            'data' => $kegiatan,
+        ],200);
     }
     
 
-    public function mulaiacara(Request $request){
-        
-    }
-
-    public function akhiriacara(Request $request){
-        //
-    }
-
-    public function acaraakandatang(Request $request){
-        //
-    }
-
     public function store(Request $request){
+
         $validator = Validator::make($request->all(), [
             'nama_kegiatan' => 'required',
             'lokasi' => 'required',
@@ -76,18 +66,21 @@ class KegiatanController extends Controller
         }
 
         return response()->json([
-            'success' => true,
+            'status' => true,
             'message' => 'data berhasil ditambahkan',
-        ]);
+            'data' => null,
+        ], 200);
     }
 
         //API Kegiatan Hari Ini
-        public function now(){
+        public function now(Request $request){
             $tgl_sekarang = Carbon::now()->format('d/m/Y');
 
             $kegiatan = Kegiatan::where('tanggal', $tgl_sekarang)->get();
             return response()->json([
-                'kegiatan' => $kegiatan,
-            ]);
+                'status' => true,
+                'message' => 'success',
+                'data' => $kegiatan,
+            ], 200);
         }
 }

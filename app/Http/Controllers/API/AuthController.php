@@ -22,7 +22,9 @@ class AuthController extends Controller
         //CEK NO HP & PASS
         if (! Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
-                'message' => 'Unauthorized'
+                'status' => false,
+                'message' => 'Unauthorized',
+                'data' => null,
             ], 401);
         }
 
@@ -43,13 +45,15 @@ class AuthController extends Controller
         $detailid = $userdata->no_anggota;
 
         return response()->json([
-            'message' => 'Login success',
-            'token' => $token,
-            'nama' => $detailnama,
-            'no_hp' => $detailnohp,
-            'id_anggota' => $detailid,
-
-        ]);
+            'status' => true,
+            'message' => 'Login Berhasil',
+            'data' => [
+                'token' => $token,
+                'nama' => $detailnama,
+                'no_hp' => $detailnohp,
+                'id_anggota' => $detailid,
+            ]
+        ], 200);
     }
 
     public function register(Request $request)
@@ -87,8 +91,10 @@ class AuthController extends Controller
     public function logout(){
         Auth::user()->tokens()->delete();
         return response()->json([
-            'message' => 'logout success'
-        ]);
+            'status' => true,
+            'message' => 'logout success',
+            'data' => null,
+        ], 200);
     }
 
     public function detail(){

@@ -3,291 +3,367 @@
     "file": "assets/Tooltip-93d8b085.css",
     "src": "Tooltip.css"
   },
-  "_ApplicationLogo-b88b886a.js": {
-    "file": "assets/ApplicationLogo-b88b886a.js",
+  "_ApplicationLogo-00d46bb1.js": {
+    "file": "assets/ApplicationLogo-00d46bb1.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_AuthenticatedLayout-6925ade2.js": {
-    "file": "assets/AuthenticatedLayout-6925ade2.js",
+  "_AuthenticatedLayout-5f54b5d8.js": {
+    "file": "assets/AuthenticatedLayout-5f54b5d8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js"
     ]
   },
-  "_DangerButton-e7d0ec46.js": {
-    "file": "assets/DangerButton-e7d0ec46.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_GuestLayout-800b6f32.js": {
-    "file": "assets/GuestLayout-800b6f32.js",
+  "_GuestLayout-985ad39f.js": {
+    "file": "assets/GuestLayout-985ad39f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo-b88b886a.js"
+      "_ApplicationLogo-00d46bb1.js"
     ]
   },
-  "_InputError-698007c1.js": {
-    "file": "assets/InputError-698007c1.js",
+  "_InputError-21a7dc8f.js": {
+    "file": "assets/InputError-21a7dc8f.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_InputLabel-c03181c8.js": {
-    "file": "assets/InputLabel-c03181c8.js",
+  "_InputLabel-302469a3.js": {
+    "file": "assets/InputLabel-302469a3.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_PrimaryButton-c25ad074.js": {
-    "file": "assets/PrimaryButton-c25ad074.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_SuperAdminPage-35e0cad9.js": {
-    "file": "assets/SuperAdminPage-35e0cad9.js",
-    "isDynamicEntry": true
-  },
-  "_TableData-e67d78c3.js": {
-    "file": "assets/TableData-e67d78c3.js",
+  "_Modal-e1fbceb5.js": {
+    "file": "assets/Modal-e1fbceb5.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Tooltip-44c3acde.js",
-      "_DangerButton-e7d0ec46.js",
-      "_TextInput-0db80d5b.js"
+      "_transition-f8d1987a.js"
     ]
   },
-  "_TextInput-0db80d5b.js": {
-    "file": "assets/TextInput-0db80d5b.js",
+  "_PrimaryButton-2bf895cb.js": {
+    "file": "assets/PrimaryButton-2bf895cb.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Tooltip-44c3acde.js": {
+  "_TableData-f8ce37d2.js": {
+    "file": "assets/TableData-f8ce37d2.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Tooltip-be8d4f43.js",
+      "_TextInput-c83064ab.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "resources/js/Pages/Modal/ModalKegiatan.jsx"
+    ]
+  },
+  "_TextInput-c83064ab.js": {
+    "file": "assets/TextInput-c83064ab.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_Tooltip-be8d4f43.js": {
     "css": [
       "assets/Tooltip-93d8b085.css"
     ],
-    "file": "assets/Tooltip-44c3acde.js",
+    "file": "assets/Tooltip-be8d4f43.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js"
+      "_AuthenticatedLayout-5f54b5d8.js"
     ]
   },
-  "_transition-b2491110.js": {
-    "file": "assets/transition-b2491110.js",
+  "_transition-f8d1987a.js": {
+    "file": "assets/transition-f8d1987a.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
   "resources/js/Pages/AdminDashboard.jsx": {
-    "file": "assets/AdminDashboard-519fe050.js",
+    "file": "assets/AdminDashboard-43cf18b8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_AuthenticatedLayout-5f54b5d8.js",
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AdminDashboard.jsx"
   },
   "resources/js/Pages/AnggotaPage.jsx": {
-    "file": "assets/AnggotaPage-64da5bc1.js",
+    "file": "assets/AnggotaPage-ed762b2f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js",
-      "_Tooltip-44c3acde.js",
-      "_TableData-e67d78c3.js",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js",
-      "_DangerButton-e7d0ec46.js",
-      "_TextInput-0db80d5b.js"
+      "_AuthenticatedLayout-5f54b5d8.js",
+      "_Tooltip-be8d4f43.js",
+      "_TableData-f8ce37d2.js",
+      "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js",
+      "_TextInput-c83064ab.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "_Modal-e1fbceb5.js",
+      "resources/js/Pages/Modal/ModalKegiatan.jsx",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AnggotaPage.jsx"
   },
   "resources/js/Pages/Auth/ConfirmPassword.jsx": {
-    "file": "assets/ConfirmPassword-36daacd1.js",
+    "file": "assets/ConfirmPassword-bd8d04e5.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-800b6f32.js",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_GuestLayout-985ad39f.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ConfirmPassword.jsx"
   },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
-    "file": "assets/ForgotPassword-ad621366.js",
+    "file": "assets/ForgotPassword-0ec7805e.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-800b6f32.js",
-      "_InputError-698007c1.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_GuestLayout-985ad39f.js",
+      "_InputError-21a7dc8f.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx"
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-95817dc2.js",
+    "file": "assets/Login-1b9123d2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-800b6f32.js",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_GuestLayout-985ad39f.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.jsx"
   },
   "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register-83520e0f.js",
+    "file": "assets/Register-0936030a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-800b6f32.js",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_GuestLayout-985ad39f.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Register.jsx"
   },
   "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword-1ca79783.js",
+    "file": "assets/ResetPassword-2446ec8f.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-800b6f32.js",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_GuestLayout-985ad39f.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ResetPassword.jsx"
   },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
-    "file": "assets/VerifyEmail-7bf89874.js",
+    "file": "assets/VerifyEmail-10651dd9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-800b6f32.js",
-      "_PrimaryButton-c25ad074.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_GuestLayout-985ad39f.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx"
   },
-  "resources/js/Pages/KegiatanPage.jsx": {
-    "file": "assets/KegiatanPage-d526a344.js",
+  "resources/js/Pages/Formulir/TambahKegiatan.jsx": {
+    "file": "assets/TambahKegiatan-fb18e0e7.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js",
-      "_Tooltip-44c3acde.js",
-      "_TableData-e67d78c3.js",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js",
-      "_DangerButton-e7d0ec46.js",
-      "_TextInput-0db80d5b.js"
+      "_AuthenticatedLayout-5f54b5d8.js",
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Formulir/TambahKegiatan.jsx"
+  },
+  "resources/js/Pages/KegiatanPage.jsx": {
+    "file": "assets/KegiatanPage-27ad6c01.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout-5f54b5d8.js",
+      "_Tooltip-be8d4f43.js",
+      "_TableData-f8ce37d2.js",
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js",
+      "_TextInput-c83064ab.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "_Modal-e1fbceb5.js",
+      "resources/js/Pages/Modal/ModalKegiatan.jsx",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/KegiatanPage.jsx"
   },
-  "resources/js/Pages/PengajuanFormPage.jsx": {
-    "file": "assets/PengajuanFormPage-5ed64685.js",
+  "resources/js/Pages/Modal/ModalAnggota.jsx": {
+    "file": "assets/ModalAnggota-00da76c2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js",
-      "_Tooltip-44c3acde.js",
-      "_TextInput-0db80d5b.js",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_Modal-e1fbceb5.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalAnggota.jsx"
+  },
+  "resources/js/Pages/Modal/ModalKegiatan.jsx": {
+    "file": "assets/ModalKegiatan-014e6513.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-e1fbceb5.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalKegiatan.jsx"
+  },
+  "resources/js/Pages/Modal/ModalTambahAnggota.jsx": {
+    "file": "assets/ModalTambahAnggota-cd271cf3.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-e1fbceb5.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalTambahAnggota.jsx"
+  },
+  "resources/js/Pages/Modal/ModalTambahKegiatan.jsx": {
+    "file": "assets/ModalTambahKegiatan-9d7ee3c8.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-e1fbceb5.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalTambahKegiatan.jsx"
+  },
+  "resources/js/Pages/PengajuanFormPage.jsx": {
+    "file": "assets/PengajuanFormPage-50b8e72a.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout-5f54b5d8.js",
+      "_Tooltip-be8d4f43.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/PengajuanFormPage.jsx"
   },
   "resources/js/Pages/Profile/Edit.jsx": {
-    "file": "assets/Edit-8eb3cbf7.js",
+    "file": "assets/Edit-7e3e39eb.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js",
+      "_AuthenticatedLayout-5f54b5d8.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js",
-      "_DangerButton-e7d0ec46.js",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_TextInput-0db80d5b.js",
-      "_PrimaryButton-c25ad074.js"
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js",
+      "_Modal-e1fbceb5.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_TextInput-c83064ab.js",
+      "_PrimaryButton-2bf895cb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Edit.jsx"
   },
   "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx": {
-    "file": "assets/DeleteUserForm-936c4327.js",
+    "file": "assets/DeleteUserForm-cb7831ce.js",
     "imports": [
       "resources/js/app.jsx",
-      "_DangerButton-e7d0ec46.js",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_transition-b2491110.js",
-      "_TextInput-0db80d5b.js"
+      "_Modal-e1fbceb5.js",
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx"
   },
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
-    "file": "assets/UpdatePasswordForm-cfa26436.js",
+    "file": "assets/UpdatePasswordForm-6dd666a6.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_transition-b2491110.js"
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx"
   },
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx": {
-    "file": "assets/UpdateProfileInformationForm-b951844e.js",
+    "file": "assets/UpdateProfileInformationForm-280f1fca.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-698007c1.js",
-      "_InputLabel-c03181c8.js",
-      "_PrimaryButton-c25ad074.js",
-      "_TextInput-0db80d5b.js",
-      "_transition-b2491110.js"
+      "_InputError-21a7dc8f.js",
+      "_InputLabel-302469a3.js",
+      "_PrimaryButton-2bf895cb.js",
+      "_TextInput-c83064ab.js",
+      "_transition-f8d1987a.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx"
   },
   "resources/js/Pages/SuperAdminDashboard.jsx": {
-    "file": "assets/SuperAdminDashboard-80bc6c12.js",
+    "file": "assets/SuperAdminDashboard-c49a3a54.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-6925ade2.js",
-      "_transition-b2491110.js",
-      "_ApplicationLogo-b88b886a.js"
+      "_AuthenticatedLayout-5f54b5d8.js",
+      "_transition-f8d1987a.js",
+      "_ApplicationLogo-00d46bb1.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/SuperAdminDashboard.jsx"
   },
+  "resources/js/Pages/SuperAdminPage.jsx": {
+    "file": "assets/SuperAdminPage-4ed993c7.js",
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/SuperAdminPage.jsx"
+  },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-5d8697ff.js",
+    "file": "assets/Welcome-40953551.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -295,12 +371,12 @@
     "src": "resources/js/Pages/Welcome.jsx"
   },
   "resources/js/app.css": {
-    "file": "assets/app-e39581bc.css",
+    "file": "assets/app-2ceef956.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.jsx": {
     "css": [
-      "assets/app-e39581bc.css"
+      "assets/app-2ceef956.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/AdminDashboard.jsx",
@@ -311,20 +387,22 @@
       "resources/js/Pages/Auth/Register.jsx",
       "resources/js/Pages/Auth/ResetPassword.jsx",
       "resources/js/Pages/Auth/VerifyEmail.jsx",
-      "_SuperAdminPage-35e0cad9.js",
+      "resources/js/Pages/Formulir/TambahKegiatan.jsx",
       "resources/js/Pages/KegiatanPage.jsx",
-      "_SuperAdminPage-35e0cad9.js",
-      "_SuperAdminPage-35e0cad9.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "resources/js/Pages/Modal/ModalKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
       "resources/js/Pages/PengajuanFormPage.jsx",
       "resources/js/Pages/Profile/Edit.jsx",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
       "resources/js/Pages/SuperAdminDashboard.jsx",
-      "_SuperAdminPage-35e0cad9.js",
+      "resources/js/Pages/SuperAdminPage.jsx",
       "resources/js/Pages/Welcome.jsx"
     ],
-    "file": "assets/app-023fb78c.js",
+    "file": "assets/app-8d9407b8.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }
