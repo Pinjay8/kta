@@ -27,15 +27,15 @@ Route::post('tambah-anggota', [AnggotaController::class, 'create']);
 Route::post('kegiatan/tambah-kegiatan', [KegiatanController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
-
+    
     //revoke api token logout
     Route::post('logout', [AuthController::class, 'logout']);
-
+    
+    Route::post('kegiatan', [KegiatanController::class, 'allList']);
     //ambil data profil
     Route::post('detail-anggota', [DashboardController::class, 'dashboard']);
     
     //ambil data kegiatan
-    Route::post('kegiatan', [KegiatanController::class, 'allList']);
     Route::post('kegiatan/hari-ini', [KegiatanController::class, 'now']);
     
     //melakukan absensi

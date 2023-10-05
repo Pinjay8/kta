@@ -20,6 +20,10 @@ class Absensi extends Model
         return $this->belongsTo(Anggota::class, 'id_anggota', 'id')->withDefault();
     }
 
+    public function kegiatan()
+    {
+        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
+    }
 
 
 }

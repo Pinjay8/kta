@@ -15,8 +15,11 @@ class KegiatanController extends Controller
 {
     //
     public function allList(){
-        $userId = auth()->user()->no_anggota;
+        // $userId = auth()->user()->no_anggota;
+        $userId = 10;
         $kegiatan = Absensi::with('kegiatan')->where('id_anggota', $userId)->get();
+        // dd($kegiatan);
+        
         return response()->json([
             'status' => true,
             'message' => 'success',
