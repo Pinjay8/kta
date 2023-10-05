@@ -78,7 +78,7 @@ class KegiatanController extends Controller
 
         //API Kegiatan Hari Ini
         public function now(Request $request){
-            $tgl_sekarang = Carbon::now()->format('d/m/Y');
+            $tgl_sekarang = Carbon::now()->format('Y-m-d');
 
             $kegiatan = Kegiatan::where('tanggal', $tgl_sekarang)->get();
             return response()->json([
@@ -87,4 +87,6 @@ class KegiatanController extends Controller
                 'data' => $kegiatan,
             ], 200);
         }
+
+
 }
