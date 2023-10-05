@@ -13,6 +13,11 @@ import ApplicationLogo from "@/Components/ApplicationLogo";
 export default function Authenticated({ user, header, children }) {
 
     const menus = [
+        {
+            name: "Dashboard",
+            link: route("adminDashboard"),
+            icon: RiFileEditLine,
+        },
         ...(user.role === "superadmin"
             ? [
                   // Additional menu items for superadmin role

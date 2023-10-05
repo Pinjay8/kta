@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Anggota;
 
 class Absensi extends Model
 {
@@ -14,8 +15,11 @@ class Absensi extends Model
         'status_absensi',
     ];
 
-    public function kegiatan()
+    public function anggota()
     {
-        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
+        return $this->belongsTo(Anggota::class, 'id_anggota', 'id')->withDefault();
     }
+
+
+
 }

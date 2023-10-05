@@ -41,18 +41,6 @@ export default function AnggotaPage({ auth, data }) {
 
 
 
-    // useEffect(() => {
-    //     const message = flash.message;
-    // const error = flash.error;
-
-//     if (message) {
-//       toast.success(message);
-//     } else if (error) {
-//       toast.error(error, { backgroundColor: 'red' });
-//     }
-//   }, [flash]);
-
-
     return (
         <AdminAuthenticatedLayout
             user={auth.user}
@@ -60,20 +48,18 @@ export default function AnggotaPage({ auth, data }) {
         >
             <Head title="Dashboard" />
 
-            <div className="max-w-7xl px-5 mx-auto sm:px-0 lg:px-0">
-                <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div className="min-h-screen bg-white text-gray-900">
-                        <main className=" sm:px-6 lg:px-8 pt-4">
-                            <ToastContainer />
+            <div className="max-w-7xl  px-5 mx-auto sm:px-0 lg:px-0">
+                <div className=" bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div className="min-h-screen  text-gray-900">
+                        <main className=" sm:px-6 lg:px-8">
+
                             <div className="mt-4">
                                 <div className="pb-6">
-                                    {/* <PrimaryButton>
-                                        Tambah Anggota
-                                    </PrimaryButton> */}
-                                    <ModalTambahAnggota />
+                                   
+                                    {/* <ModalTambahAnggota /> */}
                                 </div>
                                 <div className="overflow-x-auto lg:overflow-x-hidden">
-                                    <Table columns={header} data={data} />
+                                    <Table columns={header} data={datavalue} type="anggota" />
                                 </div>
                             </div>
                         </main>

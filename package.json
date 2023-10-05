@@ -23,9 +23,12 @@
         "@babel/polyfill": "^7.12.1",
         "@heroicons/react": "^1.0.6",
         "@inertiajs/inertia": "^0.11.1",
+        "chart.js": "^4.4.0",
         "core-js": "^3.32.2",
         "flowbite": "^1.8.1",
         "flowbite-react": "^0.6.1",
+        "react-chartjs-2": "^5.2.0",
+        "react-datepicker": "^4.18.0",
         "react-icons": "^4.11.0",
         "react-table": "^7.8.0",
         "react-toastify": "^9.1.3"

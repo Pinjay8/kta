@@ -2,39 +2,51 @@ import { useRef, useState } from 'react';
 import DangerButton from '@/Components/DangerButton';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
+import DateInput from '@/Components/DateInput';
 import Modal from '@/Components/Modal';
 import PrimaryButton from '@/Components/PrimaryButton';
 import SecondaryButton from '@/Components/SecondaryButton';
 import TextInput from '@/Components/TextInput';
 import { useForm } from '@inertiajs/react';
 
-export default function ModalTambahKegiatan() {
 
+
+
+export default function ModalTambahKegiatan() {
+// console.log(errors);
     const [openingModal, setopeningModal] = useState(false);
 
 
     const { data, setData, errors, post } = useForm({
         nama: "",
-        alamat: "",
-        ktp: "",
-        pekerjaan: "",
-        telepon: "",
-        email: "",
-        nama_kuasa: "",
-        alamat_kuasa: "",
-        telepon_kuasa: "",
-        email_kuasa: "",
-        alasan: "",
-        kasus: "",
+        lokasi: "",
+        jam: "",
+        tanggal: "",
+        pic: "",
+        notulensi: "",
     });
+
+    const handleDateChange = (date) => {
+        const formattedDate = date.toISOString().slice(0, 10);
+        setData("tanggal", formattedDate);
+      };
 
     const openModal = () => {
         setopeningModal(true);
     };
 
     function handleSubmit(e) {
+        
         e.preventDefault();
-        // post(route("store.pengajuan"));
+        post(route("create.kegiatan"));
+        setData({
+            nama: "",
+            lokasi: "",
+            jam: "",
+            tanggal: "",
+            pic: "",
+            notulensi: "",
+          });
     }
 
 
@@ -43,17 +55,11 @@ export default function ModalTambahKegiatan() {
         setopeningModal(false);
         setData({
             nama: "",
-            alamat: "",
-            ktp: "",
-            pekerjaan: "",
-            telepon: "",
-            email: "",
-            nama_kuasa: "",
-            alamat_kuasa: "",
-            telepon_kuasa: "",
-            email_kuasa: "",
-            alasan: "",
-            kasus: "",
+            lokasi: "",
+            jam: "",
+            tanggal: "",
+            pic: "",
+            notulensi: "",
           });
     };
 
@@ -64,11 +70,15 @@ export default function ModalTambahKegiatan() {
             <DangerButton onClick={openModal}>Tambah Kegiatan</DangerButton>
 
             <Modal show={openingModal} onClose={closeModal}>
+            <div className=" h-70">
+
                 <form onSubmit={handleSubmit} className="p-6">
                 
+                <h2 className="text-lg font-bold mb-6 text-gray-900">
+                    Tambah Kegiatan Baru
+                    </h2>
                     
-                    
-                        <div>
+                        <div className='mb-4'>
                             <InputLabel htmlFor="nama" value="Nama Kegiatan" />
 
                             <TextInput
@@ -86,90 +96,105 @@ export default function ModalTambahKegiatan() {
                             />
                         </div>
 
-                        <div>
-                            <InputLabel htmlFor="alamat" value="Lokasi" />
+                        <div className='mb-4'>
+                            <InputLabel htmlFor="lokasi" value="Lokasi" />
 
                             <TextInput
-                                id="alamat"
+                                id="lokasi"
                                 className="mt-1 block w-full"
-                                value={data.alamat}
-                                name="alamat"
+                                value={data.lokasi}
+                                name="lokasi"
                                 onChange={(e) =>
-                                    setData("alamat", e.target.value)
+                                    setData("lokasi", e.target.value)
                                 }
                             />
                             <InputError
-                                message={errors.alamat}
+                                message={errors.lokasi}
                                 className="mt-2"
                             />
                         </div>
 
-                        <div>
+                        <div className='mb-4'>
                             <InputLabel htmlFor="jam" value="Jam" />
 
                             <TextInput
                                 id="jam"
-                                type="number"
                                 className="mt-1 block w-full"
-                                value={data.ktp}
-                                name="ktp"
-                                onChange={(e) => setData("ktp", e.target.value)}
-                            />
-                            <InputError message={errors.ktp} className="mt-2" />
-                            {/* {errors.tahun && <div>{errors.tahun}</div>} */}
-                        </div>
-
-                        <div>
-                            <InputLabel htmlFor="tanggal" value="Tanggal" />
-
-                            <TextInput
-                                id="tanggal"
-                                className="mt-1 block w-full"
-                                value={data.pekerjaan}
-                                name="pekerjaan"
+                                value={data.jam}
+                                type="time"
+                                name="jam"
+                                placeholder="00.00"
                                 onChange={(e) =>
-                                    setData("pekerjaan", e.target.value)
+                                    setData("jam", e.target.value)
                                 }
                             />
                             <InputError
-                                message={errors.pekerjaan}
+                                message={errors.jam}
                                 className="mt-2"
                             />
                         </div>
 
-                        <div>
-                            <InputLabel htmlFor="telepon" value="Telepon" />
+                        
+
+
+                        <div className='mb-4'>
+                                <InputLabel
+                                    htmlFor="tanggal"
+                                    value="Tangggal"
+                                />
+                                <DateInput
+                                    name="tanggal"
+                                    id="tanggal"
+                                    selectedDate={
+                                        data.tanggal
+                                            ? new Date(data.tanggal)
+                                            : null
+                                    }
+                                    onDateChange={handleDateChange}
+                                    maxDate={new Date()}
+                                    className="mt-1 block w-full"
+                                    dateFormat="dd/MM/yyyy"
+                                />
+                                
+                                <InputError
+                                    message={errors.tanggal}
+                                    className="mt-2"
+                                />
+                            </div>
+
+                            <div className='mb-4'>
+                            <InputLabel htmlFor="pic" value="PIC" />
 
                             <TextInput
-                                id="telepon"
+                                id="pic"
                                 className="mt-1 block w-full"
-                                value={data.telepon}
-                                name="telepon"
+                                value={data.pic}
+                                name="pic"
                                 onChange={(e) =>
-                                    setData("telepon", e.target.value)
+                                    setData("pic", e.target.value)
                                 }
                             />
                             <InputError
-                                message={errors.telepon}
+                                message={errors.pic}
                                 className="mt-2"
                             />
                         </div>
 
-                        <div>
-                            <InputLabel htmlFor="email" value="E-mail" />
+                        <div className='mb-4'>
+                            <InputLabel htmlFor="notulensi" value="Notulensi" />
 
                             <TextInput
-                                id="email"
-                                type="email"
+                                id="notulensi"
                                 className="mt-1 block w-full"
-                                value={data.email}
+                                value={data.notulensi}
                                 name="email"
                                 onChange={(e) =>
-                                    setData("email", e.target.value)
+                                    setData("notulensi", e.target.value)
                                 }
+                                placeholder="https://drive.google.com/file/..."
                             />
                             <InputError
-                                message={errors.email}
+                                message={errors.notulensi}
                                 className="mt-2"
                             />
                         </div>
@@ -182,11 +207,11 @@ export default function ModalTambahKegiatan() {
                                 className="flex items-center gap-4 mx-4"
                                 onClick={closeModal}
                             >
-                                Back
+                                Tutup
                             </SecondaryButton>
                 </form>
 
-
+            </div>
 
             </Modal>
         </>

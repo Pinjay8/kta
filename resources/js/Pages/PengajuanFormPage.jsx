@@ -13,16 +13,16 @@ export default function PengajuanFormPage({ auth, data }) {
     const header = React.useMemo(() => [
         {
             Header: "Nama Kegiatan",
-            accessor: "nama_kegiatan",
+            Cell: "",
         },
         {
             Header: "Lokasi",
-            accessor: "lokasi",
+            Cell: "",
         },
 
         {
             Header: "Tanggal",
-            accessor: "tanggal",
+            Cell: "",
         },
 
     ]);
@@ -55,7 +55,7 @@ export default function PengajuanFormPage({ auth, data }) {
                     <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     {/* <Table columns={header} data={datavalue} /> */}
 
-                        {/* <div className="p-6 text-gray-900">You're logged in as admin!</div> */}
+                        <div className="p-6 text-gray-900">Belum Ada Data Pengajuan KTA</div>
                     </div>
                 </div>
             </div>

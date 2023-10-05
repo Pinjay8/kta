@@ -12,7 +12,7 @@ class AbsensiController extends Controller
 {
     //
     public function hadir(Request $request){
-        $userId = auth()->user()->no_anggota;
+        $userId = auth()->user()->id;
         $validator = Validator::make($request->all(), [
             'id_kegiatan' => 'required',
         ]);
@@ -26,13 +26,25 @@ class AbsensiController extends Controller
         }
 
         $kegiatanId = $request->input('id_kegiatan');
-        $absen = Absensi::where('id_anggota', $userId)->where('id_kegiatan', $kegiatanId)->update(['status_absensi' => '1']);
+        $absen = Absensi::where('id_anggota', $userId)->where('id_kegiatan', $kegiatanId) ->first();
+        $absen->update(['status_absensi' => '1']);
+    $absen->touch();
+if ($absen) {
 
-        return response()->json([
-            'status' => true,
-            'message' => 'Absensi berhasil',
-            'data' => null,
-        ], 200);
+    return response()->json([
+        'status' => true,
+        'message' => 'Absensi berhasil',
+        'data' => null,
+    ], 200);
+} else {
+    return response()->json([
+        'status' => false,
+        'message' => 'Absensi Gagal',
+        'data' => null,
+    ], 200);
+}
+
+        
     }
 
 

@@ -8,16 +8,12 @@ import {
     useSortBy,
     usePagination,
 } from "react-table";
-
 import {
     ChevronDoubleLeftIcon,
     ChevronLeftIcon,
     ChevronRightIcon,
     ChevronDoubleRightIcon,
 } from "@heroicons/react/solid";
-
-
-
 import { Button, PageButton } from "@/Components/Button";
 import { classNames } from "@/Components/Utils";
 import PrimaryButton from "@/Components/PrimaryButton";
@@ -31,15 +27,35 @@ import { Modal, Badge } from "flowbite-react";
 import { useForm } from '@inertiajs/react';
 import ModalAnggotaButton from '@/Pages/Modal/ModalAnggota';
 import ModalKegiatanButton from '@/Pages/Modal/ModalKegiatan';
+import ModalTambahAnggota from "@/Pages/Modal/ModalTambahAnggota";
+import ModalTambahKegiatan from "@/Pages/Modal/ModalTambahKegiatan";
 
 
 
-// import RateStar from "@/Components/RateStar";
 
-{/* <ChevronLeftIcon className="h-5 w-5 text-blue-500" />; */}
+
+export function StatusPill({ value }) {
+    const status = value === 0 ? "akan dimulai" : value === 1 ? "berlangsung" : value === 2 ? "telah berakhir" : "unknown";
+
+    return (
+        <span
+            className={classNames(
+                "px-3 py-1 uppercase leading-wide font-bold text-xs rounded-full shadow-sm",
+                status.startsWith("akan dimulai")
+                    ? "bg-yellow-100 text-yellow-700"
+                    : null,
+                status.startsWith("berlangsung")
+                    ? "bg-green-100 text-green-700"
+                    : null,
+                status.startsWith("telah berakhir") ? "bg-red-100 text-red-700" : null
+            )}
+        >
+            {status}
+        </span>
+    );
+}
 
 export function ModalAnggota(row){
-
     return(
     <>
         <ModalAnggotaButton userdata = {row.row.original}/>
@@ -120,9 +136,8 @@ function GlobalFilter({
     );
 }
 
-function TableData({ columns, data }) {
-    // Use the state and functions returned from useTable to build your UI
-    console.log('data',data);
+function TableData({ columns, data, type }) {
+
     const {
         getTableProps,
         getTableBodyProps,
@@ -155,7 +170,10 @@ function TableData({ columns, data }) {
     // Render the UI for your table
     return (
         <>
-            <div className="flex gap-x-2">
+            <div className="flex gap-x-7">
+                {type === "kegiatan" ?(<ModalTambahKegiatan/>)
+                :type === "anggota" ?(<ModalTambahAnggota/>)
+                : null}
                 <GlobalFilter
                     preGlobalFilteredRows={preGlobalFilteredRows}
                     globalFilter={state.globalFilter}
@@ -172,8 +190,8 @@ function TableData({ columns, data }) {
                     )
                 )}
             </div>
-            <div className="mt-4 flex flex-col">
-                <div className="-my-2 lg:overflow-x-auto -mx-4 sm:-mx-6 lg:-mx-8">
+            <div className="mt-2 flex flex-col">
+                <div className="-my-2 lg:overflow-x-auto mx-4 sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                             <table

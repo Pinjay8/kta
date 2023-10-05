@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
+use Apps\Models\Absensi;
 
 class Anggota extends Authenticatable
 {
@@ -43,5 +44,9 @@ class Anggota extends Authenticatable
     // protected $casts = [
     //     'password' => 'hashed',
     // ];
+    // public function absensi()
+    // {
+    //     return $this->hasMany(Absensi::class);
+    // }
 
 }

@@ -6,38 +6,42 @@ import "@babel/polyfill";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import PrimaryButton from "@/Components/PrimaryButton";
-import TambahAnggota from "@/Pages/Modal/ModalTambahKegiatan";
+import Table, {ModalAnggota} from "@/Components/TableData";
+import ModalTambahAnggota from "@/Pages/Modal/ModalTambahAnggota";
+import DangerButton from "@/Components/DangerButton";
 
-import Table, {StatusPill, ModalKegiatan}from "@/Components/TableData";
-import ModalTambahKegiatan from "@/Pages/Modal/ModalTambahKegiatan";
+export default function AbsensiPage({ auth, data ,nama_kegiatan}) {
+console.log("data =", data);
 
-export default function KegiatanPage({ auth, data }) {
 
     const header = React.useMemo(() => [
         {
-            Header: "Nama Kegiatan",
-            accessor: "nama_kegiatan",
+            Header: "ID Anggota",
+            accessor: "no_anggota",
         },
         {
-            Header: "Lokasi",
-            accessor: "lokasi",
+            Header: "Nama Lengkap",
+            accessor: "nama",
+        },
+        {
+            Header: "Jenis Kelamin",
+            accessor: "jk",
+            Cell: ({ value }) => (value === 1 ? "laki-laki" : "perempuan"),
         },
 
         {
-            Header: "Tanggal",
-            accessor: "tanggal",
+            Header: "Jabatan",
+            accessor: "jabatan",
+        },
+        {
+            Header: "Waktu Absensi",
+            accessor: "created_at",
+            Cell: ({ value }) => {
+                const date = new Date(value);
+                return `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+            },
         },
         
-        {
-            Header: "Status",
-            accessor: "status",
-            Cell: StatusPill,
-        },
-
-        {
-            Header: " ",
-            Cell: ModalKegiatan,
-        },
 
     ]);
 
@@ -45,38 +49,25 @@ export default function KegiatanPage({ auth, data }) {
 
 
 
-    // useEffect(() => {
-    //     const message = flash.message;
-    // const error = flash.error;
-
-//     if (message) {
-//       toast.success(message);
-//     } else if (error) {
-//       toast.error(error, { backgroundColor: 'red' });
-//     }
-//   }, [flash]);
-
-
     return (
         <AdminAuthenticatedLayout
             user={auth.user}
-            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Kegiatan</h2>}
+            header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Data Absensi {nama_kegiatan}</h2>}
         >
             <Head title="Dashboard" />
 
             <div className="max-w-7xl  px-5 mx-auto sm:px-0 lg:px-0">
                 <div className=" bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div className="min-h-screen  text-gray-900">
-                        <main className=" sm:px-6 lg:px-8">
+                        <main className=" sm:px-6 lg:px-8 pt-4">
 
                             <div className="mt-4">
                                 <div className="pb-6">
-
-                                    {/* <ModalTambahKegiatan/> */}
-
+                                   
+                                <DangerButton>Download Data</DangerButton>
                                 </div>
                                 <div className="overflow-x-auto lg:overflow-x-hidden">
-                                    <Table columns={header} data={datavalue} type="kegiatan"/>
+                                    <Table columns={header} data={datavalue} />
                                 </div>
                             </div>
                         </main>

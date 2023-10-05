@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PengajuanFormController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -41,18 +43,29 @@ Route::group(['middleware' => 'auth'], function() {
 
     //Render Page
     Route::get('/kegiatan', [KegiatanController::class, "show"])->name('kegiatan');
+    Route::post('/kegiatan', [KegiatanController::class, "create"])->name('create.kegiatan');
+    Route::post('/kegiatan/update/{id}', [KegiatanController::class, "update"])->name('update.kegiatan');
+    Route::post('/kegiatan/delete/{id}', [KegiatanController::class, "delete"])->name('delete.kegiatan');
     Route::get('/anggota', [AnggotaController::class, "show"])->name('anggota');
+    Route::post('/anggota/upload', [AnggotaController::class, "create"])->name('create.anggota');
     Route::get('/pengajuan-kta', [PengajuanFormController::class, "show"])->name('pengajuan');
-    Route::get('/kegiatan/tambah', [KegiatanController::class, "tambah"])->name('tambah.kegiatan');
+    Route::get('/absensi/{id}', [AbsensiController::class, "show"])->name('absensi');
+    // Route::get('/kegiatan/tambah', [KegiatanController::class, "tambah"])->name('tambah.kegiatan');
+    Route::post('/kegiatan/aksi/ubah-kegiatan/{id}', [KegiatanController::class, "ubahstatus"]);
 
-    Route::group(['middleware' => 'checkRole:admin'], function() {
-        Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
-    });
+
+
+
+
+
+
+    // Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
+    Route::get('/adminDashboard', [DashboardController::class, 'show'])->name('adminDashboard');
     
     Route::group(['middleware' => 'checkRole:superadmin'], function() {
         Route::inertia('/superAdminDashboard', 'SuperAdminDashboard')->name('superAdminDashboard');
     }); 
-    
+
 }); 
 
 Route::middleware('auth')->group(function () {

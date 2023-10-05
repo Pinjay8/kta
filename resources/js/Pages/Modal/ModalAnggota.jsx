@@ -28,7 +28,7 @@ export default function ModalAnggota({userdata}) {
 
     return (
         <>
-            <DangerButton onClick={openModal}>Lihat Detail</DangerButton>
+            <DangerButton onClick={openModal}>Detail Anggota</DangerButton>
 
             <Modal show={openingModal} onClose={closeModal}>
                 <div className='p-6'>
