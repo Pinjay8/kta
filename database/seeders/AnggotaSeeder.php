@@ -20,7 +20,7 @@ class AnggotaSeeder extends Seeder
 
         DB::table('anggotas')->insert([
             'no_anggota' => '3303143301',
-            'nama' => 'Sample user DPD Golkar',
+            'nama' => 'Sample user',
             'no_hp' => '081234567890',
             'nik' => '330314220203',
             'tempat_lahir' => 'purbalingga',
