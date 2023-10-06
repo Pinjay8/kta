@@ -38,18 +38,6 @@ class DummyController extends Controller
                 'dapil' => '1',
                 'no_urut' => '4',
             ],
-            [
-                'id' => '5',
-                'nama_dapil' => 'SUGENG RIYATNO',
-                'dapil' => '1',
-                'no_urut' => '5',
-            ],
-            [
-                'id' => '6',
-                'nama_dapil' => 'HARLINDA S.H',
-                'dapil' => '1',
-                'no_urut' => '6',
-            ],
             ]
         ],200);
     }

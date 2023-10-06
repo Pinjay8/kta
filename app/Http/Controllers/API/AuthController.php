@@ -30,9 +30,9 @@ class AuthController extends Controller
 
         //VALIDASI APABILA TERDAPAT TOKEN SETELAH USER LOGIN
         //JIKA TERDAPAT TOKEN SEBELUMNYA OTOMATIS AKAN DIHAPUS
-        if(Auth::guard('anggota')->user()->tokens()){
-            Auth::guard('anggota')->user()->tokens()->delete();
-        }
+        // if(Auth::guard('anggota')->user()->tokens()){
+        //     Auth::guard('anggota')->user()->tokens()->delete();
+        // }
 
 
         $user = Anggota::where('no_hp', $request->no_hp)->firstOrFail();
