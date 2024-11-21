@@ -11,10 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('absensis', function (Blueprint $table) {
-            //
-            $table->foreign('id_anggota')->references('id')->on('anggotas')->onDelete('set null');;
-
+        Schema::create('calons', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama');
+            $table->integer('no_urut');
+            $table->string('status');
+            $table->timestamps();
         });
     }
 
@@ -23,10 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('absensis', function (Blueprint $table) {
-            //
-            $table->dropForeign(['id_anggota']);
-
-        });
+        Schema::dropIfExists('calons');
     }
 };

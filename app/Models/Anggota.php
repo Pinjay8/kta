@@ -10,7 +10,7 @@ use App\Models\Absensi;
 class Anggota extends Authenticatable
 {
     use HasApiTokens, HasFactory;
-    
+
     protected $guard = 'anggota';
 
     protected $fillable = [
@@ -18,17 +18,12 @@ class Anggota extends Authenticatable
         'nama',
         'no_hp',
         'nik',
-        'tempat_lahir',
-        'tgl_lahir',
-        'jk',
-        'jabatan',
-        'pekerjaan',
+        'id_tps',
+        'alamat',
+        'kecamatan',
         'kelurahan',
         'rt',
         'rw',
-        'foto_kk',
-        'kta',
-        'foto_profil',
         'password',
     ];
 
@@ -48,5 +43,4 @@ class Anggota extends Authenticatable
     {
         return $this->hasMany(Absensi::class);
     }
-
 }

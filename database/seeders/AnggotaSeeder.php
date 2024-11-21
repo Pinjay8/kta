@@ -16,23 +16,35 @@ class AnggotaSeeder extends Seeder
      */
     public function run(): void
     {
-                // \App\Models\Anggota::factory(10)->create();
+        // \App\Models\Anggota::factory(10)->create();
 
         DB::table('anggotas')->insert([
-            'no_anggota' => '3303143301',
+            'id' => 1,
+            'no_anggota' => 1,
             'nama' => 'Sample user',
             'no_hp' => '081234567890',
             'nik' => '330314220203',
-            'tempat_lahir' => 'purbalingga',
-            'tgl_lahir' => '22/02/2000',
-            'jk' => '1',
-            'jabatan' => 'Relawan',
-            'pekerjaan' => 'Wiraswasta',
+            'id_tps' => 1,
+            'alamat' => 'Jl. Purbalingga',
+            'kecamatan' => 'Purbalingga',
+            'kelurahan' => 'purbalingga',
+            'rt' => '1',
+            'rw' => "1",
+            'password' => bcrypt('12345'),
+        ]);
+
+        DB::table('anggotas')->insert([
+            'id' => 2,
+            'no_anggota' => 2,
+            'nama' => 'Sample user 2',
+            'no_hp' => '081234567891',
+            'nik' => '330314220204',
+            'id_tps' => 2,
+            'alamat' => 'Jl. Purbalingga',
+            'kecamatan' => 'Purbalingga',
             'kelurahan' => 'purbalingga',
             'rt' => '2',
-            'rw' => '4',
-            'foto_kk' => '',
-            'foto_profil' => '',
+            'rw' => "2",
             'password' => bcrypt('12345'),
         ]);
 

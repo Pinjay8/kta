@@ -20,7 +20,7 @@ class AuthController extends Controller
 
         
         //CEK NO HP & PASS
-        if (! Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
+        if (!Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
                 'status' => false,
                 'message' => 'Unauthorized',

@@ -61,18 +61,54 @@ class KegiatanSeeder extends Seeder
         //     'pic' => 'Tubagus Afif Nur Hidayat',
         //     'notulensi' => 'https://drive.google.com/file/d/1aNf4-BT_zoiQVb_njTvfa3I2ZPE4CsNe/view?usp=share_link' ,
         // ]);
+        // DB::table('kegiatans')->insert([
+        //     'id' => '5',
+        //     'nama_kegiatan' => 'Meeting Proyek D',
+        //     'lokasi' => 'GOR Mahesa Jenar',
+        //     'jam' => '11.00',
+        //     'tanggal' => '23/09/2023',
+        //     'absensi' => '0',//  0 = absensi ditutup, 1 = absensi dibuka, 2 = belum absensi di acara lampau
+        //     'status' => '2',// 0 = akan datang, 1 = berlangsung, 2 = sudah selesai
+        //     'pic' => 'Retno Adi Saputra',
+        //     'notulensi' => 'https://drive.google.com/file/d/1aNf4-BT_zoiQVb_njTvfa3I2ZPE4CsNe/view?usp=share_link' ,
+        // ]);
+
         DB::table('kegiatans')->insert([
-            'id' => '5',
-            'nama_kegiatan' => 'Meeting Proyek D',
-            'lokasi' => 'GOR Mahesa Jenar',
-            'jam' => '11.00',
-            'tanggal' => '23/09/2023',
-            'absensi' => '0',//  0 = absensi ditutup, 1 = absensi dibuka, 2 = belum absensi di acara lampau
-            'status' => '2',// 0 = akan datang, 1 = berlangsung, 2 = sudah selesai
-            'pic' => 'Retno Adi Saputra',
-            'notulensi' => 'https://drive.google.com/file/d/1aNf4-BT_zoiQVb_njTvfa3I2ZPE4CsNe/view?usp=share_link' ,
+            'id' => 1,
+            'nama_kegiatan' => 'Pemilihan Walikota ',
+            'jam' => '08:00',
+            'tanggal' => '01-08-2024',
+            'status' => '1',
+            'jenis_pemilihan' => 'Walikota',
         ]);
 
-        
+
+        DB::table('kegiatans')->insert([
+            'id' => 2,
+            'nama_kegiatan' => 'Pemilihan Walikota ',
+            'jam' => '08:00',
+            'tanggal' => '01-08-2024',
+            'status' => '1',
+            'jenis_pemilihan' => 'Walikota',
+        ]);
+
+
+        DB::table('kegiatans')->insert([
+            'id' => 3,
+            'nama_kegiatan' => 'Pemilihan Gubernur ',
+            'jam' => '08:00',
+            'tanggal' => '01-08-2024',
+            'status' => '1',
+            'jenis_pemilihan' => 'Gubernur',
+        ]);
+
+        DB::table('kegiatans')->insert([
+            'id' => 4,
+            'nama_kegiatan' => 'Pemilihan Gubernur',
+            'jam' => '08:00',
+            'tanggal' => '01-08-2024',
+            'status' => '1',
+            'jenis_pemilihan' => 'Gubernur',
+        ]);
     }
 }

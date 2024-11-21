@@ -14,13 +14,10 @@ return new class extends Migration
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
             $table->string('nama_kegiatan');
-            $table->string('lokasi');
             $table->string('jam');
             $table->string('tanggal');
-            $table->integer('absensi');
-            $table->integer('status');
-            $table->string('pic');
-            $table->string('notulensi');
+            $table->boolean('status');
+            $table->string('jenis_pemilihan');
             $table->timestamps();
         });
     }

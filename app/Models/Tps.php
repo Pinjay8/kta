@@ -5,15 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kegiatan extends Model
+class Tps extends Model
 {
     use HasFactory;
+
     protected $fillable = [
-        'nama_kegiatan',
-        'lokasi',
-        'jam',
-        'tanggal',
+        'no_tps',
+        'alamat',
+        'kelurahan',
+        'rt',
+        'rw',
+        'kecamatan',
         'status',
-        'jenis_pemilihan',
     ];
 }

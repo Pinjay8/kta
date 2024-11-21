@@ -4,23 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Anggota;
 
-class Absensi extends Model
+class PengajuanPerhitunganUlang extends Model
 {
     use HasFactory;
+
     protected $fillable = [
+        'id_kegiatan',
         'id_anggota',
-        'latitude',
-        'longitude',
-        'tps_image',
-        'selfie_image',
-        'status',
+        'is_accepted',
+        'reason'
     ];
 
     public function anggota()
     {
-        return $this->belongsTo(Anggota::class, 'id_anggota', 'id')->withDefault();
+        return $this->belongsTo(Anggota::class, 'id_anggota', 'id');
     }
 
     public function kegiatan()

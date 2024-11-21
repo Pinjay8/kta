@@ -11,14 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('absensis', function (Blueprint $table) {
+        Schema::create('pengajuan_perhitungan_ulangs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('id_kegiatan')->constrained('kegiatans');
             $table->foreignId('id_anggota')->constrained('anggotas');
-            $table->double('latitude')->nullable();
-            $table->double('longitude')->nullable();
-            $table->longText('tps_image')->nullable();
-            $table->longText('selfie_image')->nullable();
-            $table->boolean('status');
+            $table->boolean('is_accepted')->default(false);
+            $table->string('reason');
             $table->timestamps();
         });
     }
@@ -28,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('absensis');
+        Schema::dropIfExists('pengajuan_perhitungan_ulangs');
     }
 };
