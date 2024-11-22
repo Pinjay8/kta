@@ -10,6 +10,7 @@ use App\Models\Absensi;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
 use Auth;
+use App\Models\Calon;
 
 class KegiatanController extends Controller
 {
@@ -76,17 +77,44 @@ class KegiatanController extends Controller
         ], 200);
     }
 
-        //API Kegiatan Hari Ini
-        public function now(Request $request){
-            $tgl_sekarang = Carbon::now()->format('Y-m-d');
 
-            $kegiatan = Kegiatan::where('tanggal', $tgl_sekarang)->get();
-            return response()->json([
-                'status' => true,
-                'message' => 'success',
-                'data' => $kegiatan,
-            ], 200);
-        }
+    public function getKegiatan() {
+        $kegiatan = Kegiatan::all();
+        $response = $kegiatan->map(function ($item) {
+            $calonData = Calon::where('status', $item->jenis_pemilihan)->get()->map(function ($calon) {
+                return [
+                    'id' => $calon->id ?? '',
+                    'name' => $calon->name ?? '', 
+                ];
+            });
+
+            return [
+                'id' => $item->id ?? '',
+                'nama_kegiatan' => $item->nama_kegiatan ?? '',
+                'lokasi' => $item->lokasi ?? '',
+                'jam' => $item->jam ?? '',
+                'tanggal' => $item->tanggal ?? '',
+                'absensi' => $item->absensi ?? '',
+                'status' => $item->status ?? '',
+                'pic' => $item->pic ?? '',
+                'notulensi' => $item->notulensi ?? '',
+                'calon' => $calonData ?? '',
+                'jenis_pemilihan' => $item->jenis_pemilihan ?? '',
+            ];
+        });
+
+        return response()->json([
+            'status' => true,
+            'message' => 'success',
+            'data' => $response,
+        ], 200);
+    }
+
+
+
+    public function tambahkegiatan(Request $request){
+        
+    }
 
 
 }
