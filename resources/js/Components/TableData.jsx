@@ -18,36 +18,45 @@ import { Button, PageButton } from "@/Components/Button";
 import { classNames } from "@/Components/Utils";
 import PrimaryButton from "@/Components/PrimaryButton";
 import SecondaryButton from "@/Components/SecondaryButton";
-import TextInput from '@/Components/TextInput';
-import InputError from '@/Components/InputError';
-import InputLabel from '@/Components/InputLabel';
+import TextInput from "@/Components/TextInput";
+import InputError from "@/Components/InputError";
+import InputLabel from "@/Components/InputLabel";
 import DangerButton from "@/Components/DangerButton";
 // import Modal from '@/Components/Modal';
 import { Modal, Badge } from "flowbite-react";
-import { useForm } from '@inertiajs/react';
-import ModalAnggotaButton from '@/Pages/Modal/ModalAnggota';
-import ModalKegiatanButton from '@/Pages/Modal/ModalKegiatan';
+import { useForm } from "@inertiajs/react";
+import ModalAnggotaButton from "@/Pages/Modal/ModalAnggota";
+import ModalKegiatanButton from "@/Pages/Modal/ModalKegiatan";
 import ModalTambahAnggota from "@/Pages/Modal/ModalTambahAnggota";
 import ModalTambahKegiatan from "@/Pages/Modal/ModalTambahKegiatan";
-
-
-
-
+import ModalCalonButton from "@/Pages/Modal/ModalCalon";
+import ModalTambahCalon from "@/Pages/Modal/ModalTambahCalon";
+import ModalTpsButton from "@/Pages/Modal/ModalTps";
+import ModalTambahTps from "@/Pages/Modal/ModalTambahTps";
 
 export function StatusPill({ value }) {
-    const status = value === 0 ? "akan dimulai" : value === 1 ? "berlangsung" : value === 2 ? "telah berakhir" : "unknown";
+    const status =
+        value == 0
+            ? "Tidak Aktif"
+            : value == 1
+            ? "Aktif"
+            : value == 2
+            ? "telah berakhir"
+            : "unknown";
 
     return (
         <span
             className={classNames(
                 "px-3 py-1 uppercase leading-wide font-bold text-xs rounded-full shadow-sm",
-                status.startsWith("akan dimulai")
+                status.startsWith("Tidak Aktif")
                     ? "bg-yellow-100 text-yellow-700"
                     : null,
-                status.startsWith("berlangsung")
+                status.startsWith("Aktif")
                     ? "bg-green-100 text-green-700"
                     : null,
-                status.startsWith("telah berakhir") ? "bg-red-100 text-red-700" : null
+                status.startsWith("telah berakhir")
+                    ? "bg-red-100 text-red-700"
+                    : null
             )}
         >
             {status}
@@ -55,19 +64,65 @@ export function StatusPill({ value }) {
     );
 }
 
-export function ModalAnggota(row){
-    return(
-    <>
-        <ModalAnggotaButton userdata = {row.row.original}/>
-    </>
+export function DateFormat({ value }) {
+    if (!value) return null;
+
+    // Ubah string tanggal menjadi objek Date
+    const date = new Date(value);
+
+    // Array bulan untuk menampilkan nama bulan
+    const monthNames = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+    ];
+
+    // Format tanggal ke dalam d F Y
+    const formattedDate = `${date.getDate()} ${
+        monthNames[date.getMonth()]
+    } ${date.getFullYear()}`;
+
+    return <span>{formattedDate}</span>;
+}
+
+export function ModalAnggota(row) {
+    return (
+        <>
+            <ModalAnggotaButton data={row.row.original} />
+        </>
     );
 }
 
-export function ModalKegiatan(row){
-    return(
-    <>
-        <ModalKegiatanButton data = {row.row.original}/>
-    </>
+export function ModalKegiatan(row) {
+    return (
+        <>
+            <ModalKegiatanButton data={row.row.original} />
+        </>
+    );
+}
+
+export function ModalCalon(row) {
+    return (
+        <>
+            <ModalCalonButton data={row.row.original} />
+        </>
+    );
+}
+
+export function ModalTps(row) {
+    return (
+        <>
+            <ModalTpsButton data={row.row.original} />
+        </>
     );
 }
 
@@ -137,7 +192,6 @@ function GlobalFilter({
 }
 
 function TableData({ columns, data, type }) {
-
     const {
         getTableProps,
         getTableBodyProps,
@@ -170,10 +224,16 @@ function TableData({ columns, data, type }) {
     // Render the UI for your table
     return (
         <>
-            <div className="flex gap-x-7">
-                {type === "kegiatan" ?(<ModalTambahKegiatan/>)
-                :type === "anggota" ?(<ModalTambahAnggota/>)
-                : null}
+            <div className="flex gap-x-7 justify-between">
+                {type === "kegiatan" ? (
+                    <ModalTambahKegiatan />
+                ) : type === "anggota" ? (
+                    <ModalTambahAnggota />
+                ) : type == "calon" ? (
+                    <ModalTambahCalon />
+                ) : type == "tps" ? (
+                    <ModalTambahTps />
+                ) : null}
                 <GlobalFilter
                     preGlobalFilteredRows={preGlobalFilteredRows}
                     globalFilter={state.globalFilter}

@@ -14,10 +14,7 @@ return new class extends Migration
         Schema::create('tps', function (Blueprint $table) {
             $table->id();
             $table->string('no_tps');
-            $table->string('alamat');
             $table->string('kelurahan');
-            $table->string('rt');
-            $table->string('rw');
             $table->string('kecamatan');
             $table->timestamps();
         });

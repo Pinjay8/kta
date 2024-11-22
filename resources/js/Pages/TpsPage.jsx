@@ -3,75 +3,59 @@ import { Head } from "@inertiajs/react";
 import React, { useEffect } from "react";
 import "flowbite";
 import "@babel/polyfill";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PrimaryButton from "@/Components/PrimaryButton";
-import TambahAnggota from "@/Pages/Modal/ModalTambahKegiatan";
 
-import Table, {
-    StatusPill,
-    ModalKegiatan,
-    DateFormat,
-} from "@/Components/TableData";
-import ModalTambahKegiatan from "@/Pages/Modal/ModalTambahKegiatan";
+import Table, { ModalTps } from "@/Components/TableData";
 
-export default function KegiatanPage({ auth, data }) {
+export default function TpsPage({ auth, data }) {
     const header = React.useMemo(() => [
+        // {
+        //     Header: "No",
+        //     accessor: "id",
+        // },
         {
-            Header: "No",
-            accessor: "id",
+            Header: "Nomor Tps",
+            accessor: "no_tps",
         },
-        {
-            Header: "Nama Kegiatan",
-            accessor: "nama_kegiatan",
-        },
-        {
-            Header: "Jam",
-            accessor: "jam",
-        },
+        // {
+        //     Header: "Alamat",
+        //     accessor: "alamat",
+        // },
 
         {
-            Header: "Tanggal",
-            accessor: "tanggal",
-            Cell: DateFormat,
+            Header: "Kelurahan",
+            accessor: "kelurahan",
         },
 
-        {
-            Header: "Status",
-            accessor: "status",
-            Cell: StatusPill,
-        },
+        // {
+        //     Header: "RT",
+        //     accessor: "rt",
+        // },
+
+        // {
+        //     Header: "RW",
+        //     accessor: "rw",
+        // },
 
         {
-            Header: "Jenis Pemilihan",
-            accessor: "jenis_pemilihan",
+            Header: "Kecamatan",
+            accessor: "kecamatan",
         },
 
         {
             Header: "Aksi",
-            Cell: ModalKegiatan,
+            Cell: ModalTps,
         },
     ]);
 
     const datavalue = React.useMemo(() => data, [data]);
-
-    // useEffect(() => {
-    //     const message = flash.message;
-    // const error = flash.error;
-
-    //     if (message) {
-    //       toast.success(message);
-    //     } else if (error) {
-    //       toast.error(error, { backgroundColor: 'red' });
-    //     }
-    //   }, [flash]);
 
     return (
         <AdminAuthenticatedLayout
             user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Kegiatan
+                    Tps
                 </h2>
             }
         >
@@ -82,14 +66,12 @@ export default function KegiatanPage({ auth, data }) {
                     <div className="min-h-screen  text-gray-900">
                         <main className=" sm:px-6 lg:px-8">
                             <div className="mt-4">
-                                <div className="pb-6">
-                                    {/* <ModalTambahKegiatan/> */}
-                                </div>
+                                <div className="pb-6"></div>
                                 <div className="overflow-x-auto lg:overflow-x-hidden">
                                     <Table
                                         columns={header}
                                         data={datavalue}
-                                        type="kegiatan"
+                                        type="tps"
                                     />
                                 </div>
                             </div>

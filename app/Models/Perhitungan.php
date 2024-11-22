@@ -25,4 +25,19 @@ class Perhitungan extends Model
         'gambar_laporan',
         'perhitungan_ulang',
     ];
+
+    public function kegiatan()
+    {
+        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
+    }
+
+    public function anggota()
+    {
+        return $this->belongsTo(Anggota::class, 'id_anggota', 'id');
+    }
+
+    public function tps()
+    {
+        return $this->belongsTo(Tps::class, 'id_tps', 'id');
+    }
 }

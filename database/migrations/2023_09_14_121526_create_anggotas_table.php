@@ -15,15 +15,15 @@ return new class extends Migration
             $table->id();
             $table->integer('no_anggota');
             $table->string('nama');
-            $table->string('no_hp')->unique();
-            $table->bigInteger('nik')->unique();
+            $table->string('no_hp');
+            $table->bigInteger('nik');
             $table->foreignId('id_tps')->constrained('tps');
             $table->string('alamat');
             $table->string('kecamatan');
             $table->string('kelurahan');
             $table->string('rt');
             $table->string('rw');
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

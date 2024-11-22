@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('kegiatans', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_kegiatan');
-            $table->string('jam');
-            $table->string('tanggal');
-            $table->boolean('status');
-            $table->string('jenis_pemilihan');
+            $table->string('nama_kegiatan')->nullable();
+            $table->string('jam')->nullable();
+            $table->string('tanggal')->nullable();
+            $table->string('status')->nullable();
+            $table->string('jenis_pemilihan')->nullable();
             $table->timestamps();
         });
     }

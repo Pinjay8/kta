@@ -8,15 +8,19 @@ import { BsDot } from "react-icons/bs";
 import { AiOutlineUser } from "react-icons/ai";
 import { Link } from "@inertiajs/react";
 import Dropdown from "@/Components/Dropdown";
+import { FaBoxesPacking } from "react-icons/fa6";
 import ApplicationLogo from "@/Components/ApplicationLogo";
+import { MdOutlineEmojiPeople } from "react-icons/md";
+import { FaTasks } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
+import { RxDashboard } from "react-icons/rx";
 
 export default function Authenticated({ user, header, children }) {
-
     const menus = [
         {
             name: "Dashboard",
             link: route("adminDashboard"),
-            icon: RiFileEditLine,
+            icon: RxDashboard,
         },
         ...(user.role === "superadmin"
             ? [
@@ -24,27 +28,37 @@ export default function Authenticated({ user, header, children }) {
                   {
                       name: "Dashboard Super Admin",
                       link: route("superAdminDashboard"),
-                      icon: RiFileEditLine,
-                  }
+                      icon: RxDashboard,
+                  },
                   // Add more additional menu items for superadmin role if needed
               ]
             : [
-                {
-                    name: "Dashboard admin",
-                    link: "adminDashboard",
-                    icon: RiFileEditLine,
-                }
-            ]),
+                  {
+                      name: "Dashboard admin",
+                      link: "adminDashboard",
+                      icon: RxDashboard,
+                  },
+              ]),
         { name: "Menu utama", link: "#", icon: BsDot, margin: true },
         {
             name: "Data Anggota",
             link: route("anggota"),
-            icon: RiFileEditLine,
+            icon: MdOutlineEmojiPeople,
         },
         {
             name: "Kegiatan",
             link: route("kegiatan"),
-            icon: RiFileEditLine,
+            icon: FaTasks,
+        },
+        {
+            name: "Calon Kandidat",
+            link: route("calon"),
+            icon: FaUserTie,
+        },
+        {
+            name: "Tps",
+            link: route("tps"),
+            icon: FaBoxesPacking,
         },
         { name: "Formulir", link: "#", icon: BsDot, margin: true },
         {
@@ -65,7 +79,6 @@ export default function Authenticated({ user, header, children }) {
             method: "post",
             as: "button",
         },
-        
     ];
     const [open, setOpen] = useState(window.innerWidth >= 768);
 
@@ -110,7 +123,8 @@ export default function Authenticated({ user, header, children }) {
                             !open && "hidden"
                         }`}
                     >
-                        PDIP Magelang Tengah
+                        DPC PDI PERJUANGAN <br />
+                        KOTA MAGELANG
                     </h2>
                 </div>
 

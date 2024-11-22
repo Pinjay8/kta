@@ -3,75 +3,44 @@ import { Head } from "@inertiajs/react";
 import React, { useEffect } from "react";
 import "flowbite";
 import "@babel/polyfill";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import PrimaryButton from "@/Components/PrimaryButton";
-import TambahAnggota from "@/Pages/Modal/ModalTambahKegiatan";
 
-import Table, {
-    StatusPill,
-    ModalKegiatan,
-    DateFormat,
-} from "@/Components/TableData";
-import ModalTambahKegiatan from "@/Pages/Modal/ModalTambahKegiatan";
+import Table, { ModalCalon } from "@/Components/TableData";
 
-export default function KegiatanPage({ auth, data }) {
+export default function CalonPage({ auth, data }) {
     const header = React.useMemo(() => [
         {
             Header: "No",
             accessor: "id",
         },
         {
-            Header: "Nama Kegiatan",
-            accessor: "nama_kegiatan",
+            Header: "Nama",
+            accessor: "nama",
         },
         {
-            Header: "Jam",
-            accessor: "jam",
-        },
-
-        {
-            Header: "Tanggal",
-            accessor: "tanggal",
-            Cell: DateFormat,
+            Header: "Nomor Urut",
+            accessor: "no_urut",
         },
 
         {
-            Header: "Status",
+            Header: "status",
             accessor: "status",
-            Cell: StatusPill,
-        },
-
-        {
-            Header: "Jenis Pemilihan",
-            accessor: "jenis_pemilihan",
         },
 
         {
             Header: "Aksi",
-            Cell: ModalKegiatan,
+            Cell: ModalCalon,
         },
     ]);
 
     const datavalue = React.useMemo(() => data, [data]);
-
-    // useEffect(() => {
-    //     const message = flash.message;
-    // const error = flash.error;
-
-    //     if (message) {
-    //       toast.success(message);
-    //     } else if (error) {
-    //       toast.error(error, { backgroundColor: 'red' });
-    //     }
-    //   }, [flash]);
 
     return (
         <AdminAuthenticatedLayout
             user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
-                    Kegiatan
+                    Calon
                 </h2>
             }
         >
@@ -89,7 +58,7 @@ export default function KegiatanPage({ auth, data }) {
                                     <Table
                                         columns={header}
                                         data={datavalue}
-                                        type="kegiatan"
+                                        type="calon"
                                     />
                                 </div>
                             </div>

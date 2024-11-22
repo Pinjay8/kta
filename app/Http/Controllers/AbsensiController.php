@@ -19,7 +19,7 @@ class AbsensiController extends Controller
         $namaKegiatan = Kegiatan::where('id', $id)
         ->value('nama_kegiatan');
 
-        $absensi = Absensi::where('status_absensi', 1)
+        $absensi = Absensi::where('status', 1)
         ->with('anggota')
         ->get();
 

@@ -3,25 +3,42 @@
 namespace App\Http\Controllers;
 
 
-use Inertia\Inertia;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Gd\Shapes\RoundedRectangleShape;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Input;
-use Intervention\Image\ImageManagerStatic as Image;
+use App\Imports\AnggotaImport;
 use App\Models\Anggota;
-use Imagick;
+use App\Models\Tps;
 use DB;
 use GD;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use Imagick;
+use Inertia\Inertia;
+use Intervention\Image\Gd\Shapes\RoundedRectangleShape;
+use Intervention\Image\ImageManagerStatic as Image;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AnggotaController extends Controller
 {
-    //
-    public function show(){
+    public function importExcelAnggota(Request $request)
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        // Menggunakan import untuk memproses file Excel
+        Excel::import(new AnggotaImport, $request->file('file'));
+
+        return redirect()->route('anggota');
+    }
+
+
+    public function show()
+    {
         $anggota = Anggota::all();
+        // dd($anggota);
 
         return Inertia::render('AnggotaPage', [
             'data' => $anggota,
@@ -31,17 +48,18 @@ class AnggotaController extends Controller
     public function create(Request $request)
     {
 
-
         $request->validate([
-            'nama' => 'required|string|max:255',
-            'email' => 'required|string|max:255',
-            'nik' => 'required|integer',
-            'ttl' => 'required|string',
-            'jk' => 'required',
-            'jabatan' => 'required|string',
-            'pekerjaan' => 'required|string',
             'no_anggota' => 'required',
-            'password' => 'required|string|min:8'
+            'nama' => 'required',
+            'no_hp' => 'required',
+            'nik' => 'required',
+            'id_tps' => 'required',
+            'alamat' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+            'password' => 'required'
         ]);
 
 
@@ -50,21 +68,48 @@ class AnggotaController extends Controller
         $input['password'] = bcrypt($input['password']);
         $anggota = Anggota::create($input);
 
-        $success['token'] = $anggota->createToken('auth_token')->plainTextToken;
-        $success['nama'] = $anggota->nama;
-
-        return response()->json([
-            'success' => true,
-            'data' => $success,
-            'token_type' => 'Bearer'
-        ]);
+        // return Inertia::render('ModalTambahAnggota', [
+        //     'successMessage' => 'Anggota berhasil ditambahkan!',
+        //     'tpsOptions' => Tps::all()->map(fn($tps) => [
+        //         'value' => $tps->id,
+        //         'label' => $tps->name,
+        //     ]),
+        // ]);
     }
 
-    public function info(){
+    public function info()
+    {
         phpinfo();
     }
 
-    public function delete(){
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'no_anggota' => 'required',
+            'nama' => 'required',
+            'no_hp' => 'required',
+            'nik' => 'required',
+            'id_tps' => 'required',
+            'alamat' => 'required',
+            'kecamatan' => 'required',
+            'kelurahan' => 'required',
+            'rt' => 'required',
+            'rw' => 'required',
+        ]);
 
+        $anggota = Anggota::find($id);
+
+        // $input = $request->all();
+        // $input['password'] = bcrypt($input['password']);
+        // $anggota->update($input);
+
+        $anggota->update($request->all());
+
+        return redirect()->back();
+    }
+
+    public function delete($id)
+    {
+        $calon = Anggota::where('id', $id)->delete();
     }
 }

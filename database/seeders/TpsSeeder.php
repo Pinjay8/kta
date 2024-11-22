@@ -18,22 +18,16 @@ class TpsSeeder extends Seeder
         DB::table('tps')->insert([
             'id' => 1,
             'no_tps' => '1',
-            'alamat' => 'Jl. TPS 1',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'Purbalingga',
-            'rt' => '1',
-            'rw' => '1',
         ]);
 
 
         DB::table('tps')->insert([
             'id' => 2,
             'no_tps' => '2',
-            'alamat' => 'Jl. TPS 2',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'Purbalingga',
-            'rt' => '2',
-            'rw' => '2',
         ]);
     }
 }

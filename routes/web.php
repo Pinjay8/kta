@@ -1,15 +1,19 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\AnggotaController;
-use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\CalonController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PengajuanFormController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TpsController;
+use App\Models\Calon;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+
 
 
 /*
@@ -38,16 +42,35 @@ Route::get('/', function () {
 
 
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth'], function () {
     Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
 
     //Render Page
+    // Kegiatan
     Route::get('/kegiatan', [KegiatanController::class, "show"])->name('kegiatan');
     Route::post('/kegiatan', [KegiatanController::class, "create"])->name('create.kegiatan');
     Route::post('/kegiatan/update/{id}', [KegiatanController::class, "update"])->name('update.kegiatan');
     Route::post('/kegiatan/delete/{id}', [KegiatanController::class, "delete"])->name('delete.kegiatan');
+    // 
+    // Calon
+    Route::get('/calon', [CalonController::class, "show"])->name('calon');
+    Route::post('/calon', [CalonController::class, "create"])->name('create.calon');
+    Route::post('/calon/update/{id}', [CalonController::class, "update"])->name('update.calon');
+    Route::post('/calon/delete/{id}', [CalonController::class, "delete"])->name('delete.calon');
+
+    // TPS
+    Route::get('/tps', [TpsController::class, "show"])->name('tps');
+    Route::post('/tps', [tpsController::class, "create"])->name('create.tps');
+    Route::post('/tps/update/{id}', [tpsController::class, "update"])->name('update.tps');
+    Route::post('/tps/delete/{id}', [tpsController::class, "delete"])->name('delete.tps');
+    Route::post('/tps/import', [TpsController::class, 'importExcel'])->name('import.tps');
+    // Anggota
     Route::get('/anggota', [AnggotaController::class, "show"])->name('anggota');
     Route::post('/anggota/upload', [AnggotaController::class, "create"])->name('create.anggota');
+    Route::post('/anggota/update/{id}', [AnggotaController::class, "update"])->name('update.anggota');
+    Route::post('/anggota/delete/{id}', [AnggotaController::class, "delete"])->name('delete.anggota');
+    Route::post('/anggota/import', [AnggotaController::class, 'importExcelAnggota'])->name('import.anggota');
+
     Route::get('/pengajuan-kta', [PengajuanFormController::class, "show"])->name('pengajuan');
     Route::get('/absensi/{id}', [AbsensiController::class, "show"])->name('absensi');
     // Route::get('/kegiatan/tambah', [KegiatanController::class, "tambah"])->name('tambah.kegiatan');
@@ -61,12 +84,11 @@ Route::group(['middleware' => 'auth'], function() {
 
     // Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
     Route::get('/adminDashboard', [DashboardController::class, 'show'])->name('adminDashboard');
-    
-    Route::group(['middleware' => 'checkRole:superadmin'], function() {
-        Route::inertia('/superAdminDashboard', 'SuperAdminDashboard')->name('superAdminDashboard');
-    }); 
 
-}); 
+    Route::group(['middleware' => 'checkRole:superadmin'], function () {
+        Route::inertia('/superAdminDashboard', 'SuperAdminDashboard')->name('superAdminDashboard');
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -74,4 +96,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

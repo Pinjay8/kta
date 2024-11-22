@@ -43,4 +43,9 @@ class Anggota extends Authenticatable
     {
         return $this->hasMany(Absensi::class);
     }
+
+    public function tps()
+    {
+        return $this->belongsTo(Tps::class, 'id_tps', 'id');
+    }
 }

@@ -11,11 +11,12 @@ class Tps extends Model
 
     protected $fillable = [
         'no_tps',
-        'alamat',
         'kelurahan',
-        'rt',
-        'rw',
         'kecamatan',
-        'status',
     ];
+
+    public function anggota()
+    {
+        return $this->belongsTo(Anggota::class);
+    }
 }
