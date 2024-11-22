@@ -3,480 +3,720 @@
     "file": "assets/DateInput-714990a0.css",
     "src": "DateInput.css"
   },
-  "_ApplicationLogo-1cbbb8f8.js": {
-    "file": "assets/ApplicationLogo-1cbbb8f8.js",
+  "ReactToastify.css": {
+    "file": "assets/ReactToastify-93d8b085.css",
+    "src": "ReactToastify.css"
+  },
+  "_ApplicationLogo-a1a0b9c9.js": {
+    "file": "assets/ApplicationLogo-a1a0b9c9.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_AuthenticatedLayout-4c03d616.js": {
-    "file": "assets/AuthenticatedLayout-4c03d616.js",
+  "_AuthenticatedLayout-5cfcb5ba.js": {
+    "file": "assets/AuthenticatedLayout-5cfcb5ba.js",
     "imports": [
       "resources/js/app.jsx",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ]
   },
-  "_DangerButton-8bdd0b8f.js": {
-    "file": "assets/DangerButton-8bdd0b8f.js",
+  "_DangerButton-ce690960.js": {
+    "file": "assets/DangerButton-ce690960.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_DateInput-9918bc45.js": {
+  "_DateInput-2aa83f36.js": {
     "css": [
       "assets/DateInput-714990a0.css"
     ],
-    "file": "assets/DateInput-9918bc45.js",
+    "file": "assets/DateInput-2aa83f36.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_GuestLayout-21fd4453.js": {
-    "file": "assets/GuestLayout-21fd4453.js",
+  "_GuestLayout-71d718e7.js": {
+    "file": "assets/GuestLayout-71d718e7.js",
     "imports": [
       "resources/js/app.jsx",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_ApplicationLogo-a1a0b9c9.js"
     ]
   },
-  "_InputError-10b5b0bf.js": {
-    "file": "assets/InputError-10b5b0bf.js",
+  "_InputError-79abc355.js": {
+    "file": "assets/InputError-79abc355.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_InputLabel-f0052f76.js": {
-    "file": "assets/InputLabel-f0052f76.js",
+  "_InputLabel-10d1f24d.js": {
+    "file": "assets/InputLabel-10d1f24d.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_Modal-568dcd03.js": {
-    "file": "assets/Modal-568dcd03.js",
+  "_Modal-0a3bc0e9.js": {
+    "file": "assets/Modal-0a3bc0e9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_transition-a3bdee3f.js"
+      "_transition-b62f9e9b.js"
     ]
   },
-  "_PrimaryButton-d684a93b.js": {
-    "file": "assets/PrimaryButton-d684a93b.js",
+  "_PrimaryButton-4eff62b6.js": {
+    "file": "assets/PrimaryButton-4eff62b6.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_SelectInput-4edb0bd3.js": {
-    "file": "assets/SelectInput-4edb0bd3.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_TableData-500940eb.js": {
-    "file": "assets/TableData-500940eb.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_index-1d7270c6.js",
-      "_index-66df754a.js",
-      "_TextInput-78fa51fe.js",
-      "_Tooltip-f0621edb.js",
-      "resources/js/Pages/Modal/ModalAnggota.jsx",
-      "resources/js/Pages/Modal/ModalKegiatan.jsx",
-      "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
-      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx"
-    ]
-  },
-  "_TextInput-78fa51fe.js": {
-    "file": "assets/TextInput-78fa51fe.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_Tooltip-f0621edb.js": {
-    "file": "assets/Tooltip-f0621edb.js",
-    "imports": [
-      "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js"
-    ]
-  },
-  "_index-1d7270c6.js": {
-    "file": "assets/index-1d7270c6.js",
-    "imports": [
-      "resources/js/app.jsx"
-    ]
-  },
-  "_index-66df754a.js": {
+  "_ReactToastify-c5e820de.js": {
     "css": [
-      "assets/index-93d8b085.css"
+      "assets/ReactToastify-93d8b085.css"
     ],
-    "file": "assets/index-66df754a.js",
+    "file": "assets/ReactToastify-c5e820de.js",
     "imports": [
-      "_DateInput-9918bc45.js",
+      "_DateInput-2aa83f36.js"
+    ]
+  },
+  "_SelectInput-57fefecc.js": {
+    "file": "assets/SelectInput-57fefecc.js",
+    "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "_transition-a3bdee3f.js": {
-    "file": "assets/transition-a3bdee3f.js",
+  "_TableData-58a0cc62.js": {
+    "file": "assets/TableData-58a0cc62.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_index-ab567e1e.js",
+      "_TextInput-43a2c7ad.js",
+      "_Tooltip-3eb88b48.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx"
+    ],
+    "isDynamicEntry": true
+  },
+  "_TextInput-43a2c7ad.js": {
+    "file": "assets/TextInput-43a2c7ad.js",
     "imports": [
       "resources/js/app.jsx"
     ]
   },
-  "index.css": {
-    "file": "assets/index-93d8b085.css",
-    "src": "index.css"
+  "_Tooltip-3eb88b48.js": {
+    "file": "assets/Tooltip-3eb88b48.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_index.esm-c790ecfb.js"
+    ]
+  },
+  "_index-932ae146.js": {
+    "file": "assets/index-932ae146.js"
+  },
+  "_index-ab567e1e.js": {
+    "file": "assets/index-ab567e1e.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_index.esm-c790ecfb.js": {
+    "file": "assets/index.esm-c790ecfb.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_react-toastify.esm-650aad3b.js": {
+    "file": "assets/react-toastify.esm-650aad3b.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_transition-b62f9e9b.js": {
+    "file": "assets/transition-b62f9e9b.js",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
   },
   "resources/js/Pages/AbsensiPage.jsx": {
-    "file": "assets/AbsensiPage-1f09fe0a.js",
+    "file": "assets/AbsensiPage-e6e2d050.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_index-66df754a.js",
-      "_TableData-500940eb.js",
-      "_DangerButton-8bdd0b8f.js",
-      "_TextInput-78fa51fe.js",
-      "_SelectInput-4edb0bd3.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js",
-      "_DateInput-9918bc45.js",
-      "_index-1d7270c6.js",
-      "_Tooltip-f0621edb.js",
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_ReactToastify-c5e820de.js",
+      "_index-932ae146.js",
+      "_react-toastify.esm-650aad3b.js",
+      "_TableData-58a0cc62.js",
+      "_DangerButton-ce690960.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js",
+      "_DateInput-2aa83f36.js",
+      "_index-ab567e1e.js",
+      "_Tooltip-3eb88b48.js",
       "resources/js/Pages/Modal/ModalAnggota.jsx",
-      "_Modal-568dcd03.js",
-      "resources/js/Pages/Modal/ModalKegiatan.jsx",
-      "_PrimaryButton-d684a93b.js",
+      "_Modal-0a3bc0e9.js",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
       "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
-      "_InputLabel-f0052f76.js",
-      "_InputError-10b5b0bf.js",
       "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
-      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx"
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AbsensiPage.jsx"
   },
   "resources/js/Pages/AdminDashboard.jsx": {
-    "file": "assets/AdminDashboard-424e54b2.js",
+    "file": "assets/AdminDashboard-52ac7eed.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_Tooltip-f0621edb.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_Tooltip-3eb88b48.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AdminDashboard.jsx"
   },
   "resources/js/Pages/AnggotaPage.jsx": {
-    "file": "assets/AnggotaPage-01f2e824.js",
+    "file": "assets/AnggotaPage-1cc51b18.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_index-66df754a.js",
-      "_TableData-500940eb.js",
-      "_TextInput-78fa51fe.js",
-      "_SelectInput-4edb0bd3.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js",
-      "_DateInput-9918bc45.js",
-      "_index-1d7270c6.js",
-      "_Tooltip-f0621edb.js",
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_ReactToastify-c5e820de.js",
+      "_index-932ae146.js",
+      "_react-toastify.esm-650aad3b.js",
+      "_TableData-58a0cc62.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js",
+      "_DateInput-2aa83f36.js",
+      "_index-ab567e1e.js",
+      "_Tooltip-3eb88b48.js",
       "resources/js/Pages/Modal/ModalAnggota.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_Modal-568dcd03.js",
-      "resources/js/Pages/Modal/ModalKegiatan.jsx",
-      "_PrimaryButton-d684a93b.js",
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
       "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
-      "_InputLabel-f0052f76.js",
-      "_InputError-10b5b0bf.js",
       "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
-      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx"
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/AnggotaPage.jsx"
   },
   "resources/js/Pages/Auth/ConfirmPassword.jsx": {
-    "file": "assets/ConfirmPassword-0d7a3058.js",
+    "file": "assets/ConfirmPassword-36a466ec.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-21fd4453.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_GuestLayout-71d718e7.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ConfirmPassword.jsx"
   },
   "resources/js/Pages/Auth/ForgotPassword.jsx": {
-    "file": "assets/ForgotPassword-80e67fc9.js",
+    "file": "assets/ForgotPassword-abf463b8.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-21fd4453.js",
-      "_InputError-10b5b0bf.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_GuestLayout-71d718e7.js",
+      "_InputError-79abc355.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ForgotPassword.jsx"
   },
   "resources/js/Pages/Auth/Login.jsx": {
-    "file": "assets/Login-b8958ddc.js",
+    "file": "assets/Login-9bad7728.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-21fd4453.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_GuestLayout-71d718e7.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Login.jsx"
   },
   "resources/js/Pages/Auth/Register.jsx": {
-    "file": "assets/Register-dace1944.js",
+    "file": "assets/Register-5c63d76b.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-21fd4453.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_GuestLayout-71d718e7.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/Register.jsx"
   },
   "resources/js/Pages/Auth/ResetPassword.jsx": {
-    "file": "assets/ResetPassword-d1323c13.js",
+    "file": "assets/ResetPassword-cc523da9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-21fd4453.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_GuestLayout-71d718e7.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/ResetPassword.jsx"
   },
   "resources/js/Pages/Auth/VerifyEmail.jsx": {
-    "file": "assets/VerifyEmail-2c03522b.js",
+    "file": "assets/VerifyEmail-91e95ffb.js",
     "imports": [
       "resources/js/app.jsx",
-      "_GuestLayout-21fd4453.js",
-      "_PrimaryButton-d684a93b.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_GuestLayout-71d718e7.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Auth/VerifyEmail.jsx"
   },
-  "resources/js/Pages/Formulir/TambahKegiatan.jsx": {
-    "file": "assets/TambahKegiatan-f3763fd6.js",
+  "resources/js/Pages/CalonPage.jsx": {
+    "file": "assets/CalonPage-e0311a66.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_ReactToastify-c5e820de.js",
+      "_index-932ae146.js",
+      "_TableData-58a0cc62.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js",
+      "_DateInput-2aa83f36.js",
+      "_index-ab567e1e.js",
+      "_TextInput-43a2c7ad.js",
+      "_Tooltip-3eb88b48.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_SelectInput-57fefecc.js",
+      "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/CalonPage.jsx"
+  },
+  "resources/js/Pages/Formulir/TambahKegiatan.jsx": {
+    "file": "assets/TambahKegiatan-d82392d3.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Formulir/TambahKegiatan.jsx"
   },
   "resources/js/Pages/KegiatanPage.jsx": {
-    "file": "assets/KegiatanPage-96860731.js",
+    "file": "assets/KegiatanPage-48622c33.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_index-66df754a.js",
-      "_TableData-500940eb.js",
-      "_DateInput-9918bc45.js",
-      "_TextInput-78fa51fe.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js",
-      "_index-1d7270c6.js",
-      "_Tooltip-f0621edb.js",
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_ReactToastify-c5e820de.js",
+      "_index-932ae146.js",
+      "_react-toastify.esm-650aad3b.js",
+      "_DateInput-2aa83f36.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_TableData-58a0cc62.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js",
+      "_index-ab567e1e.js",
+      "_Tooltip-3eb88b48.js",
       "resources/js/Pages/Modal/ModalAnggota.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_Modal-568dcd03.js",
-      "resources/js/Pages/Modal/ModalKegiatan.jsx",
-      "_PrimaryButton-d684a93b.js",
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
       "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
-      "_InputLabel-f0052f76.js",
-      "_InputError-10b5b0bf.js",
       "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
-      "_SelectInput-4edb0bd3.js",
-      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx"
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/KegiatanPage.jsx"
   },
   "resources/js/Pages/Modal/ModalAnggota.jsx": {
-    "file": "assets/ModalAnggota-44bd1aff.js",
+    "file": "assets/ModalAnggota-f04db918.js",
     "imports": [
       "resources/js/app.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_Modal-568dcd03.js",
-      "_TextInput-78fa51fe.js",
-      "_transition-a3bdee3f.js"
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_index-ab567e1e.js",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "_Tooltip-3eb88b48.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_index.esm-c790ecfb.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Modal/ModalAnggota.jsx"
   },
-  "resources/js/Pages/Modal/ModalEditKegiatan.jsx": {
-    "file": "assets/ModalEditKegiatan-066ef912.js",
+  "resources/js/Pages/Modal/ModalCalon.jsx": {
+    "file": "assets/ModalCalon-1dd4bd81.js",
     "imports": [
       "resources/js/app.jsx",
-      "_Modal-568dcd03.js",
-      "_TextInput-78fa51fe.js",
-      "_PrimaryButton-d684a93b.js",
-      "_InputLabel-f0052f76.js",
-      "_InputError-10b5b0bf.js",
-      "_DateInput-9918bc45.js",
-      "_transition-a3bdee3f.js"
+      "_index-ab567e1e.js",
+      "_Modal-0a3bc0e9.js",
+      "_DangerButton-ce690960.js",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
+      "_TextInput-43a2c7ad.js",
+      "_Tooltip-3eb88b48.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_index.esm-c790ecfb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalCalon.jsx"
+  },
+  "resources/js/Pages/Modal/ModalEditAnggota.jsx": {
+    "file": "assets/ModalEditAnggota-37a480a4.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalEditAnggota.jsx"
+  },
+  "resources/js/Pages/Modal/ModalEditCalon.jsx": {
+    "file": "assets/ModalEditCalon-aeb62055.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalEditCalon.jsx"
+  },
+  "resources/js/Pages/Modal/ModalEditKegiatan.jsx": {
+    "file": "assets/ModalEditKegiatan-58e1893d.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Modal/ModalEditKegiatan.jsx"
   },
-  "resources/js/Pages/Modal/ModalKegiatan.jsx": {
-    "file": "assets/ModalKegiatan-ae94dd56.js",
+  "resources/js/Pages/Modal/ModalEditTps.jsx": {
+    "file": "assets/ModalEditTps-b1e5c533.js",
     "imports": [
       "resources/js/app.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_Modal-568dcd03.js",
-      "_index-1d7270c6.js",
-      "_TextInput-78fa51fe.js",
-      "_PrimaryButton-d684a93b.js",
-      "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
-      "_transition-a3bdee3f.js",
-      "_InputLabel-f0052f76.js",
-      "_InputError-10b5b0bf.js",
-      "_DateInput-9918bc45.js"
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
-    "src": "resources/js/Pages/Modal/ModalKegiatan.jsx"
+    "src": "resources/js/Pages/Modal/ModalEditTps.jsx"
   },
   "resources/js/Pages/Modal/ModalTambahAnggota.jsx": {
-    "file": "assets/ModalTambahAnggota-6bc55671.js",
+    "file": "assets/ModalTambahAnggota-4c7a7189.js",
     "imports": [
       "resources/js/app.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_Modal-568dcd03.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_SelectInput-4edb0bd3.js",
-      "_transition-a3bdee3f.js"
+      "_DangerButton-ce690960.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_Modal-0a3bc0e9.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Modal/ModalTambahAnggota.jsx"
   },
-  "resources/js/Pages/Modal/ModalTambahKegiatan.jsx": {
-    "file": "assets/ModalTambahKegiatan-38364917.js",
+  "resources/js/Pages/Modal/ModalTambahCalon.jsx": {
+    "file": "assets/ModalTambahCalon-4c8091ed.js",
     "imports": [
       "resources/js/app.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_DateInput-9918bc45.js",
-      "_Modal-568dcd03.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_transition-a3bdee3f.js"
+      "_DangerButton-ce690960.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_DateInput-2aa83f36.js",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalTambahCalon.jsx"
+  },
+  "resources/js/Pages/Modal/ModalTambahKegiatan.jsx": {
+    "file": "assets/ModalTambahKegiatan-dc1e56d3.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_DangerButton-ce690960.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_DateInput-2aa83f36.js",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Modal/ModalTambahKegiatan.jsx"
   },
-  "resources/js/Pages/PengajuanFormPage.jsx": {
-    "file": "assets/PengajuanFormPage-4eae5f81.js",
+  "resources/js/Pages/Modal/ModalTambahTps.jsx": {
+    "file": "assets/ModalTambahTps-0fccb789.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_index-66df754a.js",
-      "_index-1d7270c6.js",
-      "_TextInput-78fa51fe.js",
-      "_Tooltip-f0621edb.js",
-      "_DateInput-9918bc45.js",
-      "_SelectInput-4edb0bd3.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_DangerButton-ce690960.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_DateInput-2aa83f36.js",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalTambahTps.jsx"
+  },
+  "resources/js/Pages/Modal/ModalTps.jsx": {
+    "file": "assets/ModalTps-a98a2910.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "_index-ab567e1e.js",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "_TextInput-43a2c7ad.js",
+      "_Tooltip-3eb88b48.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_transition-b62f9e9b.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_index.esm-c790ecfb.js"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/Modal/ModalTps.jsx"
+  },
+  "resources/js/Pages/PengajuanFormPage.jsx": {
+    "file": "assets/PengajuanFormPage-3da40172.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_ReactToastify-c5e820de.js",
+      "_react-toastify.esm-650aad3b.js",
+      "_index-ab567e1e.js",
+      "_TextInput-43a2c7ad.js",
+      "_Tooltip-3eb88b48.js",
+      "_DateInput-2aa83f36.js",
+      "_SelectInput-57fefecc.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/PengajuanFormPage.jsx"
   },
   "resources/js/Pages/Profile/Edit.jsx": {
-    "file": "assets/Edit-e54d0b32.js",
+    "file": "assets/Edit-ad2129f9.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
+      "_AuthenticatedLayout-5cfcb5ba.js",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js",
-      "_DangerButton-8bdd0b8f.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_Modal-568dcd03.js",
-      "_TextInput-78fa51fe.js",
-      "_PrimaryButton-d684a93b.js"
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js",
+      "_DangerButton-ce690960.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_PrimaryButton-4eff62b6.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Edit.jsx"
   },
   "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx": {
-    "file": "assets/DeleteUserForm-ba983c82.js",
+    "file": "assets/DeleteUserForm-e4284502.js",
     "imports": [
       "resources/js/app.jsx",
-      "_DangerButton-8bdd0b8f.js",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_Modal-568dcd03.js",
-      "_TextInput-78fa51fe.js",
-      "_transition-a3bdee3f.js"
+      "_DangerButton-ce690960.js",
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_Modal-0a3bc0e9.js",
+      "_TextInput-43a2c7ad.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx"
   },
   "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
-    "file": "assets/UpdatePasswordForm-5d2217b6.js",
+    "file": "assets/UpdatePasswordForm-8939c6ca.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_transition-a3bdee3f.js"
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx"
   },
   "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx": {
-    "file": "assets/UpdateProfileInformationForm-2b15aa4c.js",
+    "file": "assets/UpdateProfileInformationForm-37c49a6a.js",
     "imports": [
       "resources/js/app.jsx",
-      "_InputError-10b5b0bf.js",
-      "_InputLabel-f0052f76.js",
-      "_PrimaryButton-d684a93b.js",
-      "_TextInput-78fa51fe.js",
-      "_transition-a3bdee3f.js"
+      "_InputError-79abc355.js",
+      "_InputLabel-10d1f24d.js",
+      "_PrimaryButton-4eff62b6.js",
+      "_TextInput-43a2c7ad.js",
+      "_transition-b62f9e9b.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx"
   },
   "resources/js/Pages/SuperAdminDashboard.jsx": {
-    "file": "assets/SuperAdminDashboard-180bfd31.js",
+    "file": "assets/SuperAdminDashboard-f7251cb2.js",
     "imports": [
       "resources/js/app.jsx",
-      "_AuthenticatedLayout-4c03d616.js",
-      "_transition-a3bdee3f.js",
-      "_ApplicationLogo-1cbbb8f8.js"
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js"
     ],
     "isDynamicEntry": true,
     "src": "resources/js/Pages/SuperAdminDashboard.jsx"
   },
+  "resources/js/Pages/TpsPage.jsx": {
+    "file": "assets/TpsPage-9a5a42a7.js",
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout-5cfcb5ba.js",
+      "_ReactToastify-c5e820de.js",
+      "_index-932ae146.js",
+      "_TableData-58a0cc62.js",
+      "_index.esm-c790ecfb.js",
+      "_transition-b62f9e9b.js",
+      "_ApplicationLogo-a1a0b9c9.js",
+      "_DateInput-2aa83f36.js",
+      "_index-ab567e1e.js",
+      "_TextInput-43a2c7ad.js",
+      "_Tooltip-3eb88b48.js",
+      "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "_DangerButton-ce690960.js",
+      "_Modal-0a3bc0e9.js",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "_PrimaryButton-4eff62b6.js",
+      "_InputLabel-10d1f24d.js",
+      "_InputError-79abc355.js",
+      "_SelectInput-57fefecc.js",
+      "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
+      "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx"
+    ],
+    "isDynamicEntry": true,
+    "src": "resources/js/Pages/TpsPage.jsx"
+  },
   "resources/js/Pages/Welcome.jsx": {
-    "file": "assets/Welcome-0b82ba2b.js",
+    "file": "assets/Welcome-c474c9ef.js",
     "imports": [
       "resources/js/app.jsx"
     ],
@@ -484,12 +724,12 @@
     "src": "resources/js/Pages/Welcome.jsx"
   },
   "resources/js/app.css": {
-    "file": "assets/app-7635ef9d.css",
+    "file": "assets/app-30382416.css",
     "src": "resources/js/app.css"
   },
   "resources/js/app.jsx": {
     "css": [
-      "assets/app-7635ef9d.css"
+      "assets/app-30382416.css"
     ],
     "dynamicImports": [
       "resources/js/Pages/AbsensiPage.jsx",
@@ -501,22 +741,31 @@
       "resources/js/Pages/Auth/Register.jsx",
       "resources/js/Pages/Auth/ResetPassword.jsx",
       "resources/js/Pages/Auth/VerifyEmail.jsx",
+      "resources/js/Pages/CalonPage.jsx",
       "resources/js/Pages/Formulir/TambahKegiatan.jsx",
       "resources/js/Pages/KegiatanPage.jsx",
       "resources/js/Pages/Modal/ModalAnggota.jsx",
+      "resources/js/Pages/Modal/ModalCalon.jsx",
+      "resources/js/Pages/Modal/ModalEditAnggota.jsx",
+      "resources/js/Pages/Modal/ModalEditCalon.jsx",
       "resources/js/Pages/Modal/ModalEditKegiatan.jsx",
-      "resources/js/Pages/Modal/ModalKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalEditTps.jsx",
+      "_TableData-58a0cc62.js",
       "resources/js/Pages/Modal/ModalTambahAnggota.jsx",
+      "resources/js/Pages/Modal/ModalTambahCalon.jsx",
       "resources/js/Pages/Modal/ModalTambahKegiatan.jsx",
+      "resources/js/Pages/Modal/ModalTambahTps.jsx",
+      "resources/js/Pages/Modal/ModalTps.jsx",
       "resources/js/Pages/PengajuanFormPage.jsx",
       "resources/js/Pages/Profile/Edit.jsx",
       "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
       "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
       "resources/js/Pages/SuperAdminDashboard.jsx",
+      "resources/js/Pages/TpsPage.jsx",
       "resources/js/Pages/Welcome.jsx"
     ],
-    "file": "assets/app-58fc4835.js",
+    "file": "assets/app-2357e9aa.js",
     "isEntry": true,
     "src": "resources/js/app.jsx"
   }
