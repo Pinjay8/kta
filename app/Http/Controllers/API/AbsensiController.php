@@ -63,7 +63,7 @@ class AbsensiController extends Controller
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => 'error',
+                'status' => 'failed',
                 'message' => 'Validation Error',
                 'data' => $validator->errors(),
             ], 400);
