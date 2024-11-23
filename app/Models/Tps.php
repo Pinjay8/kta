@@ -16,6 +16,10 @@ class Tps extends Model
         'no_tps',
         'kelurahan',
         'kecamatan',
+        'perempuan',
+        'laki-laki',
+        'dpt',
+        'rw',
     ];
 
     public function anggota()
