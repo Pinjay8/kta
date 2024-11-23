@@ -20,7 +20,7 @@ class AuthController extends Controller
         //CEK NO HP & PASS
         if (!Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
-                'status' => false,
+                'status' => 'failed',
                 'message' => 'Unauthorized',
                 'data' => null,
             ], 401);
@@ -47,7 +47,7 @@ class AuthController extends Controller
     public function logout(){
         Auth::user()->tokens()->delete();
         return response()->json([
-            'status' => true,
+            'status' => 'success',
             'message' => 'logout success',
             'data' => null,
         ], 200);

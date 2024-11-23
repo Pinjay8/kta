@@ -2,13 +2,15 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\KegiatanController;
 use App\Http\Controllers\API\PerhitunganUlangController;
 use App\Http\Controllers\API\PerhitunganController;
 use App\Http\Controllers\API\AbsensiController;
 use App\Http\Controllers\API\DashboardController;
-use App\Http\Controllers\AnggotaController;
+use App\Http\Controllers\API\ImageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,7 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
     
-    Route::get('detail-anggota', [AuthController::class, 'show']);
+    Route::get('profil', [AuthController::class, 'show']);
 
     Route::get('kegiatan', [KegiatanController::class, 'show']);
 
@@ -39,6 +41,8 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
     
     Route::post('perhitungan', [PerhitunganController::class, 'store']);
     Route::post('perhitungan/ulang', [PerhitunganUlangController::class, 'store']);
+
+    Route::post('unggah/gambar', [ImageController::class, 'store']);
 });
 
 

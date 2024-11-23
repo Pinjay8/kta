@@ -41,8 +41,8 @@ class KegiatanController extends Controller
             ];
         });
         return response()->json([
-            'status' => true,
-            'message' => 'success',
+            'status' => 'success',
+            'message' => 'Data Kegiatan berhasil diambil',
             'data' => $response,
         ], 200);
     }
