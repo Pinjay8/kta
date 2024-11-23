@@ -17,8 +17,8 @@ class AbsensiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id_anggota' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
+            'latitude' => 'required|string',
+            'longitude' => 'required|string',
             'tps_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'selfie_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -55,8 +55,8 @@ class AbsensiController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'id_anggota' => 'required',
-            'latitude' => 'required|numeric',
-            'longitude' => 'required|numeric',
+            'latitude' => 'required|string',
+            'longitude' => 'required|string',
             'tps_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'selfie_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
