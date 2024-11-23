@@ -26,6 +26,7 @@ class Anggota extends Authenticatable
         'kelurahan',
         'rt',
         'rw',
+        'mendaftar_sebagai',
         'password',
     ];
 
