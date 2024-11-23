@@ -49,6 +49,21 @@ class AnggotaSeeder extends Seeder
             'mendaftar_sebagai' => "saksi walikota",
             'password' => bcrypt('12345'),
         ]);
+        DB::table('anggotas')->insert([
+            'id' => 3,
+            'no_anggota' => 2005019,
+            'nama' => 'Retno Adi Saputra',
+            'no_hp' => '01234',
+            'nik' => '02005019',
+            'id_tps' => 2,
+            'alamat' => 'Jl. Purbalingga',
+            'kecamatan' => 'Purbalingga',
+            'kelurahan' => 'purbalingga',
+            'rt' => '2',
+            'rw' => "2",
+            'mendaftar_sebagai' => "saksi walikota",
+            'password' => bcrypt('12345'),
+        ]);
 
         // DB::table('anggotas')->insert([
         //     'no_anggota' => '',
