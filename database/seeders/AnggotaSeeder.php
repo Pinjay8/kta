@@ -30,6 +30,7 @@ class AnggotaSeeder extends Seeder
             'kelurahan' => 'purbalingga',
             'rt' => '1',
             'rw' => "1",
+            'mendaftar_sebagai' => "saksi gubernur",
             'password' => bcrypt('12345'),
         ]);
 
@@ -45,6 +46,7 @@ class AnggotaSeeder extends Seeder
             'kelurahan' => 'purbalingga',
             'rt' => '2',
             'rw' => "2",
+            'mendaftar_sebagai' => "saksi walikota",
             'password' => bcrypt('12345'),
         ]);
 
