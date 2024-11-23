@@ -53,7 +53,7 @@ class AuthController extends Controller
         ], 200);
     }
 
-    public function detail(){
+    public function show(){
         if (Auth::check()) {
             $anggota = Auth::user();
             $tps = $anggota->id_tps ? Tps::find($anggota->id_tps) : null;
