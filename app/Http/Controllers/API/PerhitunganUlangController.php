@@ -9,16 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class PerhitunganUlangController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        // Validate the request data
         $validator = Validator::make($request->all(), [
             'id_kegiatan' => 'required|array',
             'id_anggota' => 'required|integer',
@@ -28,7 +24,6 @@ class PerhitunganUlangController extends Controller
             return response()->json(['errors' => $validator->errors()], 422);
         }
 
-        // Loop through each id_kegiatan and create a new PengajuanPerhitunganUlang
         foreach ($request->id_kegiatan as $id_kegiatan) {
             PengajuanPerhitunganUlang::create([
                 'id_kegiatan' => $id_kegiatan,
