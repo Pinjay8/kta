@@ -21,12 +21,11 @@ class AbsensiController extends Controller
             'longitude' => 'required|numeric',
             'tps_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'selfie_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|string',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => false,
+                'status' => 'error',
                 'message' => 'Validation Error',
                 'data' => $validator->errors(),
             ], 400);
@@ -42,13 +41,13 @@ class AbsensiController extends Controller
             'tps_image' => $tpsImagePath,
             'type' => 'checkin',
             'selfie_image' => $selfieImagePath,
-            'status' => $request->input('status'),
+            'status' => 1,
         ]);
 
         return response()->json([
-            'status' => true,
+            'status' => 'success',
             'message' => 'Absensi berhasil dibuat',
-            'data' => $absensi,
+            'data' => null,
         ], 201);
     }
 
@@ -60,12 +59,11 @@ class AbsensiController extends Controller
             'longitude' => 'required|numeric',
             'tps_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'selfie_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'status' => 'required|string',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
-                'status' => false,
+                'status' => 'error',
                 'message' => 'Validation Error',
                 'data' => $validator->errors(),
             ], 400);
@@ -81,13 +79,13 @@ class AbsensiController extends Controller
             'tps_image' => $tpsImagePath,
             'type' => 'checkout',
             'selfie_image' => $selfieImagePath,
-            'status' => $request->input('status'),
+            'status' => 1,
         ]);
 
         return response()->json([
-            'status' => true,
+            'status' => 'success',
             'message' => 'Absensi berhasil dibuat',
-            'data' => $absensi,
+            'data' => null,
         ], 201);
     }
 
@@ -103,7 +101,7 @@ class AbsensiController extends Controller
             'status' => 'success',
                 'message' => 'Data status absensi berhasil diambil',
                 'data' => [
-                    'id_anggota' => $anggota->id,
+                    'id_anggota' => (string)$anggota->id,
                     'checkin_status' => $checkinStatus,
                     'checkout_status' => $checkoutStatus,
                 ]
