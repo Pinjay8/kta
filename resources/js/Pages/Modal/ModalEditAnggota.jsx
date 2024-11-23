@@ -232,7 +232,7 @@ export default function ModalEditAnggota({ data_anggota }) {
                         </div>
                     </div>
 
-                    {/* <div className="mb-2">
+                    <div className="mb-2">
                         <InputLabel htmlFor="password" value="Password" />
 
                         <TextInput
@@ -250,7 +250,7 @@ export default function ModalEditAnggota({ data_anggota }) {
                             message={errors.password}
                             className="mt-2"
                         />
-                    </div> */}
+                    </div>
 
                     <PrimaryButton type="submit" className="mt-5">
                         Simpan
