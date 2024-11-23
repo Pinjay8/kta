@@ -64,10 +64,10 @@ class AuthController extends Controller
                 'data' => [
                     'anggota' => [
                         'id' => (string) $anggota->id ?? '',
-                        'no_anggota' => $anggota->no_anggota ?? '',
+                        'no_anggota' =>(string) $anggota->no_anggota ?? '',
                         'nama' => $anggota->nama ?? '',
                         'no_hp' => $anggota->no_hp ?? '',
-                        'nik' => $anggota->nik ?? '',
+                        'nik' => (string)$anggota->nik ?? '',
                         'alamat' => $anggota->alamat ?? '',
                         'kecamatan' => $anggota->kecamatan ?? '',
                         'kelurahan' => $anggota->kelurahan ?? '',
@@ -77,12 +77,12 @@ class AuthController extends Controller
                     'tps' =>  [
                         'id' => $tps->id ?? '',
                         'no_tps' => $tps->no_tps ?? '',
-                        'alamat' => $tps->alamat ?? '',
                         'kelurahan' => $tps->kelurahan ?? '',
-                        'rt' => $tps->rt ?? '',
-                        'rw' => $tps->rw ?? '',
                         'kecamatan' => $tps->kecamatan ?? '',
-                        'status' => $tps->status ?? '',
+                        'rw' => $tps->rw ?? '',
+                        'dpt' => (string)$tps->dpt ?? '',
+                        'laki_laki' => (string)$tps->laki_laki ?? '',
+                        'perempuan' => (string)$tps->perempuan ?? '',
                     ]
                 ]
             ], 200);
