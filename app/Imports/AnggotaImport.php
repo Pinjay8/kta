@@ -26,6 +26,7 @@ class AnggotaImport implements ToModel, WithHeadingRow
                 'kecamatan' => $row['kecamatan'],
                 'kelurahan' => $row['kelurahan'],
                 'status' => $row['status'],
+                'password' => $row['password'],
             ]);
         }
     }
