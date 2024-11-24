@@ -89,7 +89,7 @@ class KegiatanController extends Controller
                 'perhitungan_ulang' => (string)$perhitunganUlang
             ],
             'total' => [
-                'name' => (string)$kegiatanName,
+                'nama' => (string)$kegiatanName,
                 'status' => (string)$status,
                 'perhitungan_ulang' => (string)$perhitunganUlang
             ]
