@@ -1,1 +1,0 @@
-import{j as s}from"./app-2357e9aa.js";function e(o){return s.jsx("div",{className:"flex justify-center items-center w-100",children:s.jsx("img",{src:"http://localhost:8000/img/img_logo.svg",className:"h-24",alt:"logo"})})}export{e as A};

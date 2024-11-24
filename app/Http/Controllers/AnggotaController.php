@@ -111,11 +111,16 @@ class AnggotaController extends Controller
 
         $anggota = Anggota::find($id);
 
-        // $input = $request->all();
-        // $input['password'] = bcrypt($input['password']);
-        // $anggota->update($input);
+        $input = $request->all();
 
-        $anggota->update($request->all());
+
+        if (!empty($input['password'])) {
+            $input['password'] = bcrypt($input['password']);
+        } else {
+            unset($input['password']);
+        }
+
+        $anggota->update($input);
 
         return redirect()->back();
     }

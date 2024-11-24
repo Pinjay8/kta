@@ -24,6 +24,7 @@ class AbsensiSeeder extends Seeder
             'selfie_image' => null,
             'type' => 'checkin',
             'status' => 1,
+            'type' => 'checkin'
         ]);
 
         DB::table('absensis')->insert([
@@ -35,6 +36,7 @@ class AbsensiSeeder extends Seeder
             'selfie_image' => null,
             'type' => 'checkout',
             'status' => 1,
+            'type' => 'checkin'
         ]);
     }
 }

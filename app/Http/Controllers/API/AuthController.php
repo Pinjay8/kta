@@ -20,7 +20,7 @@ class AuthController extends Controller
         //CEK NO HP & PASS
         if (!Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
-                'status' => false,
+                'status' => 'failed',
                 'message' => 'Unauthorized',
                 'data' => null,
             ], 401);
@@ -47,13 +47,13 @@ class AuthController extends Controller
     public function logout(){
         Auth::user()->tokens()->delete();
         return response()->json([
-            'status' => true,
+            'status' => 'success',
             'message' => 'logout success',
             'data' => null,
         ], 200);
     }
 
-    public function detail(){
+    public function show(){
         if (Auth::check()) {
             $anggota = Auth::user();
             $tps = $anggota->id_tps ? Tps::find($anggota->id_tps) : null;
@@ -64,10 +64,10 @@ class AuthController extends Controller
                 'data' => [
                     'anggota' => [
                         'id' => (string) $anggota->id ?? '',
-                        'no_anggota' => $anggota->no_anggota ?? '',
+                        'no_anggota' =>(string) $anggota->no_anggota ?? '',
                         'nama' => $anggota->nama ?? '',
                         'no_hp' => $anggota->no_hp ?? '',
-                        'nik' => $anggota->nik ?? '',
+                        'nik' => (string)$anggota->nik ?? '',
                         'alamat' => $anggota->alamat ?? '',
                         'kecamatan' => $anggota->kecamatan ?? '',
                         'kelurahan' => $anggota->kelurahan ?? '',
@@ -77,12 +77,12 @@ class AuthController extends Controller
                     'tps' =>  [
                         'id' => $tps->id ?? '',
                         'no_tps' => $tps->no_tps ?? '',
-                        'alamat' => $tps->alamat ?? '',
                         'kelurahan' => $tps->kelurahan ?? '',
-                        'rt' => $tps->rt ?? '',
-                        'rw' => $tps->rw ?? '',
                         'kecamatan' => $tps->kecamatan ?? '',
-                        'status' => $tps->status ?? '',
+                        'rw' => $tps->rw ?? '',
+                        'dpt' => (string)$tps->dpt ?? '',
+                        'laki_laki' => (string)$tps->laki_laki ?? '',
+                        'perempuan' => (string)$tps->perempuan ?? '',
                     ]
                 ]
             ], 200);
