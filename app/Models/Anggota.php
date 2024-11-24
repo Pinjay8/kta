@@ -25,21 +25,20 @@ class Anggota extends Authenticatable
         'kecamatan',
         'kelurahan',
         'status',
+    ];
+
+    protected $hidden = [
         'password',
     ];
 
-    // protected $hidden = [
-    //     'password',
-    // ];
-
-    // /**
-    //  * The attributes that should be cast.
-    //  *
-    //  * @var array<string, string>
-    //  */
-    // protected $casts = [
-    //     'password' => 'hashed',
-    // ];
+    /**
+     * The attributes that should be cast.
+     *
+     * @var array<string, string>
+     */
+    protected $casts = [
+        'password' => 'hashed',
+    ];
     public function absensi()
     {
         return $this->hasMany(Absensi::class);
