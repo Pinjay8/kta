@@ -39,6 +39,14 @@ export default function ModalTps({ data }) {
                         <p className="col-span-8">: {data.kelurahan}</p>
                         <p className="font-medium col-span-2">Kecamatan</p>
                         <p className="col-span-8">: {data.kecamatan}</p>
+                        <p className="font-medium col-span-2">RW</p>
+                        <p className="col-span-8">: {data.rw}</p>
+                        <p className="font-medium col-span-2">Laki-laki</p>
+                        <p className="col-span-8">: {data.laki_laki}</p>
+                        <p className="font-medium col-span-2">Perempuan</p>
+                        <p className="col-span-8">: {data.perempuan}</p>
+                        <p className="font-medium col-span-2">DPT</p>
+                        <p className="col-span-8">: {data.dpt}</p>
                     </div>
                     <div className="mt-5 mb-3 flex justify-end">
                         <EditButton data_tps={data} />

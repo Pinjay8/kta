@@ -18,6 +18,7 @@ return new class extends Migration
             $table->boolean('is_accepted')->default(false);
             $table->string('reason');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

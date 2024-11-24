@@ -24,9 +24,15 @@ class AnggotaController extends Controller
 {
     public function importExcelAnggota(Request $request)
     {
-        $request->validate([
-            'file' => 'required|mimes:xlsx,xls',
-        ]);
+        $request->validate(
+            [
+                'file' => 'required|mimes:xlsx,xls',
+            ],
+            [
+                'file.required' => 'File tidak boleh kosong',
+                'file.mimes' => 'File harus berformat xlsx atau xls',
+            ]
+        );
 
         // Menggunakan import untuk memproses file Excel
         Excel::import(new AnggotaImport, $request->file('file'));
@@ -37,8 +43,7 @@ class AnggotaController extends Controller
 
     public function show()
     {
-        $anggota = Anggota::all();
-        // dd($anggota);
+        $anggota = Anggota::orderBy('id', 'desc')->get();
 
         return Inertia::render('AnggotaPage', [
             'data' => $anggota,
@@ -48,24 +53,33 @@ class AnggotaController extends Controller
     public function create(Request $request)
     {
 
-        $request->validate([
-            'no_anggota' => 'required',
-            'nama' => 'required',
-            'no_hp' => 'required',
-            'nik' => 'required',
-            'id_tps' => 'required',
-            'alamat' => 'required',
-            'kecamatan' => 'required',
-            'kelurahan' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
-            'password' => 'required'
-        ]);
+        $request->validate(
+            [
+                'no_anggota' => 'required',
+                'nama' => 'required',
+                'no_hp' => 'required',
+                'nik' => 'required',
+                'id_tps' => 'required',
+                'alamat' => 'required',
+                'kecamatan' => 'required',
+                'kelurahan' => 'required',
+            ],
+            [
+                'no_anggota.required' => 'No Anggota tidak boleh kosong',
+                'nama.required' => 'Nama tidak boleh kosong',
+                'no_hp.required' => 'No HP tidak boleh kosong',
+                'nik.required' => 'NIK tidak boleh kosong',
+                'id_tps.required' => 'TPS tidak boleh kosong',
+                'alamat.required' => 'Alamat tidak boleh kosong',
+                'kecamatan.required' => 'Kecamatan tidak boleh kosong',
+                'kelurahan.required' => 'Kelurahan tidak boleh kosong',
+                'status.required' => 'Status tidak boleh kosong',
+            ]
+        );
 
 
 
         $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
         $anggota = Anggota::create($input);
 
         // return Inertia::render('ModalTambahAnggota', [
@@ -93,8 +107,6 @@ class AnggotaController extends Controller
             'alamat' => 'required',
             'kecamatan' => 'required',
             'kelurahan' => 'required',
-            'rt' => 'required',
-            'rw' => 'required',
         ]);
 
         $anggota = Anggota::find($id);

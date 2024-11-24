@@ -16,19 +16,13 @@ return new class extends Migration
             $table->foreignId('id_kegiatan')->constrained('kegiatans');
             $table->foreignId('id_anggota')->constrained('anggotas');
             $table->foreignId('id_tps')->constrained('tps');
-            $table->foreignId('id_calon')->constrained('calons');
-            $table->integer('jumlah_dpt');
+            $table->integer('dptb');
             $table->integer('pemilih_hadir');
             $table->integer('suara_sah');
             $table->integer('suara_tidak_sah');
-            $table->longText('gambar_selfie')->nullable();
-            $table->longText('gambar_c1_1')->nullable();
-            $table->longText('gambar_c1_2')->nullable();
-            $table->longText('gambar_opsional')->nullable();
-            $table->string('laporan');
-            $table->longText('gambar_laporan')->nullable();
             $table->boolean('perhitungan_ulang')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

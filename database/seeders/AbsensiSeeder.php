@@ -22,6 +22,7 @@ class AbsensiSeeder extends Seeder
             'longitude' => '109.234',
             'tps_image' => null,
             'selfie_image' => null,
+            'type' => 'checkin',
             'status' => 1,
             'type' => 'checkin'
         ]);
@@ -33,6 +34,7 @@ class AbsensiSeeder extends Seeder
             'longitude' => '109.234',
             'tps_image' => null,
             'selfie_image' => null,
+            'type' => 'checkout',
             'status' => 1,
             'type' => 'checkin'
         ]);

@@ -18,39 +18,92 @@ class PerhitunganSeeder extends Seeder
         DB::table('perhitungans')->insert([
             'id' => 1,
             'id_kegiatan' => 1,
-            'id_calon' => 1,
             'id_anggota' => 1,
             'id_tps' => 1,
-            'jumlah_dpt' => 1,
-            'pemilih_hadir' => 1,
-            'suara_sah' => 1,
+            'dptb' => 0,
+            'pemilih_hadir' => 50,
+            'suara_sah' => 50,
             'suara_tidak_sah' => 0,
-            'gambar_selfie' => null,
-            'gambar_c1_1' => null,
-            'gambar_c1_2' => null,
-            'gambar_opsional' => null,
-            'laporan' => 'Laporan 1',
-            'gambar_laporan' => null,
             'perhitungan_ulang' => false,
         ]);
 
+        // DB::table('perhitungans')->insert([
+        //     'id' => 2,
+        //     'id_kegiatan' => 1,
+        //     'id_anggota' => 1,
+        //     'id_tps' => 1,
+        //     'dptb' => 0,
+        //     'pemilih_hadir' => 50,
+        //     'suara_sah' => 50,
+        //     'suara_tidak_sah' => 0,
+        //     'perhitungan_ulang' => false,
+        // ]);
+
         DB::table('perhitungans')->insert([
-            'id' => 2,
+            'id' => 3,
             'id_kegiatan' => 2,
-            'id_calon' => 2,
             'id_anggota' => 2,
             'id_tps' => 2,
-            'jumlah_dpt' => 2,
-            'pemilih_hadir' => 2,
-            'suara_sah' => 2,
+            'dptb' => 0,
+            'pemilih_hadir' => 50,
+            'suara_sah' => 50,
             'suara_tidak_sah' => 0,
-            'gambar_selfie' => null,
-            'gambar_c1_1' => null,
-            'gambar_c1_2' => null,
-            'gambar_opsional' => null,
-            'laporan' => 'Laporan 2',
-            'gambar_laporan' => null,
             'perhitungan_ulang' => false,
         ]);
+
+
+        // DB::table('perhitungans')->insert([
+        //     'id' => 4,
+        //     'id_kegiatan' => 2,
+        //     'id_anggota' => 2,
+        //     'id_tps' => 2,
+        //     'dptb' => 0,
+        //     'pemilih_hadir' => 50,
+        //     'suara_sah' => 50,
+        //     'suara_tidak_sah' => 0,
+        //     'perhitungan_ulang' => false,
+        // ]);
+
+
+
+        // DB::table('perhitungans')->insert([
+        //     'id' => 3,
+        //     'id_kegiatan' => 3,
+        //     'id_calon' => 3,
+        //     'id_anggota' => 2,
+        //     'id_tps' => 1,
+        //     'dptb' => 0,
+        //     'pemilih_hadir' => 30,
+        //     'suara_sah' => 30,
+        //     'suara_tidak_sah' => 0,
+        //     'gambar_selfie' => null,
+        //     'gambar_c1_1' => null,
+        //     'gambar_c1_2' => null,
+        //     'gambar_opsional' => null,
+        //     'laporan' => 'Laporan 2',
+        //     'gambar_laporan' => null,
+        //     'perhitungan_ulang' => false,
+        // ]);
+
+
+
+        // DB::table('perhitungans')->insert([
+        //     'id' => 4,
+        //     'id_kegiatan' => 4,
+        //     'id_calon' => 4,
+        //     'id_anggota' => 2,
+        //     'id_tps' => 2,
+        //     'dptb' => 0,
+        //     'pemilih_hadir' => 50,
+        //     'suara_sah' => 50,
+        //     'suara_tidak_sah' => 0,
+        //     'gambar_selfie' => null,
+        //     'gambar_c1_1' => null,
+        //     'gambar_c1_2' => null,
+        //     'gambar_opsional' => null,
+        //     'laporan' => 'Laporan 2',
+        //     'gambar_laporan' => null,
+        //     'perhitungan_ulang' => false,
+        // ]);
     }
 }

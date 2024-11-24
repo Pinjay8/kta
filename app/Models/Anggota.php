@@ -24,24 +24,21 @@ class Anggota extends Authenticatable
         'alamat',
         'kecamatan',
         'kelurahan',
-        'rt',
-        'rw',
-        'mendaftar_sebagai',
-        'password',
+        'status',
     ];
 
-    protected $hidden = [
-        'password',
-    ];
+    // protected $hidden = [
+    //     'password',
+    // ];
 
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
+    // /**
+    //  * The attributes that should be cast.
+    //  *
+    //  * @var array<string, string>
+    //  */
+    // protected $casts = [
+    //     'password' => 'hashed',
+    // ];
     public function absensi()
     {
         return $this->hasMany(Absensi::class);

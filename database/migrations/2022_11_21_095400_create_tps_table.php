@@ -16,7 +16,12 @@ return new class extends Migration
             $table->string('no_tps');
             $table->string('kelurahan');
             $table->string('kecamatan');
+            $table->string('rw');
+            $table->string('laki_laki');
+            $table->string('perempuan');
+            $table->bigInteger('dpt');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

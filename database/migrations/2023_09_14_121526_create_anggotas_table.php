@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('anggotas', function (Blueprint $table) {
             $table->id();
-            $table->integer('no_anggota');
+            $table->longText('no_anggota');
             $table->string('nama');
             $table->string('no_hp');
             $table->bigInteger('nik');
@@ -21,11 +21,10 @@ return new class extends Migration
             $table->string('alamat');
             $table->string('kecamatan');
             $table->string('kelurahan');
-            $table->string('rt');
-            $table->string('rw');
-            $table->string('password')->nullable();
+            $table->string('status');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

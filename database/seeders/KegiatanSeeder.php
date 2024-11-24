@@ -83,18 +83,18 @@ class KegiatanSeeder extends Seeder
         ]);
 
 
+        // DB::table('kegiatans')->insert([
+        //     'id' => 2,
+        //     'nama_kegiatan' => 'Pemilihan Walikota ',
+        //     'jam' => '08:00',
+        //     'tanggal' => '01-08-2024',
+        //     'status' => '1',
+        //     'jenis_pemilihan' => 'Walikota',
+        // ]);
+
+
         DB::table('kegiatans')->insert([
             'id' => 2,
-            'nama_kegiatan' => 'Pemilihan Walikota ',
-            'jam' => '08:00',
-            'tanggal' => '01-08-2024',
-            'status' => '1',
-            'jenis_pemilihan' => 'Walikota',
-        ]);
-
-
-        DB::table('kegiatans')->insert([
-            'id' => 3,
             'nama_kegiatan' => 'Pemilihan Gubernur ',
             'jam' => '08:00',
             'tanggal' => '01-08-2024',
@@ -102,13 +102,13 @@ class KegiatanSeeder extends Seeder
             'jenis_pemilihan' => 'Gubernur',
         ]);
 
-        DB::table('kegiatans')->insert([
-            'id' => 4,
-            'nama_kegiatan' => 'Pemilihan Gubernur',
-            'jam' => '08:00',
-            'tanggal' => '01-08-2024',
-            'status' => '1',
-            'jenis_pemilihan' => 'Gubernur',
-        ]);
+        // DB::table('kegiatans')->insert([
+        //     'id' => 4,
+        //     'nama_kegiatan' => 'Pemilihan Gubernur',
+        //     'jam' => '08:00',
+        //     'tanggal' => '01-08-2024',
+        //     'status' => '1',
+        //     'jenis_pemilihan' => 'Gubernur',
+        // ]);
     }
 }

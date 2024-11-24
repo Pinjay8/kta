@@ -17,6 +17,10 @@ export default function ModalEditTps({ data_tps }) {
         no_tps: data_tps.no_tps || "", // Initialize with the provided data
         kelurahan: data_tps.kelurahan || "",
         kecamatan: data_tps.kecamatan || "",
+        rw: data_tps.rw || "",
+        laki_laki: data_tps.laki_laki || "",
+        perempuan: data_tps.perempuan || "",
+        dpt: data_tps.dpt || "",
     });
 
     // Function to open the modal
@@ -58,7 +62,6 @@ export default function ModalEditTps({ data_tps }) {
                         <InputError message={errors.no_tps} className="mt-2" />
                     </div>
 
-                
                     <div className="mb-4">
                         <InputLabel htmlFor="kelurahan" value="Kelurahan" />
 
@@ -88,6 +91,74 @@ export default function ModalEditTps({ data_tps }) {
                             onChange={(e) =>
                                 setData("kecamatan", e.target.value)
                             }
+                        />
+                        <InputError
+                            message={errors.kecamatan}
+                            className="mt-2"
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <InputLabel htmlFor="rw" value="Rw" />
+
+                        <TextInput
+                            id="rw"
+                            className="mt-1 block w-full"
+                            value={data.rw}
+                            name="rw"
+                            onChange={(e) => setData("rw", e.target.value)}
+                        />
+                        <InputError
+                            message={errors.kecamatan}
+                            className="mt-2"
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <InputLabel htmlFor="laki_laki" value="Laki-Laki" />
+
+                        <TextInput
+                            id="laki_laki"
+                            className="mt-1 block w-full"
+                            value={data.laki_laki}
+                            name="laki_laki"
+                            onChange={(e) =>
+                                setData("laki_laki", e.target.value)
+                            }
+                        />
+                        <InputError
+                            message={errors.kecamatan}
+                            className="mt-2"
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <InputLabel htmlFor="perempuan" value="Perempuan" />
+
+                        <TextInput
+                            id="perempuan"
+                            className="mt-1 block w-full"
+                            value={data.perempuan}
+                            name="perempuan"
+                            onChange={(e) =>
+                                setData("perempuan", e.target.value)
+                            }
+                        />
+                        <InputError
+                            message={errors.kecamatan}
+                            className="mt-2"
+                        />
+                    </div>
+
+                    <div className="mb-4">
+                        <InputLabel htmlFor="dpt" value="Dpt" />
+
+                        <TextInput
+                            id="dpt"
+                            className="mt-1 block w-full"
+                            value={data.dpt}
+                            name="dpt"
+                            onChange={(e) => setData("dpt", e.target.value)}
                         />
                         <InputError
                             message={errors.kecamatan}

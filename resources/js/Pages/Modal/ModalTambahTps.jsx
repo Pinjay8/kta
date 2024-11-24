@@ -18,6 +18,10 @@ export default function ModalTambahTps() {
         no_tps: "",
         kelurahan: "",
         kecamatan: "",
+        rw: "",
+        laki_laki: "",
+        perempuan: "",
+        dpt: "",
         file: null,
     });
 
@@ -30,34 +34,6 @@ export default function ModalTambahTps() {
         // Proses unggah file ke server
         post(route("import.tps"));
     };
-    //     e.preventDefault();
-    //     if (fileData) {
-    //         const formData = new FormData();
-    //         formData.append("file", fileData);
-
-    //         fetch(route("import.tps"), {
-    //             method: "POST",
-    //             body: formData,
-    //             headers: {
-    //                 "X-CSRF-TOKEN": document
-    //                     .querySelector('meta[name="csrf-token"]')
-    //                     .getAttribute("content"),
-    //             },
-    //         })
-    //             .then((response) => {
-    //                 if (response.ok) {
-    //                     alert("Data berhasil diimpor!");
-    //                     get(route("tps")); // Refresh data TPS
-    //                     closeModal();
-    //                 } else {
-    //                     alert("Gagal mengimpor data. Coba lagi.");
-    //                 }
-    //             })
-    //             .catch((error) => console.error("Error:", error));
-    //     } else {
-    //         alert("Silakan pilih file CSV atau Excel.");
-    //     }
-    // };
 
     const handleDateChange = (date) => {
         const formattedDate = date.toISOString().slice(0, 10);
@@ -75,8 +51,11 @@ export default function ModalTambahTps() {
             no_tps: "",
             kelurahan: "",
             kecamatan: "",
+            rw: "",
+            laki_laki: "",
+            perempuan: "",
+            dpt: "",
         });
-        get(route("tps"));
     }
 
     const closeModal = () => {
@@ -97,58 +76,148 @@ export default function ModalTambahTps() {
                         <h2 className="text-lg font-bold mb-6 text-gray-900">
                             Tambah Tps Baru
                         </h2>
-                        <div className="mb-4">
-                            <InputLabel htmlFor="no_tps" value="Nomor Tps" />
 
-                            <TextInput
-                                id="no_tps"
-                                className="mt-1 block w-full"
-                                value={data.no_tps}
-                                name="no_tps"
-                                onChange={(e) =>
-                                    setData("no_tps", e.target.value)
-                                }
-                            />
-                            <InputError
-                                message={errors.no_tps}
-                                className="mt-2"
-                            />
-                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                            <div className="mb-4">
+                                <InputLabel
+                                    htmlFor="no_tps"
+                                    value="Nomor Tps"
+                                />
 
-                        <div className="mb-4">
-                            <InputLabel htmlFor="kelurahan" value="Kelurahan" />
+                                <TextInput
+                                    id="no_tps"
+                                    className="mt-1 block w-full"
+                                    value={data.no_tps}
+                                    name="no_tps"
+                                    onChange={(e) =>
+                                        setData("no_tps", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.no_tps}
+                                    className="mt-2"
+                                />
+                            </div>
 
-                            <TextInput
-                                id="kelurahan"
-                                className="mt-1 block w-full"
-                                value={data.kelurahan}
-                                name="kelurahan"
-                                onChange={(e) =>
-                                    setData("kelurahan", e.target.value)
-                                }
-                            />
-                            <InputError
-                                message={errors.kelurahan}
-                                className="mt-2"
-                            />
-                        </div>
+                            <div className="mb-4">
+                                <InputLabel
+                                    htmlFor="kelurahan"
+                                    value="Kelurahan"
+                                />
 
-                        <div className="mb-4">
-                            <InputLabel htmlFor="kecamatan" value="Kecamatan" />
+                                <TextInput
+                                    id="kelurahan"
+                                    className="mt-1 block w-full"
+                                    value={data.kelurahan}
+                                    name="kelurahan"
+                                    onChange={(e) =>
+                                        setData("kelurahan", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.kelurahan}
+                                    className="mt-2"
+                                />
+                            </div>
 
-                            <TextInput
-                                id="kecamatan"
-                                className="mt-1 block w-full"
-                                value={data.kecamatan}
-                                name="kecamatan"
-                                onChange={(e) =>
-                                    setData("kecamatan", e.target.value)
-                                }
-                            />
-                            <InputError
-                                message={errors.kecamatan}
-                                className="mt-2"
-                            />
+                            <div className="mb-4">
+                                <InputLabel
+                                    htmlFor="kecamatan"
+                                    value="Kecamatan"
+                                />
+
+                                <TextInput
+                                    id="kecamatan"
+                                    className="mt-1 block w-full"
+                                    value={data.kecamatan}
+                                    name="kecamatan"
+                                    onChange={(e) =>
+                                        setData("kecamatan", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.kecamatan}
+                                    className="mt-2"
+                                />
+                            </div>
+
+                            <div className="mb-4">
+                                <InputLabel htmlFor="rw" value="Rw" />
+
+                                <TextInput
+                                    id="rw"
+                                    className="mt-1 block w-full"
+                                    value={data.rw}
+                                    name="rw"
+                                    onChange={(e) =>
+                                        setData("rw", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.rw}
+                                    className="mt-2"
+                                />
+                            </div>
+
+                            <div className="mb-4">
+                                <InputLabel
+                                    htmlFor="laki_laki"
+                                    value="Laki-Laki"
+                                />
+
+                                <TextInput
+                                    id="laki_laki"
+                                    className="mt-1 block w-full"
+                                    value={data.laki_laki}
+                                    name="laki_laki"
+                                    onChange={(e) =>
+                                        setData("laki_laki", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.laki_laki}
+                                    className="mt-2"
+                                />
+                            </div>
+
+                            <div className="mb-4">
+                                <InputLabel
+                                    htmlFor="perempuan"
+                                    value="Perempuan"
+                                />
+
+                                <TextInput
+                                    id="perempuan"
+                                    className="mt-1 block w-full"
+                                    value={data.perempuan}
+                                    name="perempuan"
+                                    onChange={(e) =>
+                                        setData("perempuan", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.perempuan}
+                                    className="mt-2"
+                                />
+                            </div>
+
+                            <div className="mb-4">
+                                <InputLabel htmlFor="dpt" value="DPT" />
+
+                                <TextInput
+                                    id="dpt"
+                                    className="mt-1 block w-full"
+                                    value={data.dpt}
+                                    name="dpt"
+                                    onChange={(e) =>
+                                        setData("dpt", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.dpt}
+                                    className="mt-2"
+                                />
+                            </div>
                         </div>
 
                         <DangerButton type="submit" className="mt-5">

@@ -37,18 +37,21 @@ export default function ModalAnggota({ data }) {
                     <div className="grid grid-cols-10 gap-4 mt-6 mb-4 text-sm text-black">
                         <p className="font-medium col-span-2">Nama</p>
                         <p className="col-span-8">: {data.nama}</p>
-                        <p className="font-medium col-span-2">ID Anggota</p>
+                        <p className="font-medium col-span-2">KTA</p>
                         <p className="col-span-8">: {data.no_anggota}</p>
                         <p className="font-medium col-span-2">No HP</p>
                         <p className="col-span-8">: {data.no_hp}</p>
-                        <p className="font-medium col-span-2">Nik</p>
+                        <p className="font-medium col-span-2">NIK</p>
                         <p className="col-span-8">: {data.nik}</p>
                         <p className="font-medium col-span-2">Tps</p>
                         <p className="col-span-8">: {data.id_tps}</p>
                         <p className="font-medium col-span-2">Alamat</p>
-                        <p className="col-span-8">
-                            : Kelurahan {data.kelurahan} RT {data.rt} RW
-                            {data.rw}
+                        <p className="col-span-8 text-capitalize">
+                            : {data.alamat}, {data.kelurahan}, {data.kecamatan}
+                        </p>
+                        <p className="font-medium col-span-2">Status</p>
+                        <p className="col-span-8 text-capitalize">
+                            : {data.status}
                         </p>
                     </div>
                     <div className="mt-5 mb-3 flex justify-end">

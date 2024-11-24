@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('jenis_pemilihan')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

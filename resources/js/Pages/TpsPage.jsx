@@ -9,37 +9,37 @@ import Table, { ModalTps } from "@/Components/TableData";
 
 export default function TpsPage({ auth, data }) {
     const header = React.useMemo(() => [
-        // {
-        //     Header: "No",
-        //     accessor: "id",
-        // },
         {
             Header: "Nomor Tps",
             accessor: "no_tps",
         },
-        // {
-        //     Header: "Alamat",
-        //     accessor: "alamat",
-        // },
+        {
+            Header: "Kecamatan",
+            accessor: "kecamatan",
+        },
 
         {
             Header: "Kelurahan",
             accessor: "kelurahan",
         },
-
-        // {
-        //     Header: "RT",
-        //     accessor: "rt",
-        // },
-
-        // {
-        //     Header: "RW",
-        //     accessor: "rw",
-        // },
+        {
+            Header: "RW",
+            accessor: "rw",
+        },
 
         {
-            Header: "Kecamatan",
-            accessor: "kecamatan",
+            Header: "Laki_Laki",
+            accessor: "laki_laki",
+        },
+
+        {
+            Header: "Perempuan",
+            accessor: "perempuan",
+        },
+
+        {
+            Header: "DPT",
+            accessor: "dpt",
         },
 
         {
