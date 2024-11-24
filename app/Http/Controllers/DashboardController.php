@@ -98,64 +98,6 @@ class DashboardController extends Controller
             $persentaseAnggotaKeduaWalikota = 0; // Atau tindakan lain jika diperlukan
         }
 
-        // Menghitung Suara Sah Walikota
-
-        $countSuaraSahWalikota = Perhitungan::whereHas('anggota', function ($query) {
-            $query->where('status', 'Saksi Walikota');
-        })->sum('suara_sah');
-
-        // Menghitung Suara Tidak Sah Walikota
-
-        $countSuaraTidakSahWalikota = Perhitungan::whereHas('anggota', function ($query) {
-            $query->where('status', 'Saksi Walikota');
-        })->sum('suara_tidak_sah');
-
-
-        // Jumlah DPT Walikota
-
-        // $countDPWalkita = Perhitungan::whereHas('tps', function ($query) {})
-        //     ->with('tps') // Memuat relasi tps
-        //     ->get()
-        //     ->sum(function ($perhitungan) {
-        //         return $perhitungan->tps->dpt; // Mengakses data dpt pada relasi tps
-        //     });
-
-        // dd($countDPWalkita);
-
-        $countDPTWalikota = Tps::whereHas('perhitungan', function ($query) {
-            $query->whereHas('anggota', function ($query) {
-                $query->where('status', 'Saksi Walikota');
-            });
-        })->sum('dpt');
-
-
-        // Jumlah DPTB Walikota
-        $countDPTBWalikota =  Perhitungan::whereHas('anggota', function ($query) {
-            $query->where('status', 'Saksi Walikota');
-        })->sum('dptb');
-
-        // Menghitung Suara Sah Gubernur
-        $countSuaraSahGubernur = Perhitungan::whereHas('anggota', function ($query) {
-            $query->where('status', 'Saksi Gubernur');
-        })->sum('suara_sah');
-
-        // Menghitung Suara Tidak Sah Gubernur
-        $countSuaraTidakSahGubernur = Perhitungan::whereHas('anggota', function ($query) {
-            $query->where('status', 'Saksi Gubernur');
-        })->sum('suara_tidak_sah');
-
-        // Jumlah DPT Gubernur
-
-        $coundDPTGubernur = Tps::whereHas('perhitungan', function ($query) {
-            $query->whereHas('anggota', function ($query) {
-                $query->where('status', 'Saksi Gubernur');
-            });
-        })->sum('dpt');
-
-        // Jumlah DPTB Gubernur
-        $countDPTBGubernur =  Perhitungan::whereHas('anggota', function ($query) {
-            $query->where('status', 'Saksi Gubernur');
-        })->sum('dptb');
 
 
 
@@ -184,14 +126,6 @@ class DashboardController extends Controller
             'totalInputByAnggotaGubernur' => $totalInputByAnggotaGubernur ?? 0,
             'persentaseDataAnggotaGubernur' => $persentaseDataAnggotaGubernur ?? 0,
             'countSaksiGubernur' => $countSaksiGubernur ?? 0,
-            'countSuaraSahWalikota' => $countSuaraSahWalikota ?? 0,
-            'countSuaraTidakSahWalikota' => $countSuaraTidakSahWalikota ?? 0,
-            'countSuaraSahGubernur' => $countSuaraSahGubernur ?? 0,
-            'countSuaraTidakSahGubernur' => $countSuaraTidakSahGubernur ?? 0,
-            'countDPTBWalikota' => $countDPTBWalikota ?? 0,
-            'countDPTBGubernur' => $countDPTBGubernur ?? 0,
-            'countDPTWalikota' => $countDPTWalikota ?? 0,
-            'countDPTGubernur' => $coundDPTGubernur ?? 0,
         ]);
     }
 }

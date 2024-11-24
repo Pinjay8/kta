@@ -38,14 +38,6 @@ export default function AdminDashboard({
     totalInputByAnggotaGubernur,
     persentaseDataAnggotaGubernur,
     countSaksiGubernur,
-    countSuaraSahWalikota,
-    countSuaraTidakSahWalikota,
-    countSuaraSahGubernur,
-    countSuaraTidakSahGubernur,
-    countDPTBWalikota,
-    countDPTBGubernur,
-    countDPTWalikota,
-    countDPTGubernur,
 }) {
     const [dashboardData, setDashboardData] = useState({
         absensi,
@@ -70,14 +62,6 @@ export default function AdminDashboard({
         totalInputByAnggotaGubernur,
         persentaseDataAnggotaGubernur,
         countSaksiGubernur,
-        countSuaraSahWalikota,
-        countSuaraTidakSahWalikota,
-        countSuaraSahGubernur,
-        countSuaraTidakSahGubernur,
-        countDPTBWalikota,
-        countDPTBGubernur,
-        countDPTWalikota,
-        countDPTGubernur,
     });
 
     useEffect(() => {
@@ -250,64 +234,6 @@ export default function AdminDashboard({
                                     )}{" "}
                                     %
                                 </h5>
-                            </div>
-                        </div>
-                    </section>
-
-                    <section className="grid md:grid-cols-2  gap-6">
-                        <div className="flex items-center p-8 bg-white shadow rounded-lg">
-                            {/* <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaCalendarAlt size={30} />
-                            </div> */}
-                            <div>
-                                <span className="block text-3xl font-bold mb-4">
-                                    Walikota
-                                </span>
-                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
-                                    Jumlah Suara Sah :
-                                    {dashboardData.countSuaraSahWalikota}
-                                </span>
-                                <br />
-                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
-                                    Jumlah Suara Tidak Sah :{" "}
-                                    {dashboardData.countSuaraTidakSahWalikota}
-                                </span>
-                                <span className="block text-2xl font-semibold">
-                                    Jumlah DPT :{" "}
-                                    {dashboardData.countDPTWalikota}
-                                </span>
-                                <span className="block text-2xl font-semibold">
-                                    Jumlah DPTB :{" "}
-                                    {dashboardData.countDPTBWalikota}
-                                </span>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center p-8 bg-white shadow rounded-lg">
-                            {/* <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaCalendarAlt size={30} />
-                            </div> */}
-                            <div>
-                                <span className="block text-3xl font-bold mb-4">
-                                    Gubernur
-                                </span>
-                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-6">
-                                    Jumlah Suara Sah :{" "}
-                                    {dashboardData.countSuaraSahGubernur}
-                                </span>
-                                <br />
-                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
-                                    Jumlah Suara Tidak Sah :{" "}
-                                    {dashboardData.countSuaraTidakSahGubernur}
-                                </span>
-                                <span className="block text-2xl font-semibold">
-                                    Jumlah DPT :{" "}
-                                    {dashboardData.countDPTGubernur}
-                                </span>
-                                <span className="block text-2xl font-semibold">
-                                    Jumlah DPTB :{" "}
-                                    {dashboardData.countDPTBGubernur}
-                                </span>
                             </div>
                         </div>
                     </section>
