@@ -29,6 +29,7 @@ class AnggotaSeeder extends Seeder
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'purbalingga',
             'status' => 'Saksi Walikota',
+            'password' => bcrypt('12345'),
         ]);
 
         DB::table('anggotas')->insert([
@@ -38,6 +39,21 @@ class AnggotaSeeder extends Seeder
             'no_hp' => '345',
             'nik' => '345',
             'id_tps' => 2,
+            'alamat' => 'Jl. Purbalingga',
+            'kecamatan' => 'Purbalingga',
+            'kelurahan' => 'purbalingga',
+            'status' => 'Saksi Gubernur',
+            'password' => bcrypt('12345'),
+        ]);
+
+        DB::table('anggotas')->insert([
+            'id' => 3,
+            'no_anggota' => 9123,
+            'nama' => 'Retno adi saputra',
+            'no_hp' => '1234',
+            'nik' => '123',
+            'id_tps' => 2,
+            'password' => bcrypt('12345'),
             'alamat' => 'Jl. Purbalingga',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'purbalingga',

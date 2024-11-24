@@ -33,13 +33,17 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
     
     Route::get('profil', [AuthController::class, 'show']);
 
-    Route::get('kegiatan', [KegiatanController::class, 'show']);
+    Route::get('kegiatan', [KegiatanController::class, 'index']);
 
     Route::get('absensi', [AbsensiController::class, 'show']);
     Route::post('absensi/checkin', [AbsensiController::class, 'checkin']);
     Route::post('absensi/checkout', [AbsensiController::class, 'checkout']);
     
-    Route::post('perhitungan', [PerhitunganController::class, 'store']);
+    Route::post('kegiatan/detail', [KegiatanController::class, 'show']);
+
+    Route::post('perhitungan/total', [PerhitunganCalonController::class, 'store']);
+    Route::post('perhitungan/calon', [PerhitunganCalonController::class, 'store']);
+
     Route::post('perhitungan/ulang', [PerhitunganUlangController::class, 'store']);
 
     Route::post('unggah/gambar', [ImageController::class, 'store']);
