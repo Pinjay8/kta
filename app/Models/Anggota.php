@@ -25,6 +25,7 @@ class Anggota extends Authenticatable
         'kecamatan',
         'kelurahan',
         'status',
+        'password',
     ];
 
     protected $hidden = [
