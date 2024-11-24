@@ -13,10 +13,19 @@ class Tps extends Model
         'no_tps',
         'kelurahan',
         'kecamatan',
+        'rw',
+        'laki_laki',
+        'perempuan',
+        'dpt',
     ];
 
     public function anggota()
     {
         return $this->belongsTo(Anggota::class);
+    }
+
+    public function perhitungan()
+    {
+        return $this->belongsTo(Perhitungan::class, 'id', 'id_tps');
     }
 }

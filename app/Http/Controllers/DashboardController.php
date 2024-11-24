@@ -2,29 +2,196 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absensi;
+use App\Models\Anggota;
+use App\Models\Calon;
+use App\Models\Kegiatan;
+use App\Models\Perhitungan;
+use App\Models\PerhitunganCalon;
+use App\Models\Tps;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use PDO;
 
 class DashboardController extends Controller
 {
     //
 
-    public function show(){
-        $data =[
-            'sum_fpi' => 10,
-            'sum_fpki' => 10,
-            'sum_survey' => 10,
-            'user_record' => 30,
-            'avg' => 40,
-            'fpi_terkabulkan' => 50,
-            'fpi_ditolak' => 10,
-            'fpi_menunggu' => 10,
-            'fpki_terkabulkan' => 10,
-            'fpki_ditolak' => 10,
-            'fpki_menunggu' => 10,
+    public function show()
+    {
+        $absensi = Absensi::where('status', '1')->count();
+        $perhitungan = Perhitungan::count();
+        $tps = Tps::count();
+        $kegiatan = Kegiatan::count();
+        $anggota = Anggota::where('status', 'Saksi Gubernur')->count();
+        $allCalon = Calon::count();
 
-        ];
+        // $calonFirst = Calon::where('no_urut', '1')->where('status', 'Walikota')->first();
+        // $calonSecond = Calon::where('no_urut', '2')->where('status', 'Walikota')->first();
+        // $calonGubernurFirst = Calon::where('no_urut', '1')->where('status', 'Gubernur')->first();
+        // $calonGubernurSecond = Calon::where('no_urut', '2')->where('status', 'Gubernur')->first();
 
-        return Inertia::render('AdminDashboard',$data); 
+        $calons = Calon::whereIn('no_urut', [1, 2])
+            ->whereIn('status', ['Walikota', 'Gubernur'])
+            ->get()
+            ->groupBy('status');
+
+        $calonFirst = $calons['Walikota']->firstWhere('no_urut', 1);
+        $calonSecond = $calons['Walikota']->firstWhere('no_urut', 2);
+        $calonGubernurFirst = $calons['Gubernur']->firstWhere('no_urut', 1);
+        $calonGubernurSecond = $calons['Gubernur']->firstWhere('no_urut', 2);
+
+        $totalInputByAnggotaGubernur = PerhitunganCalon::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Gubernur');
+        })->count();
+
+        $countSaksiGubernur = Anggota::where('status', 'Saksi Gubernur')->count();
+
+        $persentaseDataAnggotaGubernur =  ($totalInputByAnggotaGubernur / $countSaksiGubernur) * 100;
+
+        $totalPerhitunganGubernur = PerhitunganCalon::whereHas('calon', function ($query) {
+            $query->where('status', 'Gubernur');
+        })->sum('suara_calon');
+
+        $perhitunganAnggotaPertamaGubernur = PerhitunganCalon::whereHas('calon', function ($query) {
+            $query->where('status', 'Gubernur');
+        })->where('id_calon', $calonGubernurFirst->id)->sum('suara_calon');
+
+
+        if ($totalPerhitunganGubernur > 0) {
+            $persentaseInputDataGubernur = ($perhitunganAnggotaPertamaGubernur / $totalPerhitunganGubernur) * 100;
+        } else {
+            $persentaseInputDataGubernur = 0; // Atau tindakan lain jika diperlukan
+        }
+
+        $perhitunganAnggotaKeduaGubernur = PerhitunganCalon::whereHas('calon', function ($query) {
+            $query->where('status', 'Gubernur');
+        })->where('id_calon', $calonGubernurSecond->id)->sum('suara_calon');
+
+        if ($totalPerhitunganGubernur > 0) {
+            $persentaseAnggotaKeduaGubernur = ($perhitunganAnggotaKeduaGubernur / $totalPerhitunganGubernur) * 100;
+        } else {
+            $persentaseAnggotaKeduaGubernur = 0; // Atau tindakan lain jika diperlukan
+        }
+
+        $totalPerhitunganWalikota = PerhitunganCalon::whereHas('calon', function ($query) {
+            $query->where('status', 'Walikota');
+        })->sum('suara_calon');
+
+        $perhitunganAnggotaPertamaWalikota = PerhitunganCalon::whereHas('calon', function ($query) {
+            $query->where('status', 'Walikota');
+        })->where('id_calon', $calonFirst->id)->sum('suara_calon');
+
+        if ($totalPerhitunganWalikota > 0) {
+            $persentaseAnggotaPertamaWalikota = ($perhitunganAnggotaPertamaWalikota / $totalPerhitunganWalikota) * 100;
+        } else {
+            $persentaseAnggotaPertamaWalikota = 0; // Atau tindakan lain jika diperlukan
+        }
+
+        $perhitunganAnggotaKeduaWalikota = PerhitunganCalon::whereHas('calon', function ($query) {
+            $query->where('status', 'Walikota');
+        })->where('id_calon', $calonSecond->id)->sum('suara_calon');
+
+        if ($totalPerhitunganWalikota > 0) {
+            $persentaseAnggotaKeduaWalikota = ($perhitunganAnggotaKeduaWalikota / $totalPerhitunganWalikota) * 100;
+        } else {
+            $persentaseAnggotaKeduaWalikota = 0; // Atau tindakan lain jika diperlukan
+        }
+
+        // Menghitung Suara Sah Walikota
+
+        $countSuaraSahWalikota = Perhitungan::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Walikota');
+        })->sum('suara_sah');
+
+        // Menghitung Suara Tidak Sah Walikota
+
+        $countSuaraTidakSahWalikota = Perhitungan::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Walikota');
+        })->sum('suara_tidak_sah');
+
+
+        // Jumlah DPT Walikota
+
+        // $countDPWalkita = Perhitungan::whereHas('tps', function ($query) {})
+        //     ->with('tps') // Memuat relasi tps
+        //     ->get()
+        //     ->sum(function ($perhitungan) {
+        //         return $perhitungan->tps->dpt; // Mengakses data dpt pada relasi tps
+        //     });
+
+        // dd($countDPWalkita);
+
+        $countDPTWalikota = Tps::whereHas('perhitungan', function ($query) {
+            $query->whereHas('anggota', function ($query) {
+                $query->where('status', 'Saksi Walikota');
+            });
+        })->sum('dpt');
+
+
+        // Jumlah DPTB Walikota
+        $countDPTBWalikota =  Perhitungan::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Walikota');
+        })->sum('dptb');
+
+        // Menghitung Suara Sah Gubernur
+        $countSuaraSahGubernur = Perhitungan::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Gubernur');
+        })->sum('suara_sah');
+
+        // Menghitung Suara Tidak Sah Gubernur
+        $countSuaraTidakSahGubernur = Perhitungan::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Gubernur');
+        })->sum('suara_tidak_sah');
+
+        // Jumlah DPT Gubernur
+
+        $coundDPTGubernur = Tps::whereHas('perhitungan', function ($query) {
+            $query->whereHas('anggota', function ($query) {
+                $query->where('status', 'Saksi Gubernur');
+            });
+        })->sum('dpt');
+
+        // Jumlah DPTB Gubernur
+        $countDPTBGubernur =  Perhitungan::whereHas('anggota', function ($query) {
+            $query->where('status', 'Saksi Gubernur');
+        })->sum('dptb');
+
+
+
+        return Inertia::render('AdminDashboard', [
+            'absensi' => $absensi ?? 0,
+            'data' => $data ?? 0,
+            'perhitungan' => $perhitungan ?? 0,
+            'tps' => $tps ?? 0,
+            'kegiatan' => $kegiatan ?? 0,
+            'anggota' => $anggota ?? 0,
+            'allCalon' => $allCalon,
+            'calonFirst' => $calonFirst ?? 0,
+            'calonSecond' => $calonSecond ?? 0,
+            'calonGubernurFirst' => $calonGubernurFirst ?? 0,
+            'calonGubernurSecond' => $calonGubernurSecond ?? 0,
+            'totalInputByAnggota' => $totalInputByAnggota ?? 0,
+            'perhitunganAnggotaPertamaGubernur' => $perhitunganAnggotaPertamaGubernur ?? 0,
+            'persentaseInputDataGubernur' => $persentaseInputDataGubernur ?? 0,
+            'perhitunganAnggotaKeduaGubernur' => $perhitunganAnggotaKeduaGubernur ?? 0,
+            'persentaseAnggotaKeduaGubernur' => $persentaseAnggotaKeduaGubernur ?? 0,
+            'totalPerhitunganWalikota' => $totalPerhitunganWalikota ?? 0,
+            'perhitunganAnggotaPertamaWalikota' => $perhitunganAnggotaPertamaWalikota ?? 0,
+            'persentaseAnggotaPertamaWalikota' => $persentaseAnggotaPertamaWalikota ?? 0,
+            'perhitunganAnggotaKeduaWalikota' => $perhitunganAnggotaKeduaWalikota ?? 0,
+            'persentaseAnggotaKeduaWalikota' => $persentaseAnggotaKeduaWalikota ?? 0,
+            'totalInputByAnggotaGubernur' => $totalInputByAnggotaGubernur ?? 0,
+            'persentaseDataAnggotaGubernur' => $persentaseDataAnggotaGubernur ?? 0,
+            'countSaksiGubernur' => $countSaksiGubernur ?? 0,
+            'countSuaraSahWalikota' => $countSuaraSahWalikota ?? 0,
+            'countSuaraTidakSahWalikota' => $countSuaraTidakSahWalikota ?? 0,
+            'countSuaraSahGubernur' => $countSuaraSahGubernur ?? 0,
+            'countSuaraTidakSahGubernur' => $countSuaraTidakSahGubernur ?? 0,
+            'countDPTBWalikota' => $countDPTBWalikota ?? 0,
+            'countDPTBGubernur' => $countDPTBGubernur ?? 0,
+            'countDPTWalikota' => $countDPTWalikota ?? 0,
+            'countDPTGubernur' => $coundDPTGubernur ?? 0,
+        ]);
     }
 }

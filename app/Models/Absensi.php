@@ -15,6 +15,7 @@ class Absensi extends Model
         'longitude',
         'tps_image',
         'selfie_image',
+        'type',
         'status',
     ];
 

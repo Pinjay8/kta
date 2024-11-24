@@ -12,7 +12,7 @@ import ModalTambahAnggota from "@/Pages/Modal/ModalTambahAnggota";
 export default function AnggotaPage({ auth, data }) {
     const header = React.useMemo(() => [
         {
-            Header: "Nomor Anggota",
+            Header: "KTA",
             accessor: "no_anggota",
         },
         {
@@ -44,18 +44,9 @@ export default function AnggotaPage({ auth, data }) {
             accessor: "kelurahan",
         },
         {
-            Header: "RT",
-            accessor: "rt",
+            Header: "Status",
+            accessor: "status",
         },
-        {
-            Header: "Rw",
-            accessor: "rw",
-        },
-        // {
-        //     Header: "Password",
-        //     accessor: "password",
-        //     Cell: ({ cell }) => "*******",
-        // },
         {
             Header: "Aksi",
             Cell: ModalAnggota,

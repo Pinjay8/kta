@@ -22,26 +22,9 @@ export default function Authenticated({ user, header, children }) {
             link: route("adminDashboard"),
             icon: RxDashboard,
         },
-        ...(user.role === "superadmin"
-            ? [
-                  // Additional menu items for superadmin role
-                  {
-                      name: "Dashboard Super Admin",
-                      link: route("superAdminDashboard"),
-                      icon: RxDashboard,
-                  },
-                  // Add more additional menu items for superadmin role if needed
-              ]
-            : [
-                  {
-                      name: "Dashboard admin",
-                      link: "adminDashboard",
-                      icon: RxDashboard,
-                  },
-              ]),
         { name: "Menu utama", link: "#", icon: BsDot, margin: true },
         {
-            name: "Data Anggota",
+            name: "Saksi",
             link: route("anggota"),
             icon: MdOutlineEmojiPeople,
         },

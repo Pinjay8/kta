@@ -18,8 +18,10 @@ return new class extends Migration
             $table->double('longitude')->nullable();
             $table->longText('tps_image')->nullable();
             $table->longText('selfie_image')->nullable();
+            $table->string('type');
             $table->boolean('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

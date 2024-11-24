@@ -20,6 +20,10 @@ class TpsSeeder extends Seeder
             'no_tps' => '1',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'Purbalingga',
+            'rw' => '1',
+            'laki_laki' => '25',
+            'perempuan' => '25',
+            'dpt' => '50',
         ]);
 
 
@@ -28,6 +32,10 @@ class TpsSeeder extends Seeder
             'no_tps' => '2',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'Purbalingga',
+            'rw' => '2',
+            'laki_laki' => '25',
+            'perempuan' => '25',
+            'dpt' => '50',
         ]);
     }
 }

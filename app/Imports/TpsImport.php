@@ -16,11 +16,20 @@ class TpsImport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        if (isset($row['no_tps'])  && isset($row['kelurahan']) &&  isset($row['kecamatan'])) {
+        if (
+            isset($row['no_tps'])  && isset($row['kelurahan'])
+            &&  isset($row['kecamatan'])
+            &&  isset($row['rw'])
+            &&  isset($row['laki_laki']) &&  isset($row['perempuan']) && isset($row['dpt'])
+        ) {
             return new Tps([
                 'no_tps'    => $row['no_tps'],
                 'kelurahan' => $row['kelurahan'],
                 'kecamatan' => $row['kecamatan'],
+                'rw'        => $row['rw'],
+                'laki_laki' => $row['laki_laki'],
+                'perempuan' => $row['perempuan'],
+                'dpt'       => $row['dpt'],
             ]);
         }
     }

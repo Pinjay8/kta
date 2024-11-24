@@ -23,9 +23,7 @@ export default function ModalEditAnggota({ data_anggota }) {
         alamat: data_anggota.alamat || "",
         kecamatan: data_anggota.kecamatan || "",
         kelurahan: data_anggota.kelurahan || "",
-        rt: data_anggota.rt || "",
-        rw: data_anggota.rw || "",
-        password: data_anggota.password || "",
+        status: data_anggota.status || "",
     });
 
     // Function to open the modal
@@ -124,28 +122,37 @@ export default function ModalEditAnggota({ data_anggota }) {
                         <InputError message={errors.nik} className="mt-2" />
                     </div>
 
-                    <div className="mb-4">
-                        <InputLabel htmlFor="id_tps" value="Tps" />
-                        <TextInput
-                            id="id_tps"
-                            className="mt-1 block w-full"
-                            value={data.id_tps}
-                            name="id_tps"
-                            onChange={(e) => setData("id_tps", e.target.value)}
-                        />
-                        <InputError message={errors.ktp} className="mt-2" />
-                    </div>
+                    <div className="grid grid-cols-2 gap-2">
+                        <div className="mb-4">
+                            <InputLabel htmlFor="id_tps" value="Tps" />
+                            <TextInput
+                                id="id_tps"
+                                className="mt-1 block w-full"
+                                value={data.id_tps}
+                                name="id_tps"
+                                onChange={(e) =>
+                                    setData("id_tps", e.target.value)
+                                }
+                            />
+                            <InputError message={errors.ktp} className="mt-2" />
+                        </div>
 
-                    <div className="mb-4">
-                        <InputLabel htmlFor="alamat" value="Alamat" />
-                        <TextInput
-                            id="alamat"
-                            className="mt-1 block w-full"
-                            value={data.alamat}
-                            name="alamat"
-                            onChange={(e) => setData("alamat", e.target.value)}
-                        />
-                        <InputError message={errors.alamat} className="mt-2" />
+                        <div className="mb-4">
+                            <InputLabel htmlFor="alamat" value="Alamat" />
+                            <TextInput
+                                id="alamat"
+                                className="mt-1 block w-full"
+                                value={data.alamat}
+                                name="alamat"
+                                onChange={(e) =>
+                                    setData("alamat", e.target.value)
+                                }
+                            />
+                            <InputError
+                                message={errors.alamat}
+                                className="mt-2"
+                            />
+                        </div>
                     </div>
 
                     <div className="flex">
@@ -193,65 +200,29 @@ export default function ModalEditAnggota({ data_anggota }) {
                         </div>
                     </div>
 
-                    <div className="flex">
-                        <div className="w-1/2">
-                            <div className="mb-4">
-                                <InputLabel htmlFor="rt" value="RT" />
-                                <TextInput
-                                    id="rt"
-                                    className="mt-1 block w-full"
-                                    value={data.rt}
-                                    name="rt"
-                                    onChange={(e) =>
-                                        setData("rt", e.target.value)
-                                    }
-                                />
-                                <InputError
-                                    message={errors.rt}
-                                    className="mt-2"
-                                />
-                            </div>
-                        </div>
-                        <div className="w-1/2 ml-3">
-                            <div className="mb-4">
-                                <InputLabel htmlFor="rw" value="RW" />
-                                <TextInput
-                                    id="rw"
-                                    className="mt-1 block w-full"
-                                    value={data.rw}
-                                    name="rw"
-                                    onChange={(e) =>
-                                        setData("rw", e.target.value)
-                                    }
-                                />
-                                <InputError
-                                    message={errors.rw}
-                                    className="mt-2"
-                                />
-                            </div>
-                        </div>
+                    <div className="mb-4">
+                        <label
+                            htmlFor="status"
+                            className="block text-sm font-medium text-gray-700"
+                        >
+                            Status
+                        </label>
+
+                        <SelectInput
+                            id="status"
+                            name="status"
+                            value={data.status}
+                            onChange={(e) => setData("status", e.target.value)}
+                            options={[
+                                { value: "", label: "Pilih Status" },
+                                { value: "Walikota", label: "Walikota" },
+                                { value: "Gubernur", label: "Gubernur" },
+                            ]}
+                            className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
+                        />
+
+                        <InputError message={errors.status} className="mt-2" />
                     </div>
-
-                    {/* <div className="mb-2">
-                        <InputLabel htmlFor="password" value="Password" />
-
-                        <TextInput
-                            id="password"
-                            type="password"
-                            className="mt-1 block w-full"
-                            value={data.password}
-                            name="password"
-                            onChange={(e) =>
-                                setData("password", e.target.value)
-                            }
-                            placeholder="********"
-                        />
-                        <InputError
-                            message={errors.password}
-                            className="mt-2"
-                        />
-                    </div> */}
-
                     <PrimaryButton type="submit" className="mt-5">
                         Simpan
                     </PrimaryButton>

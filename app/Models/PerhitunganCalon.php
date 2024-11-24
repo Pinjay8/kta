@@ -6,28 +6,30 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Perhitungan extends Model
+class PerhitunganCalon extends Model
 {
     use HasFactory, SoftDeletes;
 
-    // softdeletes
-
-    protected $dates = ['deleted_at'];
-
     protected $fillable = [
-        'id_kegiatan',
+        'id_perhitungan',
         'id_anggota',
         'id_tps',
-        'dptb',
-        'pemilih_hadir',
-        'suara_sah',
-        'suara_tidak_sah',
+        'id_calon',
+        'suara_calon',
+        'gambar_tps',
+        'gambar_selfie',
+        'gambar_c1_1',
+        'gambar_c1_2',
+        'gambar_opsional',
+        'laporan',
+        'gambar_laporan',
         'perhitungan_ulang',
     ];
 
-    public function kegiatan()
+
+    public function perhitungan()
     {
-        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
+        return $this->belongsTo(Perhitungan::class, 'id_perhitungan', 'id');
     }
 
     public function anggota()
@@ -40,13 +42,8 @@ class Perhitungan extends Model
         return $this->belongsTo(Tps::class, 'id_tps', 'id');
     }
 
-    public function perhitungan_calons()
+    public function calon()
     {
-        return $this->belongsTo(PerhitunganCalon::class, 'id_perhitungan', 'id');
+        return $this->belongsTo(Calon::class, 'id_calon', 'id');
     }
-
-    // public function calon()
-    // {
-    //     return $this->belongsTo(Calon::class, 'id_calon', 'id');
-    // }
 }

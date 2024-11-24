@@ -36,18 +36,27 @@ class KegiatanController extends Controller
 
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'nama_kegiatan' => 'required',
-            'jam' => 'required',
-            'tanggal' => 'required',
-            'status' => 'required',
-            'jenis_pemilihan' => 'required',
-        ]);
+        $request->validate(
+            [
+                'nama_kegiatan' => 'required',
+                'jam' => 'required',
+                'tanggal' => 'required',
+                'status' => 'required',
+                'jenis_pemilihan' => 'required',
+            ],
+            [
+                'nama_kegiatan.required' => 'Nama Kegiatan tidak boleh kosong',
+                'jam.required' => 'Jam tidak boleh kosong',
+                'tanggal.required' => 'Tanggal tidak boleh kosong',
+                'status.required' => 'Status tidak boleh kosong',
+                'jenis_pemilihan.required' => 'Jenis Pemilihan tidak boleh kosong',
+            ]
+        );
 
         // $absensi = '0';
         // $status = '0';
 
-        $kegiatan = new Kegiatan([
+        Kegiatan::create([
             'nama_kegiatan' => $request->input('nama_kegiatan'),
             'jam' => $request->input('jam'),
             'tanggal' => $request->input('tanggal'),
@@ -55,7 +64,7 @@ class KegiatanController extends Controller
             'jenis_pemilihan' => $request->input('jenis_pemilihan'),
         ]);
 
-        $kegiatan->save();
+
 
         // $anggota = Anggota::all();
         // foreach ($anggota as $user) {

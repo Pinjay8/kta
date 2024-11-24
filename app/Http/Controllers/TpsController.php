@@ -17,6 +17,10 @@ class TpsController extends Controller
     {
         $request->validate([
             'file' => 'required|mimes:xlsx,xls',
+            [
+                'file.required' => 'File tidak boleh kosong',
+                'file.mimes' => 'File harus berformat xlsx atau xls',
+            ]
         ]);
 
         // Menggunakan import untuk memproses file Excel
@@ -27,22 +31,40 @@ class TpsController extends Controller
 
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
-            'no_tps' => 'required',
-            'kelurahan' => 'required',
-            'kecamatan' => 'required',
-        ]);
+        $request->validate(
+            [
+                'no_tps' => 'required',
+                'kelurahan' => 'required',
+                'kecamatan' => 'required',
+                "rw" => 'required',
+                "laki_laki" => 'required',
+                "perempuan" => 'required',
+                "dpt" => 'required',
+            ],
 
-        $tps = new Tps([
+            [
+                'no_tps.required' => 'No TPS tidak boleh kosong',
+                'kelurahan.required' => 'Kelurahan tidak boleh kosong',
+                'kecamatan.required' => 'Kecamatan tidak boleh kosong',
+                'rw.required' => 'RW tidak boleh kosong',
+                'laki_laki.required' => 'Laki-laki tidak boleh kosong',
+                'perempuan.required' => 'Perempuan tidak boleh kosong',
+                'dpt.required' => 'DPT tidak boleh kosong',
+            ]
+        );
+
+        Tps::create([
             'no_tps' => $request->input('no_tps'),
             'alamat' => $request->input('alamat'),
             'kelurahan' => $request->input('kelurahan'),
-            'rt' => $request->input('rt'),
-            'rw' => $request->input('rw'),
             'kecamatan' => $request->input('kecamatan'),
+            'rw' => $request->input('rw'),
+            'laki_laki' => $request->input('laki_laki'),
+            'perempuan' => $request->input('perempuan'),
+            'dpt' => $request->input('dpt'),
+
         ]);
 
-        $tps->save();
 
         return redirect()->back();
     }
@@ -62,6 +84,10 @@ class TpsController extends Controller
             'no_tps' => 'required',
             'kelurahan' => 'required',
             'kecamatan' => 'required',
+            'rw' => 'required',
+            'laki_laki' => 'required',
+            'perempuan' => 'required',
+            'dpt' => 'required',
         ]);
 
         $Tps = Tps::find($id);
@@ -70,6 +96,10 @@ class TpsController extends Controller
             'no_tps' => $request->input('no_tps'),
             'kelurahan' => $request->input('kelurahan'),
             'kecamatan' => $request->input('kecamatan'),
+            'rw' => $request->input('rw'),
+            'laki_laki' => $request->input('laki_laki'),
+            'perempuan' => $request->input('perempuan'),
+            'dpt' => $request->input('dpt'),
         ]);
 
         return redirect()->back();

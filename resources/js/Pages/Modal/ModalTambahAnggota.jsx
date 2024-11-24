@@ -18,12 +18,10 @@ export default function ModalTambahAnggota() {
         no_hp: "",
         nik: "",
         id_tps: "",
-        alamat: "",
         kecamatan: "",
+        alamat: "",
         kelurahan: "",
-        rt: "",
-        rw: "",
-        password: "",
+        status: "",
         file: null,
     });
 
@@ -72,9 +70,7 @@ export default function ModalTambahAnggota() {
             alamat: "",
             kecamatan: "",
             kelurahan: "",
-            rt: "",
-            rw: "",
-            password: "",
+            status: "",
         });
     };
 
@@ -165,35 +161,40 @@ export default function ModalTambahAnggota() {
                             <InputError message={errors.nik} className="mt-2" />
                         </div>
 
-                        <div className="mb-4">
-                            <InputLabel htmlFor="id_tps" value="Tps" />
-                            <TextInput
-                                id="id_tps"
-                                className="mt-1 block w-full"
-                                value={data.id_tps}
-                                name="id_tps"
-                                onChange={(e) =>
-                                    setData("id_tps", e.target.value)
-                                }
-                            />
-                            <InputError message={errors.ktp} className="mt-2" />
-                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                            <div className="mb-4">
+                                <InputLabel htmlFor="id_tps" value="Tps" />
+                                <TextInput
+                                    id="id_tps"
+                                    className="mt-1 block w-full"
+                                    value={data.id_tps}
+                                    name="id_tps"
+                                    onChange={(e) =>
+                                        setData("id_tps", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.ktp}
+                                    className="mt-2"
+                                />
+                            </div>
 
-                        <div className="mb-4">
-                            <InputLabel htmlFor="alamat" value="Alamat" />
-                            <TextInput
-                                id="alamat"
-                                className="mt-1 block w-full"
-                                value={data.alamat}
-                                name="alamat"
-                                onChange={(e) =>
-                                    setData("alamat", e.target.value)
-                                }
-                            />
-                            <InputError
-                                message={errors.alamat}
-                                className="mt-2"
-                            />
+                            <div className="mb-4">
+                                <InputLabel htmlFor="alamat" value="Alamat" />
+                                <TextInput
+                                    id="alamat"
+                                    className="mt-1 block w-full"
+                                    value={data.alamat}
+                                    name="alamat"
+                                    onChange={(e) =>
+                                        setData("alamat", e.target.value)
+                                    }
+                                />
+                                <InputError
+                                    message={errors.alamat}
+                                    className="mt-2"
+                                />
+                            </div>
                         </div>
 
                         <div className="flex">
@@ -241,60 +242,31 @@ export default function ModalTambahAnggota() {
                             </div>
                         </div>
 
-                        <div className="flex">
-                            <div className="w-1/2">
-                                <div className="mb-4">
-                                    <InputLabel htmlFor="rt" value="RT" />
-                                    <TextInput
-                                        id="rt"
-                                        className="mt-1 block w-full"
-                                        value={data.rt}
-                                        name="rt"
-                                        onChange={(e) =>
-                                            setData("rt", e.target.value)
-                                        }
-                                    />
-                                    <InputError
-                                        message={errors.rt}
-                                        className="mt-2"
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-1/2 ml-3">
-                                <div className="mb-4">
-                                    <InputLabel htmlFor="rw" value="RW" />
-                                    <TextInput
-                                        id="rw"
-                                        className="mt-1 block w-full"
-                                        value={data.rw}
-                                        name="rw"
-                                        onChange={(e) =>
-                                            setData("rw", e.target.value)
-                                        }
-                                    />
-                                    <InputError
-                                        message={errors.rw}
-                                        className="mt-2"
-                                    />
-                                </div>
-                            </div>
-                        </div>
+                        <div className="mb-4">
+                            <label
+                                htmlFor="status"
+                                className="block text-sm font-medium text-gray-700"
+                            >
+                                Status
+                            </label>
 
-                        <div className="mb-2">
-                            <InputLabel htmlFor="password" value="Password" />
-
-                            <TextInput
-                                id="password"
-                                type="password"
-                                className="mt-1 block w-full"
-                                value={data.password}
-                                name="password"
+                            <SelectInput
+                                id="status"
+                                name="status"
+                                value={data.status}
                                 onChange={(e) =>
-                                    setData("password", e.target.value)
+                                    setData("status", e.target.value)
                                 }
+                                options={[
+                                    { value: "", label: "Pilih Status" },
+                                    { value: "Walikota", label: "Walikota" },
+                                    { value: "Gubernur", label: "Gubernur" },
+                                ]}
+                                className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                             />
+
                             <InputError
-                                message={errors.password}
+                                message={errors.status}
                                 className="mt-2"
                             />
                         </div>
@@ -306,7 +278,7 @@ export default function ModalTambahAnggota() {
                             className="flex items-center gap-4 mx-2"
                             onClick={closeModal}
                         >
-                            Back
+                            Tutup
                         </SecondaryButton>
                     </form>
                     <div className="px-6 py-2">

@@ -27,8 +27,8 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'string', 'email'],
-            'password' => ['required', 'string'],
+            'email' => ['required'],
+            'password' => ['required'],
         ];
     }
 
@@ -46,7 +46,7 @@ class LoginRequest extends FormRequest
 
             throw ValidationException::withMessages([
                 // 'email' => trans('auth.failed'),
-                'email' => 'data tidak ditemukan',
+                'email' => 'Data tidak ditemukan',
             ]);
         }
 

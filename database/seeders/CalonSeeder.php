@@ -15,30 +15,30 @@ class CalonSeeder extends Seeder
     {
         DB::table('calons')->insert([
             'id' => 1,
-            'nama' => 'Calon 1',
+            'nama' => 'Andika Perkasa & Hendrar Prihadi',
             'no_urut' => 1,
-            'status' => 'Walikota',
+            'status' => 'Gubernur',
         ]);
 
         DB::table('calons')->insert([
             'id' => 2,
-            'nama' => 'Calon 2',
+            'nama' => 'Ahmad Luthfi & Taj Yasin',
             'no_urut' => 2,
-            'status' => 'Walikota',
+            'status' => 'Gubernur',
         ]);
 
         DB::table('calons')->insert([
             'id' => 3,
-            'nama' => 'Calon 1',
+            'nama' => 'dr. Muchamad Nur Aziz – M. Mansyur',
             'no_urut' => 1,
-            'status' => 'Gubernur',
+            'status' => 'Walikota',
         ]);
 
         DB::table('calons')->insert([
             'id' => 4,
-            'nama' => 'Calon 2',
+            'nama' => 'Damar Prasetyono – dr. Sri Harso',
             'no_urut' => 2,
-            'status' => 'Gubernur',
+            'status' => 'Walikota',
         ]);
     }
 }

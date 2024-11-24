@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('no_urut');
             $table->string('status');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -3,24 +3,97 @@ import { Head } from "@inertiajs/react";
 import ApplicationLogo from "@/Components/ApplicationLogo";
 import { Tabs } from "flowbite-react";
 import BarChart from "@/Components/BarChart";
-import {FiSmile} from "react-icons/fi";
-import {RiFileEditLine} from "react-icons/ri";
+import { FiSmile } from "react-icons/fi";
+import { RiFileEditLine } from "react-icons/ri";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaUserTie } from "react-icons/fa";
+import { Inertia } from "@inertiajs/inertia";
+import { useEffect, useState } from "react";
+import { IoPeople } from "react-icons/io5";
+import { TbActivity } from "react-icons/tb";
+import { RiNumbersFill } from "react-icons/ri";
+import { FaHome } from "react-icons/fa";
 
 export default function AdminDashboard({
     auth,
-    sum_fpi,
-    sum_fpki,
-    sum_survey,
-    user_record,
-    avg,
-    fpi_terkabulkan,
-    fpi_ditolak,
-    fpi_menunggu,
-    fpki_terkabulkan,
-    fpki_ditolak,
-    fpki_menunggu,
-
+    absensi,
+    perhitungan,
+    tps,
+    kegiatan,
+    anggota,
+    allCalon,
+    calonFirst,
+    calonSecond,
+    calonGubernurFirst,
+    calonGubernurSecond,
+    totalInputByAnggota,
+    perhitunganAnggotaPertamaGubernur,
+    persentaseInputDataGubernur,
+    perhitunganAnggotaKeduaGubernur,
+    persentaseAnggotaKeduaGubernur,
+    perhitunganAnggotaPertamaWalikota,
+    persentaseAnggotaPertamaWalikota,
+    perhitunganAnggotaKeduaWalikota,
+    persentaseAnggotaKeduaWalikota,
+    totalInputByAnggotaGubernur,
+    persentaseDataAnggotaGubernur,
+    countSaksiGubernur,
+    countSuaraSahWalikota,
+    countSuaraTidakSahWalikota,
+    countSuaraSahGubernur,
+    countSuaraTidakSahGubernur,
+    countDPTBWalikota,
+    countDPTBGubernur,
+    countDPTWalikota,
+    countDPTGubernur,
 }) {
+    const [dashboardData, setDashboardData] = useState({
+        absensi,
+        perhitungan,
+        tps,
+        kegiatan,
+        anggota,
+        allCalon,
+        calonFirst,
+        calonSecond,
+        calonGubernurFirst,
+        calonGubernurSecond,
+        totalInputByAnggota,
+        perhitunganAnggotaPertamaGubernur,
+        persentaseInputDataGubernur,
+        perhitunganAnggotaKeduaGubernur,
+        persentaseAnggotaKeduaGubernur,
+        perhitunganAnggotaPertamaWalikota,
+        persentaseAnggotaPertamaWalikota,
+        perhitunganAnggotaKeduaWalikota,
+        persentaseAnggotaKeduaWalikota,
+        totalInputByAnggotaGubernur,
+        persentaseDataAnggotaGubernur,
+        countSaksiGubernur,
+        countSuaraSahWalikota,
+        countSuaraTidakSahWalikota,
+        countSuaraSahGubernur,
+        countSuaraTidakSahGubernur,
+        countDPTBWalikota,
+        countDPTBGubernur,
+        countDPTWalikota,
+        countDPTGubernur,
+    });
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            // Gunakan Inertia.get untuk memanggil ulang data
+            Inertia.get("/adminDashboard", {
+                onSuccess: (response) => {
+                    setDashboardData(response.props); // Update state dengan data baru
+                    console.log(setDashboardData);
+                },
+            });
+        }, 300000); // Interval menjadi 5 menit
+
+        // Hapus interval saat komponen unmount
+        return () => clearInterval(interval);
+    }, []); // Hanya dijalankan sekali saat komponen pertama kali di render
 
     return (
         <AuthenticatedLayout
@@ -38,44 +111,256 @@ export default function AdminDashboard({
                         Selamat Datang {auth.user.name} 👋
                     </h2>
                     <div className="flex flex-col space-y-6 md:space-y-0 md:flex-row justify-between"></div>
+                    <h4 className="text-3xl font-bold">Pemilihan Walikota</h4>
+                    <section className="grid md:grid-cols-2  gap-6">
+                        <div className="flex flex-col items-center p-8 bg-white shadow-lg rounded-lg">
+                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaUserTie size={30} />
+                            </div>
+                            <div className="lh-lg leading-tight">
+                                <h4 className="text-3xl font-bold">
+                                    {dashboardData.calonFirst.nama}
+                                </h4>
+                                <h5 className="text-xl font-semibold text-center">
+                                    Nomor Urut :{" "}
+                                    {dashboardData.calonFirst.no_urut}
+                                </h5>
+
+                                <h5 className="text-center text-2xl font-bold">
+                                    <span className="text-2l">
+                                        {" "}
+                                        Perolehan Suara :{" "}
+                                    </span>
+                                    {
+                                        dashboardData.perhitunganAnggotaPertamaWalikota
+                                    }{" "}
+                                </h5>
+                                <h5 className="text-center text-4xl font-bold">
+                                    {dashboardData.persentaseAnggotaPertamaWalikota.toFixed(
+                                        2
+                                    )}{" "}
+                                    %
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col items-center p-8 bg-white  shadow-lg  rounded-lg">
+                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaUserTie size={30} />
+                            </div>
+                            <div className="lh-lg leading-tight">
+                                <span className="block text-2xl font-bold">
+                                    {/* {absensi} */}
+                                </span>
+                                <h4 className="text-3xl font-bold">
+                                    {dashboardData.calonSecond.nama}
+                                </h4>
+                                <h5 className="text-xl font-semibold text-center">
+                                    Nomor Urut :{" "}
+                                    {dashboardData.calonSecond.no_urut}
+                                </h5>
+
+                                <h5 className="text-center text-2xl font-bold">
+                                    <span className="text-2l">
+                                        {" "}
+                                        Perolehan Suara :{" "}
+                                    </span>
+                                    {
+                                        dashboardData.perhitunganAnggotaKeduaWalikota
+                                    }{" "}
+                                </h5>
+                                <h5 className="text-center text-4xl font-bold">
+                                    {dashboardData.persentaseAnggotaKeduaWalikota.toFixed(
+                                        2
+                                    )}{" "}
+                                    %
+                                </h5>
+                            </div>
+                        </div>
+                    </section>
+
+                    <h4 className="text-3xl font-bold">Pemilihan Gubernur</h4>
+                    <section className="grid md:grid-cols-2  gap-6">
+                        <div className="flex flex-col items-center p-8 bg-white  shadow-lg rounded-lg gap-2">
+                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaUserTie size={30} />
+                            </div>
+                            <div className="lh-lg leading-tight">
+                                <span className="block text-2xl font-bold">
+                                    {/* {absensi} */}
+                                </span>
+
+                                <h4 className="text-3xl font-bold">
+                                    {dashboardData.calonGubernurFirst.nama}
+                                </h4>
+                                <h5 className="text-xl font-semibold text-center">
+                                    Nomor Urut :{" "}
+                                    {dashboardData.calonGubernurFirst.no_urut}
+                                </h5>
+
+                                <h5 className="text-center text-2xl font-bold">
+                                    <span className="text-2l">
+                                        {" "}
+                                        Perolehan Suara :
+                                        {
+                                            dashboardData.perhitunganAnggotaPertamaGubernur
+                                        }
+                                    </span>
+                                </h5>
+
+                                {/* <h5 className="text-2xl font-bold text-center">
+                                    Jumlah Suara :
+                                    {dashboardData.totalPerhitunganGubernur}
+                                </h5> */}
+                                <h5 className="text-center text-4xl font-bold">
+                                    {dashboardData.persentaseInputDataGubernur.toFixed(
+                                        2
+                                    )}{" "}
+                                    %
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col items-center p-8 bg-white  shadow-lg  rounded-lg">
+                            <div className="inline-flex  flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaUserTie size={30} />
+                            </div>
+                            <div className="lh-lg leading-tight">
+                                <span className="block text-2xl font-bold"></span>
+                                <h4 className="text-3xl font-bold">
+                                    {dashboardData.calonGubernurSecond.nama}
+                                </h4>
+                                <h5 className="text-xl font-semibold text-center">
+                                    Nomor Urut :{" "}
+                                    {dashboardData.calonGubernurSecond.no_urut}
+                                </h5>
+
+                                <h5 className="text-center text-2xl font-bold">
+                                    <span className="text-2l">
+                                        {" "}
+                                        Perolehan Suara :{" "}
+                                    </span>
+                                    {
+                                        dashboardData.perhitunganAnggotaKeduaGubernur
+                                    }{" "}
+                                </h5>
+                                <h5 className="text-center text-4xl font-bold">
+                                    {dashboardData.persentaseAnggotaKeduaGubernur.toFixed(
+                                        2
+                                    )}{" "}
+                                    %
+                                </h5>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="grid md:grid-cols-2  gap-6">
+                        <div className="flex items-center p-8 bg-white shadow rounded-lg">
+                            {/* <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaCalendarAlt size={30} />
+                            </div> */}
+                            <div>
+                                <span className="block text-3xl font-bold mb-4">
+                                    Walikota
+                                </span>
+                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
+                                    Jumlah Suara Sah :
+                                    {dashboardData.countSuaraSahWalikota}
+                                </span>
+                                <br />
+                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
+                                    Jumlah Suara Tidak Sah :{" "}
+                                    {dashboardData.countSuaraTidakSahWalikota}
+                                </span>
+                                <span className="block text-2xl font-semibold">
+                                    Jumlah DPT :{" "}
+                                    {dashboardData.countDPTWalikota}
+                                </span>
+                                <span className="block text-2xl font-semibold">
+                                    Jumlah DPTB :{" "}
+                                    {dashboardData.countDPTBWalikota}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center p-8 bg-white shadow rounded-lg">
+                            {/* <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaCalendarAlt size={30} />
+                            </div> */}
+                            <div>
+                                <span className="block text-3xl font-bold mb-4">
+                                    Gubernur
+                                </span>
+                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-6">
+                                    Jumlah Suara Sah :{" "}
+                                    {dashboardData.countSuaraSahGubernur}
+                                </span>
+                                <br />
+                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
+                                    Jumlah Suara Tidak Sah :{" "}
+                                    {dashboardData.countSuaraTidakSahGubernur}
+                                </span>
+                                <span className="block text-2xl font-semibold">
+                                    Jumlah DPT :{" "}
+                                    {dashboardData.countDPTGubernur}
+                                </span>
+                                <span className="block text-2xl font-semibold">
+                                    Jumlah DPTB :{" "}
+                                    {dashboardData.countDPTBGubernur}
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section className="grid md:grid-cols-2  gap-6">
+                        <div className="flex items-center p-8 bg-white shadow rounded-lg">
+                            {/* <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
+                                <FaCalendarAlt size={30} />
+                            </div> */}
+                            <div>
+                                <span className="block text-2xl font-bold">
+                                    Proses Suara Masuk Dari Saksi :
+                                </span>
+                                <span className="block text-2xl font-bold">
+                                    {dashboardData.totalInputByAnggotaGubernur}{" "}
+                                    dari {dashboardData.countSaksiGubernur}{" "}
+                                    Saksi Gubernur
+                                </span>
+                                <span className="leading-none text-2xl text-gray-800 font-semibold mt-2">
+                                    Total Data Masuk :{" "}
+                                    {dashboardData.persentaseDataAnggotaGubernur.toFixed(
+                                        2
+                                    )}{" "}
+                                    %
+                                </span>
+                            </div>
+                        </div>
+                    </section>
+
                     <section className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
                         <div className="flex items-center p-8 bg-white shadow rounded-lg">
                             <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                {/* <svg
-                                    aria-hidden="true"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    className="h-6 w-6"
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth={2}
-                                        d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                                    />
-                                </svg> */}
-                                <RiFileEditLine size={30} />
+                                <FaCalendarAlt size={30} />
                             </div>
                             <div>
                                 <span className="block text-2xl font-bold">
-                                    {sum_fpi}
+                                    {dashboardData.absensi}
                                 </span>
-                                <span className="leading-none text-sm text-gray-500">
-                                    Jumlah Permohonan Informasi
+                                <span className=" text-gray-500">
+                                    Jumlah Yang Sudah Melakukan Absensi
                                 </span>
                             </div>
                         </div>
                         <div className="flex items-center p-8 bg-white shadow rounded-lg">
                             <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-red-600 bg-red-100 rounded-full mr-6">
-                                <RiFileEditLine size={30} />
+                                <FaHome size={30} />
                             </div>
                             <div>
                                 <span className="block text-2xl font-bold">
-                                    {sum_fpki}
+                                    {dashboardData.tps}
                                 </span>
-                                <span className="leading-none text-sm text-gray-500">
-                                    Jumlah Pengajuan Keberatan Informasi
+                                <span className=" text-gray-500">
+                                    Jumlah Tps
                                 </span>
                             </div>
                         </div>
@@ -98,101 +383,53 @@ export default function AdminDashboard({
                             </div>
                             <div>
                                 <span className="block text-2xl font-bold">
-                                    {sum_survey}
+                                    {dashboardData.anggota}
                                 </span>
-                                <span className="text-sm  text-gray-500">
-                                    Jumlah Survey Pelayanan Informasi
+                                <span className=" text-gray-500">
+                                    Jumlah Saksi
                                 </span>
                             </div>
                         </div>
-                    </section>
-                    <section className="grid md:grid-cols-1 xl:grid-cols-4 xl:grid-rows-3 xl:grid-flow-col gap-6">
-                        <div className="flex md:col-span-2 items-center p-8 bg-white shadow rounded-lg">
-                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-yellow-600 bg-yellow-100 rounded-full mr-6">
-                               
-                                <FiSmile size={30}/>
+
+                        <div className="flex  items-center p-8 bg-white shadow rounded-lg">
+                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-yellow-600 bg-green-100 rounded-full mr-6">
+                                <TbActivity size={30} />
                             </div>
                             <div>
                                 <span className="block text-2xl font-bold">
-                                    {avg}%
+                                    {dashboardData.kegiatan}
                                 </span>
                                 <span className="block text-gray-500">
-                                    Pengguna merasa puas
+                                    Kegiatan
                                 </span>
                             </div>
                         </div>
-                        <div className="flex flex-col md:col-span-2 md:row-span-2 bg-white shadow rounded-lg">
-                            {/* <div className="px-6 py-5 font-semibold border-b border-gray-100">
-                                Grafik Layanan PPID Bulan Mei
-                            </div> */}
-                            {/* <div className="p-4 flex-grow">
-                                <div className="flex items-center justify-center h-full px-4 py-16 text-gray-400 text-3xl font-semibold bg-gray-100 border-2 border-gray-200 border-dashed rounded-md">
-                                    Chart
-                                </div>
-                            </div> */}
 
-                            <Tabs.Group
-                                aria-label="Full width tabs"
-                                style="fullWidth"
-                            >
-                                <Tabs.Item title=" Permohonan Informasi">
-                                   <BarChart data1={fpi_terkabulkan} data2={fpi_menunggu} data3={fpi_ditolak} header='Permohonan Informasi'/>
-                                </Tabs.Item>
-                                <Tabs.Item title=" Pengajuan Keberatan Informasi">
-                                   <BarChart data1={fpki_terkabulkan} data2={fpki_menunggu} data3={fpki_ditolak} header='Pengajuan Keberatan Informasi'/>
-                                </Tabs.Item>
-                            </Tabs.Group>
-                        </div>
-                        <div className="row-span-3 md:col-span-2 bg-white shadow rounded-lg">
-                            <div className="flex items-center justify-between px-6 py-5 font-semibold border-b border-gray-100">
-                                <span>Aktifitas terbaru</span>
+                        <div className="flex items-center p-8 bg-white shadow rounded-lg">
+                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-yellow-600 bg-slate-100 rounded-full mr-6">
+                                <IoPeople size={30} />
                             </div>
-                            <div
-                                className="overflow-y-auto"
-                                style={{ maxHeight: "29rem" }}
-                            >
-                                <ul className="p-6 space-y-6">
-                                    {user_record && user_record.length > 0 ? (
-                                        user_record.map((item, i) => {
-                                            const createdDate = new Date(
-                                                item.created_at
-                                            ).toLocaleDateString("en-US", {
-                                                year: "numeric",
-                                                month: "long",
-                                                day: "numeric",
-                                                hour: "numeric",
-                                                minute: "numeric",
-                                                second: "numeric",
-                                                hour12: true,
-                                            });
-                                            return (
-                                                <div key={i}>
-                                                    <li className="flex items-center">
-                                                        <div className="h-10 w-10 mr-3 bg-gray-100 rounded-full overflow-hidden">
-                                                            <img
-                                                                src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Default_pfp.svg"
-                                                                alt="profile picture"
-                                                            />
-                                                        </div>
-                                                        <div className="flex flex-col">
-                                                            <div className="text-gray-700">
-                                                                {item.nama}
-                                                            </div>
-                                                            <div className="text-gray-500 text-sm ">
-                                                                {item.source}
-                                                            </div>
-                                                        </div>
-                                                        <span className="ml-auto text-xs font-semibold">
-                                                            {createdDate}
-                                                        </span>
-                                                    </li>
-                                                </div>
-                                            );
-                                        })
-                                    ) : (
-                                        <li> Data masih kosong</li>
-                                    )}
-                                </ul>
+                            <div>
+                                <span className="block text-2xl font-bold">
+                                    {allCalon}
+                                </span>
+                                <span className="block text-gray-500">
+                                    Jumlah Calon
+                                </span>
+                            </div>
+                        </div>
+
+                        <div className="flex  items-center p-8 bg-white shadow rounded-lg">
+                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-yellow-600 bg-yellow-100 rounded-full mr-6">
+                                <RiNumbersFill size={30} />
+                            </div>
+                            <div>
+                                <span className="block text-2xl font-bold">
+                                    {dashboardData.perhitungan}
+                                </span>
+                                <span className="block text-gray-500">
+                                    Jumlah Perhitungan
+                                </span>
                             </div>
                         </div>
                     </section>

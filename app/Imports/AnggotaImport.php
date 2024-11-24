@@ -15,9 +15,8 @@ class AnggotaImport implements ToModel, WithHeadingRow
      */
     public function model(array $row)
     {
-        if (isset($row['no_anggota']) && isset($row['nama']) && isset($row['no_hp']) && isset($row['nik']) && isset($row['id_tps']) && isset($row['alamat']) && isset($row['kecamatan']) && isset($row['kelurahan']) && isset($row['rt']) && isset($row['rw']) && isset($row['password'])) {
+        if (isset($row['no_anggota']) && isset($row['nama']) && isset($row['no_hp']) && isset($row['nik']) && isset($row['id_tps']) && isset($row['alamat']) && isset($row['kecamatan']) && isset($row['kelurahan'])  && isset($row['status'])) {
             return new Anggota([
-                //
                 'no_anggota' => $row['no_anggota'],
                 'nama' => $row['nama'],
                 'no_hp' => $row['no_hp'],
@@ -26,9 +25,7 @@ class AnggotaImport implements ToModel, WithHeadingRow
                 'alamat' => $row['alamat'],
                 'kecamatan' => $row['kecamatan'],
                 'kelurahan' => $row['kelurahan'],
-                'rt' => $row['rt'],
-                'rw' => $row['rw'],
-                'password' => $row['password'],
+                'status' => $row['status'],
             ]);
         }
     }
