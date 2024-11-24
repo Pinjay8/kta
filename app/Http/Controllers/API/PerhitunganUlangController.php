@@ -35,7 +35,7 @@ class PerhitunganUlangController extends Controller
 
         return response()->json([
             'status' => 'success',
-            'message' => 'Data berhasil ditambahkan',
+            'message' => 'Pengajuan perhitungan ulang berhasil diajukan',
             'data' => null,
         ], 200);
     }
