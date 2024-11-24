@@ -7,6 +7,8 @@ use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\KegiatanController;
 use App\Http\Controllers\API\PerhitunganUlangController;
 use App\Http\Controllers\API\PerhitunganController;
+use App\Http\Controllers\API\PerhitunganCalonController;
+
 use App\Http\Controllers\API\AbsensiController;
 use App\Http\Controllers\API\DashboardController;
 use App\Http\Controllers\API\ImageController;
@@ -41,7 +43,7 @@ Route::middleware(['auth:sanctum', 'abilities:anggota'])->group(function () {
     
     Route::post('kegiatan/detail', [KegiatanController::class, 'show']);
 
-    Route::post('perhitungan/total', [PerhitunganCalonController::class, 'store']);
+    Route::post('perhitungan/total', [PerhitunganController::class, 'store']);
     Route::post('perhitungan/calon', [PerhitunganCalonController::class, 'store']);
 
     Route::post('perhitungan/ulang', [PerhitunganUlangController::class, 'store']);

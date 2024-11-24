@@ -89,13 +89,17 @@ class KegiatanController extends Controller
                 'perhitungan_ulang' => (string)$perhitunganUlang
             ],
             'total' => [
-                'name' => (string)$kegiatanName,
+                'nama' => (string)$kegiatanName,
                 'status' => (string)$status,
                 'perhitungan_ulang' => (string)$perhitunganUlang
             ]
         ];
 
-        return response()->json($response);
-    }
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Data Kegiatan berhasil diambil',
+            'data' => $response,
+        ], 200);
+        }
 
 }

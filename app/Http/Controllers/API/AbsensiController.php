@@ -94,8 +94,8 @@ class AbsensiController extends Controller
         $absensi = Absensi::where('id_anggota', $anggota->id)->get();
 
       
-        $checkinStatus = $absensi->where('type', 'checkin')->isNotEmpty() ? '1' : '0';
-        $checkoutStatus = $absensi->where('type', 'checkout')->isNotEmpty() ? '1' : '0';
+        $checkinStatus = $absensi->where('type', 'checkin')->isNotEmpty() ? '0' : '1';
+        $checkoutStatus = $absensi->where('type', 'checkout')->isNotEmpty() ? '0' : '1';
 
         return response()->json([
             'status' => 'success',

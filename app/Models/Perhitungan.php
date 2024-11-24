@@ -19,12 +19,8 @@ class Perhitungan extends Model
         'id_anggota',
         'id_tps',
         'gambar_selfie',
-        'dptb',
-        'pemilih_hadir',
-        'suara_sah',
-        'suara_tidak_sah',
-        'gambar_laporan',
-        'catatan',
+        'gambar_c1_1',
+        'gambar_c1_2',
         'perhitungan_ulang',
     ];
 
