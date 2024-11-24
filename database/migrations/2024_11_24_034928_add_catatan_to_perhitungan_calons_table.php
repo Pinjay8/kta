@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('anggotas', function (Blueprint $table) {
-            $table->string('mendaftar_sebagai')->nullable()->after('rw');
+        Schema::table('perhitungan_calons', function (Blueprint $table) {
+            $table->text('catatan')->nullable()->after('gambar_laporan');
         });
     }
 
@@ -21,8 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('anggotas', function (Blueprint $table) {
-            $table->dropColumn('mendaftar_sebagai');
+        Schema::table('perhitungan_calons', function (Blueprint $table) {
+            $table->dropColumn('catatan');
         });
     }
 };

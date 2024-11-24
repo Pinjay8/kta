@@ -20,10 +20,13 @@ class PerhitunganSeeder extends Seeder
             'id_kegiatan' => 1,
             'id_anggota' => 1,
             'id_tps' => 1,
+            'gambar_selfie' => null,
             'dptb' => 0,
             'pemilih_hadir' => 50,
             'suara_sah' => 50,
             'suara_tidak_sah' => 0,
+            'gambar_laporan' => null,
+            'catatan' => '',
             'perhitungan_ulang' => false,
         ]);
 
@@ -44,10 +47,13 @@ class PerhitunganSeeder extends Seeder
             'id_kegiatan' => 2,
             'id_anggota' => 2,
             'id_tps' => 2,
+            'gambar_selfie' => null,
             'dptb' => 0,
             'pemilih_hadir' => 50,
             'suara_sah' => 50,
             'suara_tidak_sah' => 0,
+            'gambar_laporan' => null,
+            'catatan' => '',
             'perhitungan_ulang' => false,
         ]);
 
