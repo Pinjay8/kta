@@ -220,14 +220,8 @@ export default function ModalEditAnggota({ data_anggota }) {
                             ]}
                             className="mt-1 block w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm"
                         />
-<<<<<<< HEAD
 
-                        <InputError message={errors.status} className="mt-2" />
                     </div>
-
-=======
-                    </div>
->>>>>>> 771a402eeea91ec98f81e48260cf4b4173a828fb
                     <PrimaryButton type="submit" className="mt-5">
                         Simpan
                     </PrimaryButton>
