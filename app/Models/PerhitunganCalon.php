@@ -16,13 +16,11 @@ class PerhitunganCalon extends Model
         'id_tps',
         'id_calon',
         'suara_calon',
-        'gambar_tps',
-        'gambar_selfie',
         'gambar_c1_1',
         'gambar_c1_2',
         'gambar_opsional',
-        'laporan',
         'gambar_laporan',
+        'catatan',
         'perhitungan_ulang',
     ];
 

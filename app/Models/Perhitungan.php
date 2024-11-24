@@ -18,10 +18,13 @@ class Perhitungan extends Model
         'id_kegiatan',
         'id_anggota',
         'id_tps',
+        'gambar_selfie',
         'dptb',
         'pemilih_hadir',
         'suara_sah',
         'suara_tidak_sah',
+        'gambar_laporan',
+        'catatan',
         'perhitungan_ulang',
     ];
 
