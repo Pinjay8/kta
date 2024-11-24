@@ -11,23 +11,17 @@ class PerhitunganCalon extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'id_perhitungan',
+        'id_kegiatan',
         'id_anggota',
         'id_tps',
         'id_calon',
         'suara_calon',
-        'gambar_c1_1',
-        'gambar_c1_2',
-        'gambar_opsional',
-        'gambar_laporan',
-        'catatan',
         'perhitungan_ulang',
     ];
 
-
-    public function perhitungan()
+    public function kegiatan()
     {
-        return $this->belongsTo(Perhitungan::class, 'id_perhitungan', 'id');
+        return $this->belongsTo(Kegiatan::class, 'id_kegiatan', 'id');
     }
 
     public function anggota()
