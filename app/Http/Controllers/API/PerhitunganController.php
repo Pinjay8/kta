@@ -19,10 +19,10 @@ class PerhitunganController extends Controller
             'id_kegiatan' => 'required|exists:kegiatans,id',
             'id_anggota' => 'required|exists:anggotas,id',
             'id_tps' => 'required|exists:tps,id',
-            'gambar_selfie' => 'nullable|image',
-            'gambar_c1_1' => 'nullable|image',
-            'gambar_c1_2' => 'nullable|image',
-            'perhitungan_ulang' => 'nullable|boolean',
+            'gambar_selfie' => 'required|image',
+            'gambar_c1_1' => 'required|image',
+            'gambar_c1_2' => 'required|image',
+            'perhitungan_ulang' => 'boolean',
         ]);
 
         if ($validatedData['perhitungan_ulang']) {
