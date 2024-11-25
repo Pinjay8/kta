@@ -28,7 +28,7 @@ class PerhitunganUlangController extends Controller
             PengajuanPerhitunganUlang::create([
                 'id_kegiatan' => $id_kegiatan,
                 'id_anggota' => $request->id_anggota,
-                'is_accepted' => false, 
+                'is_accepted' => null, 
                 'reason' => '',
             ]);
         }
