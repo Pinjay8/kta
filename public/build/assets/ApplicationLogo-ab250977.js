@@ -1,0 +1,1 @@
+import{j as s}from"./app-94055713.js";const o="/build/assets/img_logo-ccb875f3.svg";function i(t){return s.jsx("div",{className:"flex justify-center items-center w-100",children:s.jsx("img",{src:o,className:"h-24",alt:"logo"})})}export{i as A};
