@@ -26,6 +26,10 @@ class AuthController extends Controller
             ], 401);
         }
 
+        if(Auth::guard('anggota')->user()->tokens()){
+            Auth::guard('anggota')->user()->tokens()->delete();
+        }
+
         $user = Anggota::where('no_hp', $request->no_hp)->firstOrFail();
         //GENERATE TOKEN SETELAH LOGIN
         $token = $user->createToken('auth_token')->plainTextToken;
