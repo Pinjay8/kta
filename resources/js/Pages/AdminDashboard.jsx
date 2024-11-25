@@ -68,20 +68,51 @@ export default function AdminDashboard({
         countSaksiGubernur,
     });
 
+    const [realTimeData, setRealTimeData] = useState({
+        persentaseAnggotaPertamaWalikota:
+            dashboardData.persentaseAnggotaPertamaWalikota,
+        persentaseAnggotaKeduaWalikota:
+            dashboardData.persentaseAnggotaKeduaWalikota,
+        perhitunganAnggotaPertamaWalikota:
+            dashboardData.perhitunganAnggotaPertamaWalikota,
+        perhitunganAnggotaKeduaWalikota:
+            dashboardData.perhitunganAnggotaKeduaWalikota,
+    });
+
+    // Effect untuk polling data secara berkala
     useEffect(() => {
         const interval = setInterval(() => {
-            // Gunakan Inertia.get untuk memanggil ulang data
+            // Gunakan Inertia.get untuk mendapatkan data terbaru yang diperlukan
             Inertia.get("/adminDashboard", {
                 onSuccess: (response) => {
-                    setDashboardData(response.props); // Update state dengan data baru
-                    console.log(setDashboardData);
+                    if (response.props) {
+                        // Update data real-time
+                        setRealTimeData((prevData) => ({
+                            ...prevData,
+                            persentaseAnggotaPertamaWalikota:
+                                response.props
+                                    .persentaseAnggotaPertamaWalikota ??
+                                prevData.persentaseAnggotaPertamaWalikota,
+                            persentaseAnggotaKeduaWalikota:
+                                response.props.persentaseAnggotaKeduaWalikota ??
+                                prevData.persentaseAnggotaKeduaWalikota,
+                            perhitunganAnggotaPertamaWalikota:
+                                response.props
+                                    .perhitunganAnggotaPertamaWalikota ??
+                                prevData.perhitunganAnggotaPertamaWalikota,
+                            perhitunganAnggotaKeduaWalikota:
+                                response.props
+                                    .perhitunganAnggotaKeduaWalikota ??
+                                prevData.perhitunganAnggotaKeduaWalikota,
+                        }));
+                    }
                 },
             });
-        }, 60000); // Interval menjadi 5 menit
+        }, 30000); // Interval polling setiap 30 detik (disesuaikan dengan kebutuhan)
 
-        // Hapus interval saat komponen unmount
+        // Hapus interval saat komponen di-unmount
         return () => clearInterval(interval);
-    }, []); // Hanya dijalankan sekali saat komponen pertama kali di render
+    }, []);
 
     return (
         <AuthenticatedLayout
