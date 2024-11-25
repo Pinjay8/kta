@@ -16,7 +16,7 @@ class PerhitunganSeeder extends Seeder
         DB::table('perhitungans')->insert([
             'id_kegiatan' => 1,
             'id_anggota' => 1,
-            'id_tps' => 1,
+            'id_tps' => "1Rawa",
             'gambar_selfie' => null,
             'gambar_c1_1' => null,
             'gambar_c1_2' => null,
@@ -26,7 +26,7 @@ class PerhitunganSeeder extends Seeder
         DB::table('perhitungans')->insert([
             'id_kegiatan' => 2,
             'id_anggota' => 2,
-            'id_tps' => 2,
+            'id_tps' => "2Budi",
             'gambar_selfie' => null,
             'gambar_c1_1' => null,
             'gambar_c1_2' => null,

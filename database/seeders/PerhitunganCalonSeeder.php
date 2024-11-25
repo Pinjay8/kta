@@ -17,7 +17,7 @@ class PerhitunganCalonSeeder extends Seeder
         DB::table('perhitungan_calons')->insert([
             'id_kegiatan' => 1,
             'id_anggota' => 1,
-            'id_tps' => 1,
+            'id_tps' => "1Rawa",
             'id_calon' => 3,
             'suara_calon' => 25,
             'perhitungan_ulang' => false,
@@ -26,7 +26,7 @@ class PerhitunganCalonSeeder extends Seeder
         DB::table('perhitungan_calons')->insert([
             'id_kegiatan' => 1,
             'id_anggota' => 1,
-            'id_tps' => 1,
+            'id_tps' => "1Rawa",
             'id_calon' => 4,
             'suara_calon' => 25,
             'perhitungan_ulang' => false,
@@ -36,7 +36,7 @@ class PerhitunganCalonSeeder extends Seeder
         DB::table('perhitungan_calons')->insert([
             'id_kegiatan' => 2,
             'id_anggota' => 2,
-            'id_tps' => 2,
+            'id_tps' => "2Budi",
             'id_calon' => 1,
             'suara_calon' => 25,
             'perhitungan_ulang' => false,
@@ -45,7 +45,7 @@ class PerhitunganCalonSeeder extends Seeder
         DB::table('perhitungan_calons')->insert([
             'id_kegiatan' => 2,
             'id_anggota' => 2,
-            'id_tps' => 2,
+            'id_tps' => "2Budi",
             'id_calon' => 2,
             'suara_calon' => 25,
             'perhitungan_ulang' => false,

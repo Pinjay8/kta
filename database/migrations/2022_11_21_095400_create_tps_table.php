@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tps', function (Blueprint $table) {
-            $table->id();
+            $table->string('id')->primary(); // Tipe data string dengan panjang 36 karakter, bisa disesuaikan
             $table->string('no_tps');
             $table->string('kelurahan');
             $table->string('kecamatan');

@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_perhitungan')->constrained('perhitungans');
             $table->foreignId('id_anggota')->constrained('anggotas');
-            $table->foreignId('id_tps')->constrained('tps');
+            $table->string('id_tps', 36); // Menyesuaikan dengan panjang id_tps yang digunakan, misalnya 36 karakter
+            // Tentukan relasi dengan tabel tps jika diperlukan
+            $table->foreign('id_tps')->references('id')->on('tps')->onDelete('cascade');
             $table->foreignId('id_calon')->constrained('calons');
             $table->integer('suara_calon');
             $table->longText('gambar_tps')->nullable();

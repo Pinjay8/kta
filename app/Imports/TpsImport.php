@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Tps;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithValidation;
@@ -17,12 +18,17 @@ class TpsImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         if (
-            isset($row['no_tps'])  && isset($row['kelurahan'])
+            isset($row['id'])
+            && isset($row['no_tps'])
+            && isset($row['kelurahan'])
             &&  isset($row['kecamatan'])
             &&  isset($row['rw'])
-            &&  isset($row['laki_laki']) &&  isset($row['perempuan']) && isset($row['dpt'])
+            &&  isset($row['laki_laki'])
+            &&  isset($row['perempuan'])
+            && isset($row['dpt'])
         ) {
             return new Tps([
+                'id' => (string) $row['id'], // Pastik
                 'no_tps'    => $row['no_tps'],
                 'kelurahan' => $row['kelurahan'],
                 'kecamatan' => $row['kecamatan'],

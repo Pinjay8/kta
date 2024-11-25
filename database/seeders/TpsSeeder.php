@@ -16,7 +16,7 @@ class TpsSeeder extends Seeder
         //
 
         DB::table('tps')->insert([
-            'id' => 1,
+            'id' => "1Rawa",
             'no_tps' => '1',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'Purbalingga',
@@ -28,7 +28,7 @@ class TpsSeeder extends Seeder
 
 
         DB::table('tps')->insert([
-            'id' => 2,
+            'id' => "2Budi",
             'no_tps' => '2',
             'kecamatan' => 'Purbalingga',
             'kelurahan' => 'Purbalingga',

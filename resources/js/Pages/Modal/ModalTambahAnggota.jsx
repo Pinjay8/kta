@@ -22,6 +22,7 @@ export default function ModalTambahAnggota() {
         alamat: "",
         kelurahan: "",
         status: "",
+        password: "",
         file: null,
     });
 
@@ -70,6 +71,7 @@ export default function ModalTambahAnggota() {
             alamat: "",
             kecamatan: "",
             kelurahan: "",
+            password: "",
             status: "",
         });
     };
@@ -270,6 +272,26 @@ export default function ModalTambahAnggota() {
                                 className="mt-2"
                             />
                         </div>
+
+                        <div className="">
+                            <InputLabel htmlFor="password" value="Password" />
+
+                            <TextInput
+                                id="password"
+                                className="mt-1 block w-full"
+                                value={data.password}
+                                name="password"
+                                onChange={(e) =>
+                                    setData("password", e.target.value)
+                                }
+                            />
+                            <InputError
+                                message={errors.password}
+                                className="mt-2"
+                            />
+                        </div>
+
+                        {/* password */}
 
                         <PrimaryButton type="submit" className="mt-5">
                             Simpan

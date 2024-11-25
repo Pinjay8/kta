@@ -63,6 +63,7 @@ class AnggotaController extends Controller
                 'alamat' => 'required',
                 'kecamatan' => 'required',
                 'kelurahan' => 'required',
+                'password' => 'required',
             ],
             [
                 'no_anggota.required' => 'No Anggota tidak boleh kosong',
