@@ -43,6 +43,11 @@ export default function Authenticated({ user, header, children }) {
             link: route("tps"),
             icon: FaBoxesPacking,
         },
+        {
+            name: "Perhitungan Ulang",
+            link: route("perhitunganUlang"),
+            icon: FaBoxesPacking,
+        },
         { name: "Formulir", link: "#", icon: BsDot, margin: true },
         {
             name: "Formulir Pengajuan KTA",

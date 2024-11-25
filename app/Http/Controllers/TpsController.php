@@ -71,7 +71,7 @@ class TpsController extends Controller
 
     public function show()
     {
-        $listTps = Tps::orderBy('id', 'desc')->get();
+        $listTps = Tps::orderBy('id', 'desc')->where('deleted_at', null)->get();
         return Inertia::render('TpsPage', [
             'data' => $listTps,
         ]);

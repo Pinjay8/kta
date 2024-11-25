@@ -7,6 +7,7 @@ import SecondaryButton from "@/Components/SecondaryButton";
 import { Inertia } from "@inertiajs/inertia";
 import EditButton from "@/Pages/Modal/ModalEditTps";
 import { DateFormat } from "@/Components/TableData";
+
 export default function ModalTps({ data }) {
     const [openingModal, setopeningModal] = useState(false);
     const openModal = () => {
