@@ -15,7 +15,7 @@ class KegiatanController extends Controller
     //
     public function show()
     {
-        $listkegiatan = Kegiatan::orderBy('id', 'desc')->get();
+        $listkegiatan = Kegiatan::orderBy('id', 'desc')->where('deleted_at', null)->get();
         return Inertia::render('KegiatanPage', [
             'data' => $listkegiatan,
         ]);

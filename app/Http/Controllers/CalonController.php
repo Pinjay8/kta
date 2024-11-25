@@ -32,7 +32,7 @@ class CalonController extends Controller
 
     public function show()
     {
-        $listCalon = Calon::orderBy('id', 'desc')->get();
+        $listCalon = Calon::orderBy('id', 'desc')->where('deleted_at', null)->get();
         return Inertia::render('CalonPage', [
             'data' => $listCalon,
             'title' => 'Calon',

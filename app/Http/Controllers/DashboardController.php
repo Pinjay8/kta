@@ -43,7 +43,7 @@ class DashboardController extends Controller
 
         $totalInputByAnggotaGubernur = PerhitunganCalon::whereHas('anggota', function ($query) {
             $query->where('status', 'Saksi Gubernur');
-        })->count();
+        })->where('deleted_at', null)->count();
 
         $countSaksiGubernur = Anggota::where('status', 'Saksi Gubernur')->count();
 
@@ -51,11 +51,11 @@ class DashboardController extends Controller
 
         $totalPerhitunganGubernur = PerhitunganCalon::whereHas('calon', function ($query) {
             $query->where('status', 'Gubernur');
-        })->sum('suara_calon');
+        })->where('deleted_at', null)->sum('suara_calon');
 
         $perhitunganAnggotaPertamaGubernur = PerhitunganCalon::whereHas('calon', function ($query) {
             $query->where('status', 'Gubernur');
-        })->where('id_calon', $calonGubernurFirst->id)->sum('suara_calon');
+        })->where('deleted_at', null)->where('id_calon', $calonGubernurFirst->id)->sum('suara_calon');
 
 
         if ($totalPerhitunganGubernur > 0) {
@@ -66,7 +66,7 @@ class DashboardController extends Controller
 
         $perhitunganAnggotaKeduaGubernur = PerhitunganCalon::whereHas('calon', function ($query) {
             $query->where('status', 'Gubernur');
-        })->where('id_calon', $calonGubernurSecond->id)->sum('suara_calon');
+        })->where('deleted_at', null)->where('id_calon', $calonGubernurSecond->id)->sum('suara_calon');
 
         if ($totalPerhitunganGubernur > 0) {
             $persentaseAnggotaKeduaGubernur = ($perhitunganAnggotaKeduaGubernur / $totalPerhitunganGubernur) * 100;
@@ -76,11 +76,11 @@ class DashboardController extends Controller
 
         $totalPerhitunganWalikota = PerhitunganCalon::whereHas('calon', function ($query) {
             $query->where('status', 'Walikota');
-        })->sum('suara_calon');
+        })->where('deleted_at', null)->sum('suara_calon');
 
         $perhitunganAnggotaPertamaWalikota = PerhitunganCalon::whereHas('calon', function ($query) {
             $query->where('status', 'Walikota');
-        })->where('id_calon', $calonFirst->id)->sum('suara_calon');
+        })->where('deleted_at', null)->where('id_calon', $calonFirst->id)->sum('suara_calon');
 
         if ($totalPerhitunganWalikota > 0) {
             $persentaseAnggotaPertamaWalikota = ($perhitunganAnggotaPertamaWalikota / $totalPerhitunganWalikota) * 100;
@@ -90,7 +90,7 @@ class DashboardController extends Controller
 
         $perhitunganAnggotaKeduaWalikota = PerhitunganCalon::whereHas('calon', function ($query) {
             $query->where('status', 'Walikota');
-        })->where('id_calon', $calonSecond->id)->sum('suara_calon');
+        })->where('deleted_at', null)->where('id_calon', $calonSecond->id)->sum('suara_calon');
 
         if ($totalPerhitunganWalikota > 0) {
             $persentaseAnggotaKeduaWalikota = ($perhitunganAnggotaKeduaWalikota / $totalPerhitunganWalikota) * 100;

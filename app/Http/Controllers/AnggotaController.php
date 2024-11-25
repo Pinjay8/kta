@@ -43,7 +43,7 @@ class AnggotaController extends Controller
 
     public function show()
     {
-        $anggota = Anggota::orderBy('id', 'desc')->get();
+        $anggota = Anggota::orderBy('id', 'desc')->where('deleted_at', null)->get();
 
         return Inertia::render('AnggotaPage', [
             'data' => $anggota,

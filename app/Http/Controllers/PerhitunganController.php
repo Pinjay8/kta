@@ -16,7 +16,7 @@ class PerhitunganController extends Controller
      */
     public function show()
     {
-        $perhitunganUlang = PengajuanPerhitunganUlang::with('anggota.tps', 'kegiatan')->orderBy('id', 'desc')->get();
+        $perhitunganUlang = PengajuanPerhitunganUlang::with('anggota.tps', 'kegiatan')->where('deleted_at', null)->orderBy('id', 'desc')->get();
 
         // Mengubah id_kegiatan menjadi nama kegiatan
         $perhitunganUlang->transform(function ($item) {
@@ -48,8 +48,8 @@ class PerhitunganController extends Controller
 
         if ($request->is_accepted == 1) {
             // Cari data Perhitungan yang berhubungan dengan Anggota yang terkait
-            $perhitungan = Perhitungan::where('id_anggota', $perhitunganUlang->id_anggota)->first();
-            $perhitunganCalon = PerhitunganCalon::where('id_kegiatan', $perhitunganUlang->id_kegiatan)->get();
+            $perhitungan = Perhitungan::where('id_anggota', $perhitunganUlang->id_anggota)->where('deleted_at', null)->first();
+            $perhitunganCalon = PerhitunganCalon::where('id_kegiatan', $perhitunganUlang->id_kegiatan)->where('deleted_at', null)->get();
             // dd($perhitunganCalon);
             if ($perhitungan) {
                 // Update kolom perhitungan_ulang di tabel Perhitungan
@@ -66,8 +66,8 @@ class PerhitunganController extends Controller
             }
         } else {
             // Cari data Perhitungan yang berhubungan dengan Anggota yang terkait
-            $perhitungan = Perhitungan::where('id_anggota', $perhitunganUlang->id_anggota)->first();
-            $perhitunganCalon = PerhitunganCalon::where('id_kegiatan', $perhitunganUlang->id_kegiatan)->get();
+            $perhitungan = Perhitungan::where('id_anggota', $perhitunganUlang->id_anggota)->where('deleted_at', null)->first();
+            $perhitunganCalon = PerhitunganCalon::where('id_kegiatan', $perhitunganUlang->id_kegiatan)->where('deleted_at', null)->get();
 
             if ($perhitungan) {
                 // Update kolom perhitungan_ulang di tabel Perhitungan
