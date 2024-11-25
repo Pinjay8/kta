@@ -50,19 +50,31 @@ class PerhitunganController extends Controller
             // Cari data Perhitungan yang berhubungan dengan Anggota yang terkait
             $perhitungan = Perhitungan::where('id_anggota', $perhitunganUlang->id_anggota)->where('deleted_at', null)->first();
             $perhitunganCalon = PerhitunganCalon::where('id_kegiatan', $perhitunganUlang->id_kegiatan)->where('deleted_at', null)->get();
+
+            // Delete the data where id_anggota and id_kegiatan match those in perhitunganUlang
+            
             // dd($perhitunganCalon);
             if ($perhitungan) {
                 // Update kolom perhitungan_ulang di tabel Perhitungan
                 $perhitungan->perhitungan_ulang = 1; // Atur nilai sesuai kebutuhan
                 $perhitungan->save();
-            }
+                Perhitungan::where('id_anggota', $perhitunganUlang->id_anggota)
+                    ->where('id_kegiatan', $perhitunganUlang->id_kegiatan)
+                    ->where('deleted_at', null)
+                    ->delete();
+                }
+                
+                if ($perhitunganCalon) {
+                    // Update kolom perhitungan_ulang di tabel PerhitunganCalon
+                    $perhitunganCalon->each(function ($item) {
+                        $item->perhitungan_ulang = 1; // Atur nilai sesuai kebutuhan
+                        $item->save();
 
-            if ($perhitunganCalon) {
-                // Update kolom perhitungan_ulang di tabel PerhitunganCalon
-                $perhitunganCalon->each(function ($item) {
-                    $item->perhitungan_ulang = 1; // Atur nilai sesuai kebutuhan
-                    $item->save();
-                });
+                    PerhitunganCalon::where('id_anggota', $perhitunganUlang->id_anggota)
+                        ->where('id_kegiatan', $perhitunganUlang->id_kegiatan)
+                        ->where('deleted_at', null)
+                        ->delete();
+                    });
             }
         } else {
             // Cari data Perhitungan yang berhubungan dengan Anggota yang terkait
