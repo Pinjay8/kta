@@ -21,7 +21,7 @@ class AuthController extends Controller
         if (!Auth::guard('anggota')->attempt($request->only('no_hp', 'password'))) {
             return response()->json([
                 'status' => 'failed',
-                'message' => 'Unauthorized',
+                'message' => 'Akun tidak terdaftar',
                 'data' => null,
             ], 401);
         }
