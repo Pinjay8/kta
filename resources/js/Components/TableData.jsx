@@ -33,6 +33,7 @@ import ModalCalonButton from "@/Pages/Modal/ModalCalon";
 import ModalTambahCalon from "@/Pages/Modal/ModalTambahCalon";
 import ModalTpsButton from "@/Pages/Modal/ModalTps";
 import ModalTambahTps from "@/Pages/Modal/ModalTambahTps";
+import ModalPerhitunganUlangButton from "@/Pages/Modal/ModalPerhitunganUlang";
 
 export function StatusPill({ value }) {
     const status =
@@ -92,6 +93,14 @@ export function DateFormat({ value }) {
     } ${date.getFullYear()}`;
 
     return <span>{formattedDate}</span>;
+}
+
+export function ModalPerhitunganUlang(row) {
+    return (
+        <>
+            <ModalPerhitunganUlangButton data={row.row.original} />
+        </>
+    );
 }
 
 export function ModalAnggota(row) {

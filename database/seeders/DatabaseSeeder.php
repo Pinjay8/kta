@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             AbsensiSeeder::class,
             PerhitunganSeeder::class,
             PerhitunganCalonSeeder::class,
+            PengajuanPerhitunganUlangSeeder::class,
         ]);
         // $this->call(UserSeeder::class);
         // $this->call(TpsSeeder::class);

@@ -7,12 +7,14 @@ use App\Http\Controllers\CalonController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PengajuanFormController;
+use App\Http\Controllers\PerhitunganController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TpsController;
 use App\Models\Calon;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
 
 
 
@@ -77,10 +79,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/kegiatan/aksi/ubah-kegiatan/{id}', [KegiatanController::class, "ubahstatus"]);
 
 
-
-
-
-
+    // Perhitungan Ulang
+    Route::get('/perhitungan-ulang', [PerhitunganController::class, "show"])->name('perhitunganUlang');
+    Route::post('/perhitungan-ulang/update/{id}', [PerhitunganController::class, 'update'])->name('perhitungan-ulang.update');
 
     // Route::inertia('/adminDashboard', 'AdminDashboard')->name('adminDashboard');
     Route::get('/adminDashboard', [DashboardController::class, 'show'])->name('adminDashboard');

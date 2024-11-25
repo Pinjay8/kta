@@ -13,6 +13,10 @@ import { IoPeople } from "react-icons/io5";
 import { TbActivity } from "react-icons/tb";
 import { RiNumbersFill } from "react-icons/ri";
 import { FaHome } from "react-icons/fa";
+import ImageGubernur1 from "../../../public/img/Gubernur_1.png";
+import ImageGubernur2 from "../../../public/img/Gubernur_2.png";
+import ImageWalikota1 from "../../../public/img/Walikota_1.png";
+import ImageWalikota2 from "../../../public/img/Walikota_2.png";
 
 export default function AdminDashboard({
     auth,
@@ -73,7 +77,7 @@ export default function AdminDashboard({
                     console.log(setDashboardData);
                 },
             });
-        }, 300000); // Interval menjadi 5 menit
+        }, 60000); // Interval menjadi 5 menit
 
         // Hapus interval saat komponen unmount
         return () => clearInterval(interval);
@@ -98,20 +102,24 @@ export default function AdminDashboard({
                     <h4 className="text-3xl font-bold">Pemilihan Walikota</h4>
                     <section className="grid md:grid-cols-2  gap-6">
                         <div className="flex flex-col items-center p-8 bg-white shadow-lg rounded-lg">
-                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaUserTie size={30} />
+                            <div className="mb-4">
+                                <img
+                                    src={ImageWalikota1}
+                                    alt="Gambar Walikota 1"
+                                    className="w-120 h-60"
+                                />
                             </div>
                             <div className="lh-lg leading-tight">
                                 <h4 className="text-3xl font-bold">
                                     {dashboardData.calonFirst.nama}
                                 </h4>
-                                <h5 className="text-xl font-semibold text-center">
+                                <h5 className="text-2xl font-semibold text-center">
                                     Nomor Urut :{" "}
                                     {dashboardData.calonFirst.no_urut}
                                 </h5>
 
                                 <h5 className="text-center text-2xl font-bold">
-                                    <span className="text-2l">
+                                    <span className="text-2xl">
                                         {" "}
                                         Perolehan Suara :{" "}
                                     </span>
@@ -129,23 +137,24 @@ export default function AdminDashboard({
                         </div>
 
                         <div className="flex flex-col items-center p-8 bg-white  shadow-lg  rounded-lg">
-                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaUserTie size={30} />
+                            <div className="mb-4">
+                                <img
+                                    src={ImageWalikota2}
+                                    alt="Gambar Walikota 2"
+                                    className="w-120 h-60"
+                                />
                             </div>
                             <div className="lh-lg leading-tight">
-                                <span className="block text-2xl font-bold">
-                                    {/* {absensi} */}
-                                </span>
                                 <h4 className="text-3xl font-bold">
                                     {dashboardData.calonSecond.nama}
                                 </h4>
-                                <h5 className="text-xl font-semibold text-center">
+                                <h5 className="text-2xl font-semibold text-center">
                                     Nomor Urut :{" "}
                                     {dashboardData.calonSecond.no_urut}
                                 </h5>
 
                                 <h5 className="text-center text-2xl font-bold">
-                                    <span className="text-2l">
+                                    <span className="text-2xl">
                                         {" "}
                                         Perolehan Suara :{" "}
                                     </span>
@@ -166,24 +175,24 @@ export default function AdminDashboard({
                     <h4 className="text-3xl font-bold">Pemilihan Gubernur</h4>
                     <section className="grid md:grid-cols-2  gap-6">
                         <div className="flex flex-col items-center p-8 bg-white  shadow-lg rounded-lg gap-2">
-                            <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaUserTie size={30} />
+                            <div className="mb-4">
+                                <img
+                                    src={ImageGubernur1}
+                                    alt="Gambar Gubernur 1"
+                                    className="w-120 h-60"
+                                />
                             </div>
                             <div className="lh-lg leading-tight">
-                                <span className="block text-2xl font-bold">
-                                    {/* {absensi} */}
-                                </span>
-
                                 <h4 className="text-3xl font-bold">
                                     {dashboardData.calonGubernurFirst.nama}
                                 </h4>
-                                <h5 className="text-xl font-semibold text-center">
+                                <h5 className="text-2xl font-semibold text-center">
                                     Nomor Urut :{" "}
                                     {dashboardData.calonGubernurFirst.no_urut}
                                 </h5>
 
                                 <h5 className="text-center text-2xl font-bold">
-                                    <span className="text-2l">
+                                    <span className="text-2xl">
                                         {" "}
                                         Perolehan Suara :
                                         {
@@ -206,21 +215,25 @@ export default function AdminDashboard({
                         </div>
 
                         <div className="flex flex-col items-center p-8 bg-white  shadow-lg  rounded-lg">
-                            <div className="inline-flex  flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaUserTie size={30} />
+                            <div className="mb-4">
+                                <img
+                                    src={ImageGubernur2}
+                                    alt="Gambar Gubernur 2"
+                                    className="w-120 h-60"
+                                />
                             </div>
                             <div className="lh-lg leading-tight">
                                 <span className="block text-2xl font-bold"></span>
                                 <h4 className="text-3xl font-bold">
                                     {dashboardData.calonGubernurSecond.nama}
                                 </h4>
-                                <h5 className="text-xl font-semibold text-center">
+                                <h5 className="text-2xl font-semibold text-center">
                                     Nomor Urut :{" "}
                                     {dashboardData.calonGubernurSecond.no_urut}
                                 </h5>
 
                                 <h5 className="text-center text-2xl font-bold">
-                                    <span className="text-2l">
+                                    <span className="text-2xl">
                                         {" "}
                                         Perolehan Suara :{" "}
                                     </span>
@@ -240,9 +253,7 @@ export default function AdminDashboard({
 
                     <section className="grid md:grid-cols-2  gap-6">
                         <div className="flex items-center p-8 bg-white shadow rounded-lg">
-                            {/* <div className="inline-flex flex-shrink-0 items-center justify-center h-16 w-16 text-green-600 bg-green-100 rounded-full mr-6">
-                                <FaCalendarAlt size={30} />
-                            </div> */}
+                            <div className=""></div>
                             <div>
                                 <span className="block text-2xl font-bold">
                                     Proses Suara Masuk Dari Saksi :
