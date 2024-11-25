@@ -16,9 +16,10 @@ use App\Models\PerhitunganCalon;
 use App\Models\PengajuanPerhitunganUlang;
 
 class KegiatanController extends Controller
-{    
+{
 
-    public function index() {
+    public function index()
+    {
         $kegiatan = Kegiatan::all();
         $response = $kegiatan->map(function ($item) {
             $perhitunganUlang = PengajuanPerhitunganUlang::where('id_kegiatan', $item->id)
@@ -28,7 +29,7 @@ class KegiatanController extends Controller
             return [
                 'id' => (string) $item->id ?? '',
                 'nama_kegiatan' => $item->nama_kegiatan ?? '',
-                'status' =>(string) $item->status ?? '',
+                'status' => (string) $item->status ?? '',
                 'perhitungan_ulang' => $perhitunganUlang,
                 'jenis_pemilihan' => $item->jenis_pemilihan ?? '',
             ];
@@ -50,13 +51,16 @@ class KegiatanController extends Controller
         $calon1 = Calon::where('no_urut', 1)->where('status', $type)->first();
         $calon2 = Calon::where('no_urut', 2)->where('status', $type)->first();
 
+        $anggota = Auth::user();
+
         $perhitunganUlang = PengajuanPerhitunganUlang::where('id_kegiatan', $kegiatan)
+            ->where('id_anggota', $anggota->id)
             ->where('is_accepted', 1)
             ->exists() ? 1 : 0;
 
         $kegiatanName = Kegiatan::find($kegiatan)->nama_kegiatan ?? '';
 
-        $anggota = Auth::user();
+
 
         $calon1status = PerhitunganCalon::where('id_calon', $calon1->id)
             ->where('id_anggota', $anggota->id)
@@ -78,8 +82,8 @@ class KegiatanController extends Controller
                 'id' => (string) $calon1->id ?? '',
                 'nama' => (string)$calon1->nama ?? '',
                 'no_urut' => (string)$calon1->no_urut ?? '',
-                'status' =>(string) $calon1status ?? '',
-                'perhitungan_ulang' =>(string) $perhitunganUlang
+                'status' => (string) $calon1status ?? '',
+                'perhitungan_ulang' => (string) $perhitunganUlang
             ],
             'calon_2' =>  [
                 'id' => (string)$calon2->id ?? '',
@@ -100,6 +104,5 @@ class KegiatanController extends Controller
             'message' => 'Data Kegiatan berhasil diambil',
             'data' => $response,
         ], 200);
-        }
-
+    }
 }
