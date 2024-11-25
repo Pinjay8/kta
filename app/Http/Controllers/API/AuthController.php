@@ -77,7 +77,7 @@ class AuthController extends Controller
                         'kelurahan' => $anggota->kelurahan ?? '',
                         'rt' => $anggota->rt ?? '',
                         'rw' => $anggota->rw ?? '',
-                        'no_cs' => '+6285640555861'
+                        'no_cs' => '+6288228883905'
                     ],
                     'tps' =>  [
                         'id' => $tps->id ?? '',
